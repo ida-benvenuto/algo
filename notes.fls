@@ -1,9 +1,9 @@
-PWD /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES
+PWD /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo
 INPUT /usr/local/texlive/2025basic/texmf.cnf
 INPUT /usr/local/texlive/2025basic/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025basic/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.tex
-OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.log
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex
+OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.log
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/base/size12.clo
@@ -233,10 +233,10 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.aux
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.aux
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.aux
-OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.aux
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux
+OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -246,14 +246,14 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/color.sty
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
-OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.pdf
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
-OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
+OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
+OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecrm2074.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbx2074.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm
@@ -278,9 +278,9 @@ INPUT /usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecrm2488.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbx2488.tfm
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.toc
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.toc
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.toc
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
@@ -299,170 +299,190 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.toc
+OUTPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecti0800.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecti0600.tfm
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/O-grande.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/O-grande.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/O-grande.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/O-grande.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/O-grande.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/O-grande.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/O-grande.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/O-grande.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/O-grande.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/O-grande.png
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/counterexample.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/counterexample.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/counterexample.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/counterexample.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/counterexample.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/E_F_T_F.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/E_F_T_F.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/E_F_T_F.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/E_F_T_F.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/E_F_T_F.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.14.47.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.14.47.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.14.47.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.14.47.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.14.47.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.17.29.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.17.29.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.17.29.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.17.29.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.17.29.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.21.30.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.21.30.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.21.30.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.21.30.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.21.30.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.22.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.22.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.22.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.22.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-02 alle 19.22.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.00.49.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.00.49.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.00.49.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.00.49.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.00.49.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4277-B732-48-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4277-B732-48-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4277-B732-48-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4277-B732-48-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4277-B732-48-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.13.53.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.13.53.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.13.53.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.13.53.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.13.53.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.23.42.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.23.42.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.23.42.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.23.42.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-05 alle 13.23.42.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4835-9E45-EC-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.14.47.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.14.47.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.14.47.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.14.47.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.14.47.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.17.29.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.17.29.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.17.29.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.17.29.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.17.29.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.21.30.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.21.30.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.21.30.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.21.30.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.21.30.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.22.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.22.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.22.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.22.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.22.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.00.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.00.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.00.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.00.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.00.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4277-B732-48-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4277-B732-48-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4277-B732-48-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4277-B732-48-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4277-B732-48-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.13.53.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.13.53.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.13.53.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.13.53.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.13.53.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.23.42.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.23.42.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.23.42.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.23.42.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.23.42.png
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbi1200.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecrm0600.tfm
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.22.06.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.22.06.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.22.06.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.22.06.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.22.06.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.29.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.29.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.29.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.29.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.29.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.35.59.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.35.59.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.35.59.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.35.59.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.35.59.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.36.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.36.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.36.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.36.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-12 alle 12.36.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.22.06.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.22.06.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.22.06.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.22.06.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.22.06.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.29.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.29.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.29.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.29.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.29.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.35.59.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.35.59.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.35.59.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.35.59.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.35.59.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.36.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.36.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.36.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.36.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.36.37.png
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/eccc1200.tfm
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 17.51.54.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 17.51.54.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 17.51.54.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 17.51.54.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 17.51.54.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.04.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.04.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.04.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.04.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.04.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.06.31.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.06.31.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.06.31.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.06.31.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-17 alle 18.06.31.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.49.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.49.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.49.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.49.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.49.41.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.55.17.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.55.17.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.55.17.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.55.17.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 08.55.17.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 09.58.55.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 09.58.55.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 09.58.55.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 09.58.55.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 09.58.55.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.03.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.03.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.03.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.03.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.03.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.11.11.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.11.11.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.11.11.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.11.11.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.11.11.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.16.56.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.16.56.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.16.56.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.16.56.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.16.56.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.24.13.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.24.13.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.24.13.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.24.13.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-16 alle 10.24.13.png
-INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 17.51.54.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 17.51.54.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 17.51.54.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 17.51.54.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 17.51.54.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.04.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.04.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.04.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.04.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.04.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.06.31.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.06.31.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.06.31.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.06.31.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.06.31.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.49.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.49.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.49.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.49.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.49.41.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.55.17.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.55.17.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.55.17.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.55.17.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.55.17.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 09.58.55.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 09.58.55.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 09.58.55.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 09.58.55.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 09.58.55.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.03.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.03.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.03.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.03.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.03.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.11.11.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.11.11.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.11.11.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.11.11.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.11.11.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.16.56.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.16.56.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.16.56.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.16.56.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.16.56.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.24.13.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.24.13.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.24.13.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.24.13.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.24.13.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.46.24.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.46.24.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.46.24.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.46.24.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.46.24.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.52.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.52.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.52.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.52.49.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.52.49.png
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ectt0800.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ectt0800.tfm
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.08.28.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.08.28.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.08.28.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.08.28.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.08.28.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.10.03.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.10.03.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.10.03.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.10.03.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.10.03.png
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4E60-AE75-26-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4577-94E5-C9-0.jpeg
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
@@ -478,69 +498,69 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.33.35.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.33.35.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.33.35.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.33.35.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.33.35.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.40.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.40.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.40.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.40.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.40.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.47.19.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.47.19.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.47.19.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.47.19.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.47.19.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4C88-8821-02-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4C88-8821-02-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4C88-8821-02-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4C88-8821-02-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Immagine JPEG-4C88-8821-02-0.jpeg
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.21.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.21.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.21.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.21.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.21.45.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-04-02 alle 20.01.14.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-04-02 alle 20.01.14.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-04-02 alle 20.01.14.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-04-02 alle 20.01.14.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-04-02 alle 20.01.14.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.43.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.52.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.52.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.52.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.52.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.32.52.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.33.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.33.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.33.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.33.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.33.50.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.35.20.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.35.20.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.35.20.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.35.20.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.35.20.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.57.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.57.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.57.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.57.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 08.57.26.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.37.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.37.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.37.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.37.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/imm/Screenshot 2026-03-30 alle 09.37.37.png
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.aux
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
-INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/NOTES/notes.out
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.33.35.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.33.35.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.33.35.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.33.35.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.33.35.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4C88-8821-02-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4C88-8821-02-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4C88-8821-02-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4C88-8821-02-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4C88-8821-02-0.jpeg
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-02 alle 20.01.14.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-02 alle 20.01.14.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-02 alle 20.01.14.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-02 alle 20.01.14.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-02 alle 20.01.14.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.37.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.37.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.37.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.37.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.37.37.png
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
+INPUT /Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

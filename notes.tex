@@ -1150,6 +1150,7 @@ This is achieved by a clever combination of divide-and-conquer and dynamic progr
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-16 alle 10.24.13.png}
+\caption{The edit distance problem can be represented as a shortest path problem in a directed acyclic graph. Each node corresponds to a pair of indices $(i, j)$, and edges represent the three possible operations (match/mismatch(diagonale), gap in $x$, gap in $y$(verticale/orizzontale)) with their associated costs. The optimal alignment corresponds to the shortest path from $(0, 0)$ to $(m, n)$.}
 \end{figure}
 \begin{lemma}
 Let $f(i, j)$ be the cost of the shortest path from $(0,0)$ to $(i, j)$. Then
@@ -1169,7 +1170,7 @@ or $(i, j{-}1)$. Applying the inductive hypothesis to each predecessor:
 \]
 \end{proof}
 
-\subsection{Forward and Backward Distances}
+\subsection*{Forward and Backward Distances}
 
 Define two functions:
 \begin{itemize}
@@ -1180,6 +1181,10 @@ Define two functions:
 
 Both $f(\cdot, j)$ and $g(\cdot, j)$ can be computed for any fixed column $j$ in
 $O(mn)$ time and $O(m + n)$ space.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{imm/Screenshot 2026-04-14 alle 13.46.24.png}
+\end{figure}
 
 \textbf{Key observations:}
 \begin{enumerate}
@@ -1187,7 +1192,7 @@ $O(mn)$ time and $O(m + n)$ space.
     \item Let $q$ be the index that minimises $f(q, \lfloor n/2 \rfloor) + g(q, \lfloor n/2 \rfloor)$.
     Then the optimal alignment passes through node $(q, \lfloor n/2 \rfloor)$.
 \end{enumerate}
-
+In other words, the optimal alignment is not just any path through the graph: it must pass through a specific node in the middle column. This key observation makes the divide-and-conquer approach possible, because it guarantees that some node in the middle column belongs to the optimal solution, and we can identify it by combining the forward and backward dynamic programming computations.
 \subsection{Divide-and-Conquer}
 
 \begin{enumerate}
@@ -1200,7 +1205,31 @@ $O(mn)$ time and $O(m + n)$ space.
         \item the bottom-right subproblem: $x_{q+1} \ldots x_m$ vs.\ $y_{n/2+1} \ldots y_n$
     \end{itemize}
 \end{enumerate}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{imm/Screenshot 2026-04-14 alle 13.52.49.png}
+\end{figure}
+\subsubsection*{Example of Hirschberg's Algorithm}
 
+Consider the strings $x = \texttt{AC}$ and $y = \texttt{AGC}$.
+
+The goal is to find an optimal alignment between these two strings. Hirschberg's algorithm first splits the second string in the middle. Since $y$ has length 3, the middle column is $\lfloor 3/2 \rfloor = 1$, so we look at the first character \texttt{A}.
+
+Now we do two computations:
+\begin{itemize}
+    \item a forward computation from the start to the middle column,
+    \item a backward computation from the end to the middle column.
+\end{itemize}
+
+For each possible row $q$, we add the forward cost and the backward cost. The best value tells us which node in the middle column belongs to the optimal alignment.
+
+In this example, the best path passes through the node that matches the first \texttt{A}. After that, the problem is split into two smaller parts:
+\begin{itemize}
+    \item the left part, before the middle column,
+    \item the right part, after the middle column.
+\end{itemize}
+
+This example shows the main idea of Hirschberg's algorithm: find one correct point in the middle, then solve the two halves recursively. The final result is the same optimal alignment as the standard dynamic programming algorithm, but with much less space.
 \subsection{Running Time Analysis}
 
 \begin{theorem}
@@ -1228,7 +1257,10 @@ total work across all levels of recursion stays $O(mn)$.
 
 \textbf{Problem.} Given a directed graph $G = (V, E)$ with arbitrary edge weights $c_{vw}$,
 find the cheapest path from every node $v$ to a destination node $t$.
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{imm/Screenshot 2026-04-14 alle 14.08.28.png}
+\end{figure}
 \textbf{Why Dijkstra fails.} Dijkstra's algorithm requires non-negative edge weights. With
 negative weights it can give wrong answers. A simple fix (adding a constant to all edges) also
 fails because it changes the lengths of paths with different numbers of edges.
@@ -1238,7 +1270,10 @@ fails because it changes the lengths of paths with different numbers of edges.
 \begin{definition}[Negative cycle]
 A \emph{negative cycle} is a directed cycle $W$ such that $\sum_{e \in W} c_e < 0$.
 \end{definition}
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{imm/Screenshot 2026-04-14 alle 14.10.03.png}
+\end{figure}
 \begin{lemma}
 If some path from $v$ to $t$ contains a negative cycle, then there is no cheapest path from
 $v$ to $t$ (the cost can be made arbitrarily negative).
@@ -1253,7 +1288,13 @@ simple (uses at most $n - 1$ edges).
 Take a cheapest path with the fewest edges. If it contains a cycle $W$, removing $W$ gives
 a cheaper or equal-cost path with fewer edges (since $c(W) \geq 0$). Contradiction.
 \end{proof}
-
+\subsubsection*{Shortest path and negative cycle problems}
+\begin{itemize}
+    \item Shortest path problem. Given a digraph G = (V, E) with edge weights cvw and no negative cycles, find cheapest v to t path for each node v.
+    \item Negative cycle problem. Given a digraph G = (V, E) with edge weights cvw, determine
+whether G contains a negative cycle.
+\end{itemize}
+The two problems are closely related: if we can solve the shortest path problem, we can check for negative cycles by seeing if any path cost can be reduced by going around a cycle. Conversely,if we can solve the negative cycle problem, we can find shortest paths by first checking for negative cycles and then applying a shortest path algorithm that assumes no negative cycles.
 \subsection{Dynamic Programming Formulation}
 
 \begin{definition}
@@ -1261,6 +1302,7 @@ $\text{OPT}(i, v)$ = cost of the cheapest $v \leadsto t$ path using at most $i$ 
 \end{definition}
 
 \textbf{Recurrence:}
+(è come se partissi da t e facessi passi indietro, ogni passo indietro può essere o restare fermi o prendere un arco in ingresso)
 \[
     \text{OPT}(i, v) =
     \begin{cases}
