@@ -2064,7 +2064,7 @@ such that $\mathrm{val}(f) = \mathrm{cap}(A,B)$, both must be
 simultaneously optimal.
 
 % -------------------------------------------------------------------
-\subsection{Max-Flow Min-Cut Theorem}
+\section{Max-Flow Min-Cut Theorem}
 
 \begin{theorem}[Max-Flow Min-Cut Theorem]
     In any flow network, the value of a maximum st-flow equals the
@@ -2204,6 +2204,304 @@ All edge capacities are integers between $1$ and $C$.
     iterations. For polynomial guarantees, variants such as
     \textbf{Edmonds-Karp} (shortest augmenting path, $O(m^2 n)$) or
     \textbf{capacity scaling} ($O(m^2 \log C)$) must be used.
+% -------------------------------------------------------------------   
+\section{Capacity-Scaling Algorithm}
 
+The basic Ford-Fulkerson algorithm can be very slow if it picks augmenting
+paths with small bottleneck capacity. The \textbf{capacity-scaling algorithm}
+fixes this by always working with large-capacity paths first.
 
+\subsubsection*{Key Idea}
+
+Instead of using the full residual graph, we work on a restricted subgraph
+$G_f(\Delta)$ that contains only edges with residual capacity $\geq \Delta$.
+We start with $\Delta$ equal to the largest power of 2 that is $\leq C$
+(the maximum capacity), and we halve $\Delta$ at each phase.
+
+\begin{verbatim}
+CAPACITY-SCALING(G, s, t, c):
+  f(e) = 0 for all edges e
+  Delta = largest power of 2 <= C
+  WHILE Delta >= 1:
+    WHILE there exists augmenting path P in G_f(Delta):
+      f = AUGMENT(f, c, P)
+      Update G_f(Delta)
+    Delta = Delta / 2
+  RETURN f
+\end{verbatim}
+
+\subsubsection*{Correctness}
+
+When $\Delta = 1$, the $\Delta$-residual graph equals the full residual graph.
+So when the algorithm terminates, there are no augmenting paths in $G_f$,
+which means $f$ is a max-flow by the Max-Flow Min-Cut theorem.
+
+\subsubsection*{Running Time Analysis}
+
+\begin{itemize}
+    \item \textbf{Lemma 1.} The outer while loop runs at most $1 + \lfloor
+    \log_2 C \rfloor$ times, since $\Delta$ starts at most $C$ and halves
+    each time.
+    \item \textbf{Lemma 2.} At the end of a $\Delta$-scaling phase, the
+    value of the max-flow satisfies $\text{val}(f^*) \leq \text{val}(f) +
+    2m\Delta$.
+    \item \textbf{Lemma 3.} There are at most $2m$ augmentations per scaling
+    phase. Each augmentation in a $\Delta$-phase increases the flow by at
+    least $\Delta$, and by Lemma 2, at most $2m\Delta$ units remain to be
+    added.
+\end{itemize}
+
+\begin{theorem}
+The capacity-scaling algorithm finds a max-flow using $O(m \log C)$
+augmentations and runs in $O(m^2 \log C)$ time.
+\end{theorem}
+
+\subsubsection*{Proof of Lemma 2}
+
+At the end of a $\Delta$-scaling phase, let $A$ be the set of nodes
+reachable from $s$ in $G_f(\Delta)$. Then $(A, B)$ is a cut, and every
+edge from $A$ to $B$ has residual capacity $< \Delta$, so:
+\[
+\text{val}(f^*) \leq \text{val}(f) + \sum_{e \text{ out of } A} \Delta
+\leq \text{val}(f) + m\Delta \leq \text{val}(f) + 2m\Delta.
+\]
+
+%------------------------------------------------------------
+\section{Shortest Augmenting Paths}
+
+Another way to improve Ford-Fulkerson is to always pick the augmenting path
+with the \textbf{fewest edges}, found using BFS.
+
+\begin{verbatim}
+SHORTEST-AUGMENTING-PATH(G, s, t, c):
+  f(e) = 0 for all edges e
+  WHILE there exists augmenting path in G_f:
+    P = BFS(G_f, s, t)
+    f = AUGMENT(f, c, P)
+    Update G_f
+  RETURN f
+\end{verbatim}
+
+\subsubsection*{Level Graph}
+
+The \textbf{level graph} $L_G$ of a graph $G$ assigns to each node $v$ a
+level $\ell(v)$ equal to the number of edges in the shortest path from $s$
+to $v$. It contains only edges $(v, w)$ where $\ell(w) = \ell(v) + 1$.
+
+A path is a shortest $s$-$v$ path in $G$ if and only if it is a path in
+$L_G$.
+
+\subsubsection*{Analysis}
+
+\begin{itemize}
+    \item \textbf{L1.} The length of the shortest augmenting path never
+    decreases. When we augment along a shortest path, any new edge added to
+    the residual graph goes \emph{backwards}, which can only increase the
+    shortest path length.
+    \item \textbf{L2.} After at most $m$ augmentations at the same length,
+    the shortest path strictly increases. Each augmentation saturates at
+    least one edge (the bottleneck), which is then removed from $L_G$. No
+    new edge is added to $L_G$ until the length increases.
+\end{itemize}
+
+\begin{theorem}
+The shortest augmenting path algorithm runs in $O(m^2 n)$ time: $O(m+n)$
+per BFS, $O(m)$ augmentations at each of the $O(n)$ possible path lengths.
+\end{theorem}
+
+%------------------------------------------------------------
+\section{Unit-Capacity Simple Networks}
+
+A network is \textbf{unit-capacity simple} if every edge has capacity 1, and
+every non-source, non-sink node has either at most one entering edge or at
+most one leaving edge. Bipartite matching graphs are an important example.
+
+\subsubsection*{Faster Analysis for This Special Case}
+
+\begin{theorem}[Even--Tarjan, 1975]
+In unit-capacity simple networks, the shortest augmenting path algorithm
+computes a max-flow in $O(m \sqrt{n})$ time.
+\end{theorem}
+
+The proof uses three lemmas:
+\begin{itemize}
+    \item \textbf{L1.} Each phase of normal augmentations takes $O(m)$ time.
+    \item \textbf{L2.} After at most $\sqrt{n}$ phases, $f^* - f \leq
+    \sqrt{n}$. After $\sqrt{n}$ phases the shortest path has length $>
+    \sqrt{n}$, so the level graph has more than $\sqrt{n}$ layers. By a
+    pigeonhole argument, some layer $V_h$ has at most $\sqrt{n}$ nodes,
+    giving a cut of capacity $\leq \sqrt{n}$.
+    \item \textbf{L3.} After at most $\sqrt{n}$ additional augmentations
+    (one unit each), the flow is optimal.
+\end{itemize}
+
+Combining: $O(\sqrt{n})$ phases $\times$ $O(m)$ per phase $+$ $O(\sqrt{n}
+\cdot m)$ final augmentations $= O(m\sqrt{n})$.
+
+\subsubsection*{Application to Bipartite Matching}
+
+Since bipartite matching graphs are unit-capacity simple networks, the
+shortest augmenting path algorithm solves bipartite matching in
+$O(m\sqrt{n})$ time. This matches the bound of the
+\textbf{Hopcroft--Karp algorithm} (1973).
+
+% -------------------------------------------------------------------
+
+\section{Bipartite Matching}
+
+A \textbf{matching} in a graph $G = (V, E)$ is a subset of edges $M \subseteq E$
+such that each node appears in at most one edge. A graph is \textbf{bipartite}
+if the nodes can be split into two sets $L$ and $R$ so that every edge goes
+from $L$ to $R$. The goal of bipartite matching is to find a matching of
+maximum cardinality.
+
+\subsection{Reduction to Max Flow}
+
+Build a directed graph $G'$ as follows:
+\begin{itemize}
+    \item Direct all edges from $L$ to $R$ with capacity 1.
+    \item Add a source $s$ with unit capacity edges to every node in $L$.
+    \item Add a sink $t$ with unit capacity edges from every node in $R$.
+\end{itemize}
+
+\begin{theorem}
+The maximum cardinality of a matching in $G$ equals the value of the
+maximum flow in $G'$.
+\end{theorem}
+
+\subsection{Perfect Matching and Hall's Theorem}
+
+A \textbf{perfect matching} is a matching where every node appears in
+exactly one edge. For a bipartite graph with $|L| = |R|$, a perfect matching
+exists if and only if for every subset $S \subseteq L$, the set of neighbors
+$N(S)$ satisfies $|N(S)| \geq |S|$. This is \textbf{Hall's theorem}.
+
+\begin{theorem}[Hall, 1935]
+A bipartite graph $G = (L \cup R,\, E)$ with $|L| = |R|$ has a perfect
+matching if and only if $|N(S)| \geq |S|$ for all $S \subseteq L$.
+\end{theorem}
+
+As a corollary, every $k$-regular bipartite graph has a perfect matching,
+since the flow $f(u,v) = 1/k$ on each edge is a feasible flow of value $|L|$.
+
+%------------------------------------------------------------
+\subsection{Edge-Disjoint Paths}
+
+Two paths are \textbf{edge-disjoint} if they share no edge. The problem is:
+given a digraph $G$ and two nodes $s$ and $t$, find the maximum number of
+edge-disjoint $s$-$t$ paths.
+
+\subsection{Reduction to Max Flow}
+
+Assign unit capacity to every edge. Then:
+
+\begin{theorem}
+The maximum number of edge-disjoint $s$-$t$ paths equals the value of the
+maximum flow.
+\end{theorem}
+
+A direct consequence is \textbf{Menger's theorem}: the maximum number of
+edge-disjoint $s$-$t$ paths equals the minimum number of edges whose removal
+disconnects $t$ from $s$.
+
+For \textbf{undirected} graphs, replace each undirected edge with two
+antiparallel directed edges of capacity 1. There always exists a maximum flow
+where at most one of each antiparallel pair carries flow, so the same result
+holds.
+
+\subsection{Circulation with Demands}
+
+A \textbf{circulation} is a generalization of flow where each node $v$ has a
+demand $d_v$: a positive $d_v$ means $v$ needs to receive $d_v$ more units
+than it sends, and a negative $d_v$ means $v$ produces flow.
+
+A feasible circulation satisfies:
+\begin{itemize}
+    \item \textbf{Capacity}: $0 \leq f(e) \leq c_e$ for each edge $e$.
+    \item \textbf{Conservation}: $\sum_{e \text{ into } v} f(e) - \sum_{e
+    \text{ out of } v} f(e) = d_v$ for each node $v$.
+\end{itemize}
+
+\subsection{Reduction to Max Flow}
+
+Add a super-source $s^*$ and super-sink $t^*$:
+\begin{itemize}
+    \item For each node $v$ with $d_v > 0$, add edge $(s^*, v)$ with capacity
+    $d_v$.
+    \item For each node $v$ with $d_v < 0$, add edge $(v, t^*)$ with capacity
+    $-d_v$.
+\end{itemize}
+
+A feasible circulation exists if and only if the max flow in this new graph
+saturates all edges leaving $s^*$.
+
+\subsection{Lower Bounds}
+
+Edges can also have a \textbf{lower bound} $\ell_e$: the flow must satisfy
+$\ell_e \leq f(e) \leq c_e$. This can be reduced to the standard circulation
+problem by sending $\ell_e$ units along each edge in advance and updating
+the demands of both endpoints accordingly.
+
+%------------------------------------------------------------
+\section{Survey Design}
+
+A company wants to survey $n_1$ consumers about $n_2$ products. Consumer $i$
+can only be asked about product $j$ if they own it. Each consumer $i$ must
+be asked between $c_i^-$ and $c_i^+$ questions, and each product $j$ must
+receive between $p_j^-$ and $p_j^+$ responses.
+
+This is modeled as a \textbf{circulation problem with lower bounds}:
+\begin{itemize}
+    \item Add an edge $(i, j)$ if consumer $i$ owns product $j$.
+    \item Add edges from $s$ to each consumer and from each product to $t$,
+    with lower and upper bounds given by the constraints.
+    \item Add a return edge from $t$ to $s$.
+\end{itemize}
+
+A feasible integer circulation corresponds to a valid survey design.
+
+%------------------------------------------------------------
+\section{Airline Scheduling}
+
+The goal is to manage a set of $k$ flights using the minimum number of crews.
+A crew can move from flight $i$ to flight $j$ if $j$ is reachable after $i$
+ends (same or nearby airport, enough time).
+
+This is modeled as a \textbf{circulation problem}:
+\begin{itemize}
+    \item For each flight $i$, add nodes $u_i$ (departure) and $v_i$
+    (arrival) with edge $(u_i, v_i)$ of lower bound and capacity 1.
+    \item If a crew can go from flight $i$ to flight $j$, add edge
+    $(v_i, u_j)$ with capacity 1.
+    \item Add source $s$ and sink $t$ to control the total number of crews.
+\end{itemize}
+
+\begin{theorem}
+The airline scheduling problem can be solved in $O(k^3 \log k)$ time,
+using binary search on the number of crews and solving $O(\log k)$
+circulation problems.
+\end{theorem}
+
+%------------------------------------------------------------
+\subsection{Project Selection}
+
+Each project $v$ has a revenue $p_v$ (which can be negative, representing a
+cost). Some projects require others: if project $v$ requires project $w$, then
+$v$ cannot be chosen without also choosing $w$. The goal is to find a feasible
+subset of projects that maximizes total revenue.
+
+\subsubsection*{Reduction to Min Cut}
+
+Build a graph $G'$:
+\begin{itemize}
+    \item For each prerequisite edge $(v, w)$, add an edge with
+    $\infty$ capacity.
+    \item For each project $v$ with $p_v > 0$, add edge $(s, v)$ with
+    capacity $p_v$.
+    \item For each project $v$ with $p_v < 0$, add edge $(v, t)$ with
+    capacity $-p_v$.
+\end{itemize}
+
+The infinite capacity edges ensure that the selected set is always feasible.
+The minimum cut in $G'$ gives the maximum revenue subset.
 \end{document}

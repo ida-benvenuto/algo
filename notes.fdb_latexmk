@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1776174308.03984 "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" "notes" 1776174310.62128 0
+["pdflatex"] 1776175329.39471 "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" "notes" 1776175332.09255 0
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png" 1776166565.05745 126438 4b88e759dbceb2e85f83e23d616ac570 ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg" 1776166565.05843 147736 91873e7e528853b70caa73ad8afe21bb ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4277-B732-48-0.jpeg" 1776166565.05983 261711 a35a0f20689324e91a56d6396055a6a8 ""
@@ -45,10 +45,10 @@
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.10.03.png" 1776168605.89102 18617 69d810652d8af7106cbe2d236eb59310 ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 15.30.02.png" 1776173403.80238 32799 fcaea6cc93310689e194db5113720a05 ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png" 1776166565.11911 80013 418e5f834f745325a9c2f1d20b606a6b ""
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux" 1776174310.48544 16506 ccabd5394637f6b4e5815928c5ab5961 "pdflatex"
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out" 1776174310.48699 18067 f4317b9555ddce7d0aa5d403c04f506c "pdflatex"
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" 1776174304.82532 85215 5e31147f46acc5926504af7619024795 ""
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc" 1776174310.48722 9400 3d4c291d250170dd565d6f4f5b99a5c9 "pdflatex"
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux" 1776175331.94802 18307 1547d9e156ee9feeb1190d485f57cd21 "pdflatex"
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out" 1776175331.94974 20476 ccfaf1ccbe127c0733fcdd1db3b59f48 "pdflatex"
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" 1776175326.42431 96785 5e2d50be3721ec5d9f02472ca32b252c ""
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc" 1776175331.95 10627 2731daefd88400f78812d343370f5a3c "pdflatex"
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbi1200.tfm" 1136768653 3072 ccae1a240ab272417e4399fe942df546 ""
