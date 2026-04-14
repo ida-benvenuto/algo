@@ -1,0 +1,2165 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\geometry{margin=2.5cm}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black
+}
+\newtheorem{definition}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{observation}{Observation}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\title{\textbf{Algorithm Design} \\ \large Notes}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% ─────────────────────────────────────────────
+\chapter{Algorithm Analysis}
+\section{Computational Tractability}
+
+The question of how to solve a problem in the \emph{shortest possible time} is not new.
+A simple approach to many problems is \textbf{brute force}: try every possible solution and
+pick the best one. The problem is that this usually takes \(2^n\) time or worse, where
+\(n\) is the size of the input. For large inputs, this is completely impractical.
+
+\subsection{Polynomial Running Time}
+
+We say that an algorithm is \textbf{efficient} if its running time is \emph{polynomial}.
+\newline
+\begin{definition}[Polynomial-time algorithm]
+An algorithm runs in polynomial time if there exist constants $c > 0$ and $d > 0$ such
+that, on every input of size $n$, its running time is at most $c \cdot n^d$ steps.
+\end{definition}
+
+A useful way to think about this: if you \emph{double} the input size, the running time
+should only grow by a constant factor $C = 2^d$.
+
+(To represent the number x we need $\log_2 x$ bits, so the input size is $n = \log_2 x$. If the algorithm runs in polynomial time, then the running time is $O(n^d) = O((\log_2 x)^d) = O(\log_2^d x)$)
+
+The input change for combinatorial problems and numerical problems is different. For combinatorial problems, the input size is typically the number of elements (e.g., nodes in a graph), while for numerical problems, the input size is the number of bits needed to represent the numbers.
+
+\textbf{Why polynomial = efficient?} In practice, poly-time algorithms tend to have small
+constants and small exponents. Also, breaking the exponential barrier usually means
+discovering an important structure in the problem.
+
+\textbf{Exceptions.} A few poly-time algorithms have very large constants and are not
+useful in practice. On the other hand, some exponential-time algorithms (like the Simplex
+method) are widely used because the worst cases almost never happen in real life.
+
+\subsection{Types of Analysis}
+
+There are several ways to measure the running time of an algorithm:
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Type} & \textbf{Description} & \textbf{Example} \\
+\midrule
+Worst-case   & Guarantee for \emph{any} input of size $n$ & Heapsort: $\leq 2n\log_2 n$ compares \\
+Probabilistic & Expected time of a randomised algorithm   & Quicksort: $\sim 2n\ln n$ compares \\
+Amortised    & Worst-case over a sequence of $n$ operations & Stack resize: $O(n)$ for $n$ push/pop \\
+Average-case & Expected time on a random input           & 3-way radix sort: $\sim 2n\ln n$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Worst-case analysis} is the most common. It gives a solid guarantee for all
+possible inputs and usually reflects real performance well.
+
+Sometimes the algorithms aren't deterministic, so we use \textbf{probabilistic analysis} to measure the expected running time. This is common for randomised algorithms, which use random bits to make decisions.In this case, we use the expexted value of the running time over the random choices of the algorithm.
+% ─────────────────────────────────────────────
+\section{Asymptotic Order of Growth}
+
+Asymptotic notation lets us describe how the running time \emph{grows} as $n$ gets large,
+ignoring small constant factors.
+
+\subsection{Big-O Notation (Upper Bound)}
+
+\begin{definition}[Big-O]
+$T(n)$ is $O(f(n))$ if there exist constants $c > 0$ and $n_0 \geq 0$ such that
+\[
+    T(n) \leq c \cdot f(n) \quad \text{for all } n \geq n_0.
+\]
+\end{definition}
+
+\noindent
+\begin{minipage}[t]{0.3\textwidth}
+\vspace{0pt}
+\includegraphics[width=\textwidth]{imm/O-grande.png}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.65\textwidth}
+\vspace{0pt}
+An equivalent condition using limits:
+\[
+    \limsup_{n \to \infty} \frac{T(n)}{f(n)} < \infty.
+\]
+
+\textbf{Example.} Let $T(n) = 32n^2 + 17n + 1$. Then:
+\begin{itemize}
+    \item $T(n)$ is $O(n^2)$ \quad (choose $c = 50$, $n_0 = 1$)
+    \item $T(n)$ is also $O(n^3)$
+    \item $T(n)$ is \emph{not} $O(n)$ nor $O(n \log n)$
+\end{itemize}
+\end{minipage}
+
+\textbf{Typical use.} ``Insertion sort makes $O(n^2)$ compares to sort $n$ elements.''
+
+\textbf{Note on notation.} Technically, $O(f(n))$ is a \emph{set} of functions, but
+computer scientists write $T(n) = O(f(n))$ as shorthand. This is an accepted abuse of
+notation — just be careful not to misuse it (e.g., writing $O(n) = O(n^2)$ is fine, but
+not the reverse).
+
+\subsection{Big-Omega Notation (Lower Bound)}
+
+\begin{definition}[Big-Omega]
+$T(n)$ is $\Omega(f(n))$ if there exist constants $c > 0$ and $n_0 \geq 0$ such that
+\[
+    T(n) \geq c \cdot f(n) \quad \text{for all } n \geq n_0.
+\]
+\end{definition}
+
+\textbf{Example.} For $T(n) = 32n^2 + 17n + 1$:
+\begin{itemize}
+    \item $T(n)$ is $\Omega(n^2)$ and $\Omega(n)$
+    \item $T(n)$ is \emph{not} $\Omega(n^3)$
+\end{itemize}
+
+\textbf{Typical use.} ``Any comparison-based sorting algorithm requires $\Omega(n \log n)$
+compares in the worst case.''
+
+\medskip
+\textbf{Common mistake.} It is meaningless to say ``requires \emph{at least} $O(n \log n)$
+compares'' — Big-O is an upper bound, not a lower bound.
+
+\subsection{Big-Theta Notation (Tight Bound)}
+
+\begin{definition}[Big-Theta]
+$T(n)$ is $\Theta(f(n))$ if there exist constants $c_1 > 0$, $c_2 > 0$, and $n_0 \geq 0$
+such that
+\[
+    c_1 \cdot f(n) \leq T(n) \leq c_2 \cdot f(n) \quad \text{for all } n \geq n_0.
+\]
+\end{definition}
+
+In other words, $T(n)$ is $\Theta(f(n))$ if and only if it is both $O(f(n))$ and
+$\Omega(f(n))$.
+
+\textbf{Example.} Mergesort makes $\Theta(n \log n)$ compares. For
+$T(n) = 32n^2 + 17n + 1$: $T(n)$ is $\Theta(n^2)$, but not $\Theta(n)$ or $\Theta(n^3)$.
+
+\subsection{Useful Limit Rules}
+
+\begin{proposition}
+If $\displaystyle\lim_{n \to \infty} \frac{f(n)}{g(n)} = c > 0$, then $f(n)$ is $\Theta(g(n))$.
+\end{proposition}
+
+\begin{proposition}
+If $\displaystyle\lim_{n \to \infty} \frac{f(n)}{g(n)} = 0$, then $f(n)$ is $O(g(n))$ but not $\Omega(g(n))$.
+\end{proposition}
+
+\textbf{Proof sketch for the first proposition.} By definition of the limit, there exists
+$n_0$ such that for all $n \geq n_0$:
+\[
+    \frac{c}{2} < \frac{f(n)}{g(n)} < 2c
+    \quad \Rightarrow \quad
+    \frac{c}{2} \cdot g(n) \leq f(n) \leq 2c \cdot g(n).
+\]
+This gives both the upper and lower bound needed for $\Theta$. \hfill$\square$
+
+\subsection{Key Asymptotic Facts}
+
+\begin{itemize}
+    \item \textbf{Polynomials.} If $T(n) = a_0 + a_1 n + \cdots + a_d n^d$ with $a_d > 0$,
+    then $T(n)$ is $\Theta(n^d)$, because
+    \[
+        \lim_{n \to \infty} \frac{a_0 + a_1 n + \cdots + a_d n^d}{n^d} = a_d > 0.
+    \]
+
+    \item \textbf{Logarithm base does not matter.} $\Theta(\log_a n) = \Theta(\log_b n)$
+    for any constants $a, b > 0$ (by change-of-base formula). We simply write $\log n$.
+
+    \item \textbf{Logs are slower than polynomials.} For every $d > 0$,
+    $\log n$ is $O(n^d)$.
+
+    \item \textbf{Polynomials are slower than exponentials.} For every $r > 1$ and $d > 0$,
+    $n^d$ is $O(r^n)$, i.e.,
+    \[
+        \lim_{n \to \infty} \frac{n^d}{r^n} = 0.
+    \]
+\end{itemize}
+
+\subsection{Big-O with Multiple Variables}
+
+Sometimes the input has two parameters (e.g., nodes and edges in a graph).
+
+\begin{definition}
+$T(m, n)$ is $O(f(m, n))$ if there exist constants $c > 0$, $m_0 \geq 0$, $n_0 \geq 0$
+such that $T(m,n) \leq c \cdot f(m,n)$ for all $n \geq n_0$ and $m \geq m_0$.
+\end{definition}
+
+\textbf{Example.} $T(m,n) = 32mn^2 + 17mn + 32n^3$ is $O(mn^2 + n^3)$ and also
+$O(mn^3)$, but it is \emph{neither} $O(n^3)$ nor $O(mn^2)$.
+
+\textbf{Typical use.} Breadth-first search (BFS) takes $O(m + n)$ time to find the
+shortest path from $s$ to $t$ in a directed graph with $n$ nodes and $m$ edges.
+
+% ─────────────────────────────────────────────
+\section{Survey of Common Running Times}
+
+The table below shows the most common complexity classes, from fastest to slowest.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Complexity} & \textbf{Name} & \textbf{Example} \\
+\midrule
+$O(\log n)$   & Sublinear / Logarithmic & Binary search \\
+$O(n)$        & Linear                  & Finding max, merging two lists \\
+$O(n \log n)$ & Linearithmic            & Mergesort, Heapsort \\
+$O(n^2)$      & Quadratic               & Closest pair (naive) \\
+$O(n^3)$      & Cubic                   & Set disjointness \\
+$O(n^k)$      & Polynomial              & Independent set of size $k$ \\
+$O(2^n)$      & Exponential             & Maximum independent set \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Logarithmic Time — O(log n)}
+
+The running time grows very slowly — doubling the input only adds one step.
+
+\textbf{Binary search.} Given a sorted array $A$ of $n$ numbers, find whether $x$ is
+in the array.
+
+\begin{Verbatim}[frame=single]
+lo = 1, hi = n
+while (lo <= hi):
+    mid = (lo + hi) / 2
+    if   x < A[mid]: hi = mid - 1
+    elif x > A[mid]: lo = mid + 1
+    else: return YES
+return NO
+\end{Verbatim}
+
+Each iteration cuts the search interval in half, so at most $\lceil \log_2 n \rceil$
+iterations are needed.
+
+\subsection{Linear Time — O(n)}
+
+The running time grows proportionally to the input size.
+
+\textbf{Example 1 — Maximum of $n$ numbers.}
+\begin{Verbatim}[frame=single]
+max = a[1]
+for i = 2 to n:
+    if a[i] > max:
+        max = a[i]
+\end{Verbatim}
+
+\textbf{Example 2 — Merging two sorted lists} $A = a_1, \ldots, a_n$ and
+$B = b_1, \ldots, b_n$:
+
+\begin{Verbatim}[frame=single]
+i = 1, j = 1
+while (both lists are nonempty):
+    if a[i] <= b[j]: append a[i] to output; i++
+    else:            append b[j] to output; j++
+append the rest of the nonempty list
+\end{Verbatim}
+
+\textbf{Claim.} Merging takes $O(n)$ time. After each compare, the output list grows by
+one element, so at most $2n - 1$ compares are needed.
+
+\subsection{Linearithmic Time — O(n log n)}
+
+This complexity often appears in divide-and-conquer algorithms.
+
+\begin{itemize}
+    \item \textbf{Sorting}: Mergesort and Heapsort both use $O(n \log n)$ compares.
+    \item \textbf{Largest empty interval}: Given $n$ timestamps $x_1, \ldots, x_n$
+    when copies of a file arrive at a server, find the longest gap with no arrivals.
+    \emph{Solution}: sort the timestamps ($O(n \log n)$), then scan in order and track
+    the maximum gap between consecutive timestamps ($O(n)$). Total: $O(n \log n)$.
+\end{itemize}
+
+\subsection{Quadratic Time — Quadratic Complexity}
+
+Typical when you enumerate all \emph{pairs} of elements.
+
+\textbf{Closest pair of points.} Given $n$ points $(x_1, y_1), \ldots, (x_n, y_n)$ in
+the plane, find the closest pair.
+
+\begin{Verbatim}[frame=single]
+min = dist(p1, p2)
+for i = 1 to n:
+    for j = i+1 to n:
+        d = (xi - xj)^2 + (yi - yj)^2
+        if d < min: min = d
+\end{Verbatim}
+
+This naive solution is $O(n^2)$. It might seem that $\Omega(n^2)$ is unavoidable, but in
+Chapter 5 (divide-and-conquer) we will see an $O(n \log n)$ solution.
+
+\subsection{Cubic Time — Cubic Complexity}
+
+Typical when you enumerate all \emph{triples} of elements.
+
+\textbf{Set disjointness.} Given $n$ sets $S_1, \ldots, S_n \subseteq \{1, \ldots, n\}$,
+is there a disjoint pair?
+
+\begin{Verbatim}[frame=single]
+for each set Si:
+    for each set Sj (j != i):
+        for each element p in Si:
+            check if p is in Sj
+        if no element of Si is in Sj:
+            report Si and Sj disjoint
+\end{Verbatim}
+
+The three nested loops give $O(n^3)$ time.
+
+\subsection{Polynomial Time — Polynomial Complexity}
+
+Useful when $k$ is a small constant, but may be impractical for large $k$.
+
+\textbf{Independent set of size $k$.} Given a graph, are there $k$ nodes with no edge
+between any two of them?
+
+\begin{Verbatim}[frame=single]
+for each subset S of k nodes:
+    if S is an independent set: report S
+\end{Verbatim}
+
+The number of $k$-element subsets is:
+\[
+    \binom{n}{k} = \frac{n(n-1)\cdots(n-k+1)}{k!} \leq \frac{n^k}{k!}.
+\]
+Each check takes $O(k^2)$ time, so the total is $O(k^2 \cdot n^k / k!) = O(n^k)$.
+This is polynomial for any fixed $k$, but already impractical for $k = 17$.
+
+\subsection{Exponential Time — Exponential Complexity}
+
+\textbf{Maximum independent set.} Find the largest set of nodes with no edge between
+any two.
+
+\begin{Verbatim}[frame=single]
+S* = empty
+for each subset S of nodes:
+    if S is independent and |S| > |S*|:
+        S* = S
+\end{Verbatim}
+
+There are $2^n$ subsets, and each check is $O(n^2)$, so the total is $O(n^2 \cdot 2^n)$.
+This is only feasible for very small $n$.
+
+% ─────────────────────────────────────────────
+\section{Hierarchy of Complexities}
+
+The following chain summarises how the classes relate:
+\[
+    O(\log n) \;\subset\; O(n) \;\subset\; O(n \log n) \;\subset\; O(n^2)
+    \;\subset\; O(n^3) \;\subset\; O(n^k) \;\subset\; O(2^n).
+\]
+
+Each class grows strictly faster than the one on its left. In particular:
+\begin{itemize}
+    \item Every logarithm grows slower than every polynomial.
+    \item Every polynomial grows slower than every exponential.
+\end{itemize}
+
+These facts follow directly from the limit rules in Section~2.4.
+\chapter{Greedy algorithm}
+\section{Interval Scheduling}
+
+\subsection{The Problem}
+
+\textbf{Input.} A set of $n$ jobs. Job $j$ \textbf{ starts at time $s_j$ and finishes at time $f_j$}.
+
+\textbf{Compatibility.} Two jobs are \emph{compatible} if they don't overlap in time.
+
+\textbf{Goal.} Find the maximum number of mutually compatible jobs.
+
+\subsection{Greedy Templates}
+
+Several natural greedy rules can be tried:
+
+\begin{enumerate}
+    \item \textbf{Earliest start time first:} schedule jobs in ascending order of $s_j$.
+    \item \textbf{Earliest finish time first:} schedule jobs in ascending order of $f_j$.
+    \item \textbf{Shortest interval first:} schedule jobs in ascending order of $f_j - s_j$.
+    \item \textbf{Fewest conflicts first:} for each job $j$, count the number of conflicting
+    jobs $c_j$, then schedule in ascending order of $c_j$.
+\end{enumerate}
+
+\textbf{Counterexamples show that only earliest finish time works.}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{imm/counterexample.png}
+\end{figure}
+
+\subsection{Earliest-Finish-Time-First Algorithm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/E_F_T_F.png}
+\end{figure}
+
+\noindent
+\begin{minipage}[t]{0.3\textwidth}
+\vspace{0pt}
+\includegraphics[width=\textwidth]{imm/Immagine JPEG-4835-9E45-EC-0.jpeg}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.65\textwidth}
+\vspace{0pt}
+\textbf{Implementation note.} Keep track of the last job $j^*$ added to $A$. Job $j$ is compatible
+with $A$ if and only if $s_j \geq f_{j^*}$. Sorting takes $O(n \log n)$ time; the loop is $O(n)$.
+Total: $O(n \log n)$.
+\end{minipage}
+
+\subsection{Proof of Optimality}
+
+\begin{theorem}
+The earliest-finish-time-first algorithm is optimal.
+\end{theorem}
+
+\begin{proof}[Proof (by contradiction)]
+Assume the greedy algorithm is not optimal. Let $i_1, i_2, \ldots, i_k$ be the jobs selected
+by the greedy algorithm, and let $j_1, j_2, \ldots, j_m$ be the jobs in an optimal solution with
+$i_1 = j_1, i_2 = j_2, \ldots, i_r = j_r$ for the largest possible $r$.
+(At $r$, the greedy and optimal solutions first differ.)
+If $r = k$, then the greedy solution has $k$ jobs and the optimal has $m \geq k$, so they are
+equal (both optimal). Otherwise, job $i_{r+1}$ exists. Since the greedy algorithm picks jobs by
+earliest finish time, $f_{i_{r+1}} \leq f_{j_{r+1}}$. We can replace $j_{r+1}$ with $i_{r+1}$
+in the optimal solution. This creates a new optimal solution with one more agreement, contradicting
+the maximality of $r$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-03-02 alle 19.14.47.png}
+\end{figure}
+\end{proof}
+
+% ─────────────────────────────────────────────
+\section{Interval Partitioning}
+
+\subsection{The Problem}
+
+\textbf{Input.} A set of $n$ lectures. Lecture $j$ starts at $s_j$ and finishes at $f_j$.
+
+\textbf{Goal.} Schedule all lectures using the \emph{minimum number} of classrooms so that no
+two lectures overlap in the same classroom.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-03-02 alle 19.17.29.png}
+\end{figure}
+
+\subsection{Depth and Lower Bound}
+
+\begin{definition}[Depth]
+The \emph{depth} of a set of intervals is the maximum number of intervals that contain any given time.
+\end{definition}
+When we talk about lower bound, we mean a number that is less than or equal to the optimal solution. Since the depth is a lower bound, it means that no schedule can use fewer classrooms than the depth.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-03-02 alle 19.21.30.png}
+\end{figure}
+
+\textbf{Key observation.} The number of classrooms needed is at least the depth.
+The optimal number always equal the depth and the earliest-start-time-first algorithm achieves it.
+
+\subsection{Earliest-Start-Time-First Algorithm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-02 alle 19.22.41.png}
+\end{figure}
+
+\textbf{Implementation.} Use a priority queue to store classrooms, keyed by the finish time of their
+last lecture. To check if lecture $j$ is compatible, compare $s_j$ to the minimum key in the queue.
+If compatible, assign $j$ to that classroom and update its key to $f_j$. 
+\newline
+\textbf{Running time:} Sorting takes $O(n \log n)$. Each of the $n$ lectures is processed once, and each priority queue operation takes $O(\log n)$, so the total is $O(n \log n)$.
+
+
+\subsection{Proof of Optimality}
+
+\begin{theorem}
+The earliest-start-time-first algorithm is optimal.
+\end{theorem}
+
+\begin{proof}
+Let $d$ be the number of classrooms the algorithm uses. Classroom $d$ was opened because we had
+to schedule some lecture $j$ that was incompatible with all $d-1$ existing classrooms. This means
+there are $d$ lectures that all overlap at time $s_j + \varepsilon$ (lecture $j$ plus one from
+each of the other $d-1$ classrooms). Since these $d$ lectures overlap, any schedule must use at
+least $d$ classrooms. The algorithm uses exactly $d$ classrooms, so it is optimal.
+\end{proof}
+
+% ─────────────────────────────────────────────
+\newpage
+\section{Scheduling to Minimize Lateness}
+
+\subsection{The Problem}
+
+\textbf{Input.} A single resource processes one job at a time. Job $j$ requires $t_j$ units of
+processing time and has a deadline $d_j$.
+
+\textbf{Definitions.}
+\begin{itemize}
+    \item If job $j$ starts at time $s_j$, it finishes at time $f_j = s_j + t_j$.
+    \item The \emph{lateness} of job $j$ is $\ell_j = \max\{0, f_j - d_j\}$.
+\end{itemize}
+
+\textbf{Goal.} Schedule all jobs to minimize the \emph{maximum lateness} $L = \max_j \ell_j$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-05 alle 13.00.49.png}
+\end{figure}
+\subsection{Greedy Candidates}
+
+\begin{enumerate}
+    \item \textbf{Shortest processing time first:} schedule jobs in ascending order of $t_j$.
+    \item \textbf{Earliest deadline first:} schedule jobs in ascending order of $d_j$.
+    \item \textbf{Smallest slack:} schedule jobs in ascending order of $d_j - t_j$ (slack = deadline
+    minus processing time).
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{imm/Immagine JPEG-4277-B732-48-0.jpeg}
+\caption{Counterexample showing that only earliest-deadline-first works.}
+\end{figure}
+
+\subsection{Earliest-Deadline-First Algorithm}
+\begin{figure}[H]
+
+\centering
+\includegraphics[width=0.8\textwidth]{imm/Screenshot 2026-03-05 alle 13.13.53.png}
+\end{figure}
+
+\subsection{Key Observations}
+
+\begin{observation}
+There exists an optimal schedule with no idle time.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-05 alle 13.23.42.png}
+\end{figure}
+\end{observation}
+
+\begin{observation}
+The earliest-deadline-first schedule has no idle time.
+\end{observation}
+
+\begin{definition}[Inversion]
+Given a schedule $S$ (with jobs numbered so that $d_1 \leq d_2 \leq \cdots \leq d_n$), an
+\emph{inversion} is a pair of jobs $i$ and $j$ such that $i < j$ but $j$ is scheduled before $i$.
+\end{definition}
+
+\begin{observation}
+The earliest-deadline-first schedule has no inversions.
+\end{observation}
+
+\begin{observation}
+If a schedule (with no idle time) has an inversion, it has one with a pair of inverted jobs
+scheduled consecutively.
+\end{observation}
+
+\subsection{Exchange Argument}
+
+\begin{claim}
+Swapping two adjacent, \textbf{inverted} jobs reduces the number of inversions by one and does not increase
+the maximum lateness.
+\end{claim}
+
+\begin{proof}
+Let $\ell$ be the lateness before the swap, and $\ell'$ after.
+\newline
+Let $i < j$ be the inverted pair
+(so $d_i \leq d_j$). For all $k \neq i, j$, we have $\ell'_k = \ell_k$. Job $i$ now finishes
+earlier, so $\ell'_i \leq \ell_i$. For job $j$, if it is late:
+\[
+    \ell'_j = f'_j - d_j = f_i - d_j \leq f_i - d_i \leq \ell_i,
+\]
+where the first inequality uses $d_i \leq d_j$ (since $i < j$). So the maximum lateness does
+not increase.
+\end{proof}
+
+\subsection{Proof of Optimality}
+
+\begin{theorem}
+The earliest-deadline-first schedule is optimal.
+\end{theorem}
+
+\begin{proof}[Proof (by contradiction)]
+Let $S^*$ be an optimal schedule with the fewest number of inversions. We can assume $S^*$ has no
+idle time. If $S^*$ has no inversions, then $S^* = S_{\text{EDF}}$ and we are done. Otherwise,
+let $i$--$j$ be an adjacent inversion in $S^*$. Swapping $i$ and $j$ does not increase the maximum
+lateness and strictly decreases the number of inversions. This contradicts the assumption that
+$S^*$ has the fewest inversions among optimal schedules.
+\end{proof}
+
+
+% ─────────────────────────────────────────────
+\section{Greedy Analysis Strategies}
+
+We have seen three main techniques for proving that a greedy algorithm is optimal:
+
+\begin{enumerate}
+    \item \textbf{Greedy stays ahead.} Show that after each step, the greedy solution is at least
+    as good as any other solution.
+
+    \emph{Example:} Interval scheduling (earliest-finish-time-first).
+
+    \item \textbf{Structural bound.} Identify a simple lower bound that every solution must satisfy,
+    then show that the greedy algorithm achieves this bound.
+
+    \emph{Example:} Interval partitioning (depth = lower bound on number of classrooms).
+
+    \item \textbf{Exchange argument.} Gradually transform any optimal solution into the greedy
+    solution by making small changes (``exchanges'') that do not worsen the objective.
+
+    \emph{Examples:} Minimizing lateness (swapping inversions), Optimal caching (changing eviction
+    decisions).
+\end{enumerate}
+
+\textbf{Other famous greedy algorithms:} Gale--Shapley (stable matching), Kruskal and Prim (minimum
+spanning tree), Dijkstra (shortest paths), Huffman (data compression), and many more.
+
+\chapter{ Dynamic Programming}
+
+\section{Algorithmic Paradigms}
+
+There are three main design strategies for algorithms:
+
+\begin{enumerate}
+    \item \textbf{Greedy.} Build a solution step by step, always making the locally best
+    choice at each step.
+    \item \textbf{Divide-and-conquer.} Split the problem into \emph{independent}
+    subproblems, solve each one, and combine the results.
+    \item \textbf{Dynamic programming.} Split the problem into \emph{overlapping}
+    subproblems, solve each one once, and store the result for later reuse.
+\end{enumerate}
+
+Dynamic programming is essentially a fancy name for \emph{caching intermediate results in
+a table} so they do not have to be recomputed. The key difference from divide-and-conquer
+is that subproblems overlap: the same subproblem appears in many branches of the recursion.
+
+
+%────────────────────────────────────────────────────────────
+\section{Weighted Interval Scheduling}
+
+\subsection{Problem Definition}
+
+\textbf{Input.} A set of $n$ jobs. Job $j$ starts at time $s_j$, finishes at $f_j$, and
+has value (weight) $v_j > 0$. Two jobs are \emph{compatible} if they do not overlap.
+
+\textbf{Goal.} Find a maximum-weight subset of mutually compatible jobs.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\textwidth}
+\includegraphics[width=\textwidth]{imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.5\textwidth}
+\textbf{Why greedy fails.}\
+Counterexample showing that earliest-finish-time-first fails when jobs have weights because a single high-weight job (e.g.
+v=100) that overlaps with many low-weight jobs will be ignored by greedy, even though it is clearly the best choice.
+\end{minipage}
+\end{figure}
+
+\subsection{Key Definitions}
+
+Label jobs by finishing time: $f_1 \leq f_2 \leq \cdots \leq f_n$.
+
+\begin{definition}[Compatible predecessor $p(j)$]
+\vspace{0.7em}
+$p(j)$ is the largest index $i < j$ such that job $i$ is compatible with job $j$
+(i.e., $f_i \leq s_j$). If no such job exists, $p(j) = 0$.
+\end{definition}
+
+\textbf{Example.} For a set of 8 jobs: $p(8) = 5$, $p(7) = 3$, $p(2) = 0$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-03-12 alle 12.22.06.png}
+\end{figure}
+\subsection{Optimal Substructure (Binary Choice)}
+
+\begin{definition}
+$\text{OPT}(j)$ = value of the optimal solution using only jobs $1, 2, \ldots, j$.
+\end{definition}
+
+For the last job $j$, there are exactly two cases:
+\begin{enumerate}
+    \item \textbf{OPT does not select job $j$.} Then $\text{OPT}(j) = \text{OPT}(j-1)$.
+    \item \textbf{OPT selects job $j$.} Then we collect profit $v_j$ and can no longer
+    use jobs $\{p(j)+1, \ldots, j-1\}$. We must solve optimally for jobs $1, \ldots, p(j)$.
+    So $\text{OPT}(j) = v_j + \text{OPT}(p(j))$.
+\end{enumerate}
+
+\[
+    \text{OPT}(j) =
+    \begin{cases}
+        0 & \text{if } j = 0 \\
+        \max\bigl\{v_j + \text{OPT}(p(j)),\; \text{OPT}(j-1)\bigr\} & \text{otherwise}
+    \end{cases}
+\]
+
+This recurrence has the \emph{optimal substructure property} (proved via exchange argument).
+This is a \textbf{binary choice}: either take job $j$ or leave it.
+
+\subsection{Brute Force}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-12 alle 12.29.45.png}
+\end{figure}
+
+A naive recursive implementation recomputes the same subproblems many times. For a
+
+In pratica, $p(j) = j-2$ significa che il lavoro $j$ è compatibile solo con il lavoro $j-2$ (mentre $j-1$ si sovrappone a $j$ e non può essere scelto insieme a $j$).Questo rende la ricorsione simile a quella dei numeri di Fibonacci, perché ogni soluzione dipende da due sottoproblemi distinti.
+n = 5, $p(5) = 3$ significa che il lavoro 5 è compatibile solo con il lavoro 3 (e non con il lavoro 4). Quindi, quando consideriamo se includere il lavoro 5, dobbiamo guardare alla soluzione ottimale per i primi 3 lavori (OPT(3)) invece che per i primi 4 lavori (OPT(4)). In questo caso, OPT(5) dipende da OPT(3) e OPT(4), e OPT(4) dipende da OPT(2) e OPT(3), e così via, creando una struttura ricorsiva che porta a molte chiamate ripetute degli stessi sottoproblemi.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-12 alle 12.35.59.png}
+\end{figure}
+
+\subsection{Memoization: Top-Down DP}
+
+\textbf{Key idea.} Cache the result of each subproblem the first time it is computed, and
+look it up directly on future calls.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-12 alle 12.36.37.png}
+\end{figure}
+
+\begin{claim}
+The memoized algorithm runs in $O(n \log n)$ time.
+\end{claim}
+
+\begin{proof}
+Sorting by finish time: $O(n \log n)$. Computing $p(\cdot)$: $O(n \log n)$ via binary
+search after sorting by start time. Each call to \textsc{M-Compute-Opt}$(j)$ either
+(i) returns an existing value in $O(1)$, or (ii) fills in a new entry and makes two
+recursive calls. Let $\Phi$ = number of non-empty entries in $M$: initially $\Phi = 0$,
+and case (ii) increases $\Phi$ by 1. Since $\Phi \leq n$ throughout, there are at most
+$2n$ recursive calls of type (ii), so \textsc{M-Compute-Opt}$(n)$ uses $O(n)$ time after
+preprocessing.
+\end{proof}
+
+\subsection{Finding the Actual Solution}
+
+The DP computes the optimal \emph{value}. To recover the actual \emph{set of jobs}, do a
+second pass:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-17 alle 17.51.54.png}
+\end{figure}
+
+At most $n$ recursive calls, so $O(n)$ time.
+
+\subsection{Bottom-Up DP}
+
+Instead of recursion with memoization (top-down), we can fill the table iteratively
+from small to large (bottom-up):
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-17 alle 18.04.43.png}
+\end{figure}
+
+
+Bottom-up and top-down (with memoization) produce the same table. The choice between them
+is largely a matter of personal style and the specific problem.
+
+%────────────────────────────────────────────────────────────
+\section{Segmented Least Squares}
+
+\subsection{Background: Least Squares}
+
+Given $n$ points $(x_1, y_1), \ldots, (x_n, y_n)$ in the plane, the \textbf{least squares}
+line $y = ax + b$ minimises the sum of squared errors:
+\[
+    \text{SSE} = \sum_{i=1}^{n} (y_i - ax_i - b)^2.
+\]
+Calculus gives the closed-form solution:
+\[
+    a = \frac{n \sum_i x_i y_i - (\sum_i x_i)(\sum_i y_i)}
+            {n \sum_i x_i^2 - (\sum_i x_i)^2},
+    \qquad
+    b = \frac{\sum_i y_i - a \sum_i x_i}{n}.
+\]
+
+\subsection{Problem Definition}
+
+In practice, data often follows \emph{several} line segments, not a single line.
+
+\textbf{Input.} $n$ points $(x_1, y_1), \ldots, (x_n, y_n)$ with $x_1 < x_2 < \cdots < x_n$,
+and a penalty constant $c > 0$.
+
+\textbf{Goal.} Find a sequence of line segments that minimises:
+\[
+    f = E + cL,
+\]
+where $E$ is the total sum of squared errors across all segments, and $L$ is the number of
+segments. The constant $c$ controls the trade-off between \emph{accuracy} (small $E$) and
+\emph{parsimony} (small $L$).
+
+\subsection{Optimal Substructure (Multiway Choice)}
+
+\begin{definition}
+\begin{itemize}
+   
+    \item $e(i, j)$ = minimum sum of squared errors for points $p_i, p_{i+1}, \ldots, p_j$
+    (the cost of fitting a single line to this segment).
+     \item $\text{OPT}(j)$ = minimum cost for points $p_1, p_2, \ldots, p_j$.
+\end{itemize}
+\end{definition}
+
+
+The last segment must end at $p_j$ and start at some $p_i$. For each choice of $i$:
+\[
+    \text{cost} = e(i, j) + c + \text{OPT}(i - 1).
+\]
+
+This gives the recurrence:
+\[
+    \text{OPT}(j) =
+    \begin{cases}
+        0 & \text{if } j = 0 \\
+        \displaystyle\min_{1 \leq i \leq j} \bigl\{ e(i, j) + c + \text{OPT}(i-1) \bigr\}
+        & \text{otherwise}
+    \end{cases}
+\]
+
+This is a \textbf{multiway choice}: we choose \emph{which point} to start the last segment
+from, not just a binary yes/no.
+
+\subsubsection*{Example}
+
+Consider four points sorted by their $x$-coordinates:
+\[
+p_1=(1,1), \quad p_2=(2,2), \quad p_3=(3,2), \quad p_4=(4,4).
+\]
+Let the penalty for each segment be $c=1$.
+
+Assume the following precomputed least-squares errors:
+\[
+e_{1,1}=0,\ e_{1,2}=0.5,\ e_{1,3}=1.2,\ e_{1,4}=3.0,
+\]
+\[
+e_{2,2}=0,\ e_{2,3}=0.2,\ e_{2,4}=1.5,
+\]
+\[
+e_{3,3}=0,\ e_{3,4}=0.4,\qquad e_{4,4}=0.
+\]
+
+We define $OPT(j)$ as the minimum cost of approximating the first $j$ points. The dynamic programming recurrence is
+\[
+OPT(j)=\min_{1\le i\le j}\bigl(e_{i,j}+c+OPT(i-1)\bigr),
+\qquad OPT(0)=0.
+\]
+
+Now compute the values:
+\[
+OPT(1)=e_{1,1}+c+OPT(0)=0+1+0=1,
+\]
+\[
+OPT(2)=\min\{e_{1,2}+1+OPT(0),\ e_{2,2}+1+OPT(1)\}
+       =\min\{1.5,\ 2\}=1.5,
+\]
+\[
+OPT(3)=\min\{e_{1,3}+1+OPT(0),\ e_{2,3}+1+OPT(1),\ e_{3,3}+1+OPT(2)\}
+       =\min\{2.2,\ 2.2,\ 2.5\}=2.2,
+\]
+\[
+OPT(4)=\min\{e_{1,4}+1+OPT(0),\ e_{2,4}+1+OPT(1),\ e_{3,4}+1+OPT(2),\ e_{4,4}+1+OPT(3)\}
+\]
+\[
+       =\min\{4.0,\ 3.5,\ 3.9,\ 3.2\}=3.2.
+\]
+
+Therefore, the optimal cost for all four points is $OPT(4)=3.2$.
+\subsection{Algorithm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-17 alle 18.06.31.png}
+\end{figure}
+
+\begin{theorem}[Bellman 1961]
+The DP algorithm solves the segmented least squares problem in $O(n^3)$ time and $O(n^2)$ space.
+\end{theorem}
+
+\begin{proof}
+There are $O(n^2)$ pairs $(i, j)$. Computing $e(i, j)$ for each pair takes $O(n)$ time using
+the closed-form formula. The bottleneck is therefore $O(n^2) \times O(n) = O(n^3)$.
+\end{proof}
+
+
+By precomputing prefix sums $\sum x_i$, $\sum y_i$, $\sum x_i y_i$, $\sum x_i^2$, each
+$e(i, j)$ can be computed in $O(1)$, reducing the total to $O(n^2)$ time and $O(n)$ space.
+
+%────────────────────────────────────────────────────────────
+\section{Knapsack Problem}
+
+\subsection{Problem Definition}
+
+\textbf{Input.} $n$ items, a knapsack of capacity $W$. Item $i$ has weight $w_i > 0$ and
+value $v_i > 0$.
+
+\textbf{Goal.} Choose a subset of items with total weight $\leq W$ that maximises total value.
+
+\textbf{Example} (weight limit $W = 11$):
+
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Item $i$ & Value $v_i$ & Weight $w_i$ & \\
+\midrule
+1 & 1  & 1 & \\
+2 & 6  & 2 & \\
+3 & 18 & 5 & \\
+4 & 22 & 6 & \\
+5 & 28 & 7 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Optimal: items $\{3, 4\}$ with value $18 + 22 = 40$. \textbf{Greedy strategies}
+(by value, by weight, by ratio $v_i/w_i$) all fail to find this.
+
+\subsection{Why One Variable Is Not Enough}
+ the problem is NP-complete, so we do not expect a polynomial-time algorithm in the input size. However, we can solve it in pseudo-polynomial time using dynamic programming.
+ \newline
+A first attempt defines $\text{OPT}(i)$ = max profit from items $1, \ldots, i$. This does
+not work because when we add item $i$, we do not know the remaining capacity. We need to
+track \emph{both} which items we have considered \emph{and} how much capacity we have left.
+
+\subsection{Optimal Substructure (New Variable)}
+
+\begin{definition}
+$\text{OPT}(i, w)$ = maximum value from items $1, \ldots, i$ with weight limit $w$.
+\end{definition}
+
+For item $i$:
+\begin{enumerate}
+    \item \textbf{OPT does not take item $i$:} use best of items $1, \ldots, i-1$ with limit $w$.
+    \item \textbf{OPT takes item $i$:} gain $v_i$, reduce capacity to $w - w_i$, and use best
+    of items $1, \ldots, i-1$ with new limit.
+\end{enumerate}
+
+\[
+    \text{OPT}(i, w) =
+    \begin{cases}
+        0 & \text{if } i = 0 \\
+        \text{OPT}(i-1, w) & \text{if } w_i > w \\
+        \max\bigl\{\text{OPT}(i-1, w),\; v_i + \text{OPT}(i-1, w - w_i)\bigr\}
+        & \text{otherwise}
+    \end{cases}
+\]
+in the second case, we reject item $i$ because it is too heavy. In the third case, we have a binary choice: either reject item $i$ and keep the same capacity, or accept item $i$, gain its value, and reduce the capacity accordingly.
+This is the \textbf{``adding a new variable''} technique: when one variable is not enough
+to capture all necessary information, add another.
+
+\subsection{Bottom-Up Algorithm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-16 alle 08.49.41.png}
+\end{figure}
+
+\textbf{Tracing the solution.} After computing the table, item $i$ is in the optimal solution
+for $(i, w)$ if and only if $M[i, w] > M[i-1, w]$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-16 alle 08.55.17.png}
+\end{figure}
+\subsection{Running Time and Remarks}
+
+\begin{theorem}
+The knapsack DP algorithm runs in $\Theta(nW)$ time and $\Theta(nW)$ space.
+\end{theorem}
+
+\begin{proof}
+Each of the $\Theta(nW)$ table entries is filled in $O(1)$ time.
+\end{proof}
+
+\textbf{Important remark.} The running time $\Theta(nW)$ is \emph{not} polynomial in the
+input size. The input size is $O(n \log W)$ (since $W$ is encoded in binary), so the
+algorithm is \textbf{pseudo-polynomial}. In fact:
+\begin{itemize}
+    \item The decision version of knapsack is \textbf{NP-complete} (Chapter 8).
+    \item There exists a polynomial-time approximation scheme (PTAS) that finds a solution
+    within 1\% of the optimum (Section 11.8).
+\end{itemize}
+in particular:
+\begin{math}
+    if(v_i<V-- w_i<W)
+    \newline
+   I(n, w)=  \sum_{i=1}^{n} log w_i + log v_i + log W =
+   = O(n * max(log W, log V))
+   =O(n log W)
+\end{math}
+
+
+%────────────────────────────────────────────────────────────
+\section{Sequence Alignment}
+
+\subsection{String Similarity and Edit Distance}
+
+A natural question in computer science and biology is: \emph{how similar are two strings?}
+Consider the strings \texttt{ocurrance} and \texttt{occurrence}. Depending on how we align
+them, we get very different costs:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-03-16 alle 09.58.55.png}
+\end{figure}
+The \textbf{edit distance} (Levenshtein 1966, Needleman--Wunsch 1970) measures this cost
+formally using two parameters:
+\begin{itemize}
+    \item $\delta$ = gap penalty (cost of leaving a character unmatched)
+    \item $\alpha_{pq}$ = mismatch penalty for aligning character $p$ with character $q$
+    (equals 0 if $p = q$)
+\end{itemize}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-16 alle 10.03.50.png}
+\end{figure}
+\textbf{Applications:} Unix \texttt{diff}, spell checking, speech recognition, computational
+biology (DNA/protein alignment), and more.
+
+\subsection{Problem Definition}
+
+\begin{definition}[Alignment]
+Given strings $x_1 x_2 \ldots x_m$ and $y_1 y_2 \ldots y_n$, an \emph{alignment} $M$ is a
+set of ordered pairs $(x_i, y_j)$ such that each character appears in at most one pair, and
+there are no \emph{crossings} (i.e., if $(x_i, y_j) \in M$ and $(x_{i'}, y_{j'}) \in M$
+with $i < i'$, then $j < j'$).
+\end{definition}
+
+\begin{definition}[Cost of an alignment]
+\[
+    \text{cost}(M) =
+    \underbrace{\sum_{(x_i, y_j) \in M} \alpha_{x_i y_j}}_{\text{mismatch}}
+    + \underbrace{\delta \sum_{i:\, x_i \text{ unmatched}} 1
+    + \delta \sum_{j:\, y_j \text{ unmatched}} 1}_{\text{gaps}}
+\]
+\end{definition}
+
+\textbf{Goal.} Find the alignment of minimum cost.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-16 alle 10.11.11.png}
+\end{figure}
+\subsection{Optimal Substructure}
+
+\begin{definition}
+$\text{OPT}(i, j)$ = minimum cost of aligning the prefix strings $x_1 \ldots x_i$ and
+$y_1 \ldots y_j$.
+\end{definition}
+
+There are three cases for what happens to the last characters $x_i$ and $y_j$:
+\begin{enumerate}
+    \item \textbf{$x_i$ is matched with $y_j$:} pay mismatch $\alpha_{x_i y_j}$, then
+    solve the subproblem on $x_1 \ldots x_{i-1}$ and $y_1 \ldots y_{j-1}$.
+    \item \textbf{$x_i$ is left unmatched (gap):} pay $\delta$, then solve on
+    $x_1 \ldots x_{i-1}$ and $y_1 \ldots y_j$.
+    \item \textbf{$y_j$ is left unmatched (gap):} pay $\delta$, then solve on
+    $x_1 \ldots x_i$ and $y_1 \ldots y_{j-1}$.
+\end{enumerate}
+
+This gives the recurrence:
+\[
+    \text{OPT}(i, j) =
+    \begin{cases}
+        j \delta & \text{if } i = 0 \\
+        i \delta & \text{if } j = 0 \\
+        \min \left\{
+            \alpha_{x_i y_j} + \text{OPT}(i-1, j-1),\;
+            \delta + \text{OPT}(i-1, j),\;
+            \delta + \text{OPT}(i, j-1)
+        \right\} & \text{otherwise}
+    \end{cases}
+\]
+in the first two cases, we have to pay a gap penalty for each unmatched character because one of the 2 strings is empty. In the third case, we have a \textbf{three-way choice}: we can match $x_i$ with $y_j$, or leave $x_i$ unmatched, or leave $y_j$ unmatched.
+\subsection{Algorithm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-16 alle 10.16.56.png}
+\end{figure}
+
+\begin{theorem}
+The DP algorithm computes the edit distance of two strings of length $m$ and $n$ in
+$\Theta(mn)$ time and $\Theta(mn)$ space.
+\end{theorem}
+
+\textbf{Recovering the alignment.} To find not just the cost but also the actual alignment,
+trace back through the DP table from $M[m, n]$ to $M[0, 0]$, following the choice that was
+made at each step.
+
+\textbf{Space optimisation.} We can compute the optimal \emph{value} in $O(mn)$ time and
+only $O(m + n)$ space by keeping just two rows of the table at a time. However, this makes
+it hard to recover the actual alignment.
+
+% ─────────────────────────────────────────────
+\section{Hirschberg's Algorithm}
+
+\subsection{Goal: Linear Space with Full Alignment}
+
+\begin{theorem}
+There exists an algorithm to find an optimal alignment in $O(mn)$ time and $O(m + n)$ space.
+\end{theorem}
+
+This is achieved by a clever combination of divide-and-conquer and dynamic programming
+(Hirschberg, 1975). The key insight is to model the problem as a shortest-path problem.
+
+\subsection*{Edit Distance Graph}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imm/Screenshot 2026-03-16 alle 10.24.13.png}
+\end{figure}
+\begin{lemma}
+Let $f(i, j)$ be the cost of the shortest path from $(0,0)$ to $(i, j)$. Then
+$f(i, j) = \text{OPT}(i, j)$ for all $i, j$.
+\end{lemma}
+
+\begin{proof}[Proof (by strong induction on $i + j$)]
+Base case: $f(0,0) = \text{OPT}(0,0) = 0$.
+Inductive step: the last edge into $(i, j)$ comes from $(i{-}1, j{-}1)$, $(i{-}1, j)$,
+or $(i, j{-}1)$. Applying the inductive hypothesis to each predecessor:
+\[
+    f(i, j) = \min\{
+        \alpha_{x_i y_j} + f(i{-}1, j{-}1),\;
+        \delta + f(i{-}1, j),\;
+        \delta + f(i, j{-}1)
+    \} = \text{OPT}(i, j). \qquad \square
+\]
+\end{proof}
+
+\subsection{Forward and Backward Distances}
+
+Define two functions:
+\begin{itemize}
+    \item $f(i, j)$ = shortest path from $(0,0)$ to $(i, j)$ (computed \emph{forward}).
+    \item $g(i, j)$ = shortest path from $(i, j)$ to $(m, n)$ (computed \emph{backward},
+    by reversing all edges and swapping the roles of $(0,0)$ and $(m,n)$).
+\end{itemize}
+
+Both $f(\cdot, j)$ and $g(\cdot, j)$ can be computed for any fixed column $j$ in
+$O(mn)$ time and $O(m + n)$ space.
+
+\textbf{Key observations:}
+\begin{enumerate}
+    \item The total cost of the shortest path through node $(i, j)$ is $f(i, j) + g(i, j)$.
+    \item Let $q$ be the index that minimises $f(q, \lfloor n/2 \rfloor) + g(q, \lfloor n/2 \rfloor)$.
+    Then the optimal alignment passes through node $(q, \lfloor n/2 \rfloor)$.
+\end{enumerate}
+
+\subsection{Divide-and-Conquer}
+
+\begin{enumerate}
+    \item \textbf{Divide.} Compute $f(\cdot, n/2)$ (forward) and $g(\cdot, n/2)$ (backward).
+    Find index $q$ minimising $f(q, n/2) + g(q, n/2)$. The optimal alignment passes through
+    $(q, n/2)$.
+    \item \textbf{Conquer.} Recursively compute the optimal alignment in:
+    \begin{itemize}
+        \item the top-left subproblem: $x_1 \ldots x_q$ vs.\ $y_1 \ldots y_{n/2}$
+        \item the bottom-right subproblem: $x_{q+1} \ldots x_m$ vs.\ $y_{n/2+1} \ldots y_n$
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Running Time Analysis}
+
+\begin{theorem}
+Hirschberg's algorithm runs in $O(mn)$ time and $O(m + n)$ space.
+\end{theorem}
+
+\begin{proof}[Proof (by induction on $n$)]
+Let $T(m, n)$ be the running time. The divide step takes $O(mn)$ time. The two subproblems
+are of sizes $(q, n/2)$ and $(m - q, n/2)$. Choose constant $c$ such that the divide step
+costs at most $cmn$. Claim: $T(m, n) \leq 2cmn$.
+\begin{align*}
+    T(m, n) &\leq T(q, n/2) + T(m - q, n/2) + cmn \\
+            &\leq 2cq(n/2) + 2c(m - q)(n/2) + cmn \\
+            &= cqn + cmn - cqn + cmn \\
+            &= 2cmn. \qquad \square
+\end{align*}
+The key point is that the two subproblems split the \emph{rows} ($q$ and $m - q$), so the
+total work across all levels of recursion stays $O(mn)$.
+\end{proof}
+
+% ─────────────────────────────────────────────
+\section{Bellman-Ford Algorithm}
+
+\subsection{The Shortest Path Problem with Negative Weights}
+
+\textbf{Problem.} Given a directed graph $G = (V, E)$ with arbitrary edge weights $c_{vw}$,
+find the cheapest path from every node $v$ to a destination node $t$.
+
+\textbf{Why Dijkstra fails.} Dijkstra's algorithm requires non-negative edge weights. With
+negative weights it can give wrong answers. A simple fix (adding a constant to all edges) also
+fails because it changes the lengths of paths with different numbers of edges.
+
+\subsection{Negative Cycles}
+
+\begin{definition}[Negative cycle]
+A \emph{negative cycle} is a directed cycle $W$ such that $\sum_{e \in W} c_e < 0$.
+\end{definition}
+
+\begin{lemma}
+If some path from $v$ to $t$ contains a negative cycle, then there is no cheapest path from
+$v$ to $t$ (the cost can be made arbitrarily negative).
+\end{lemma}
+
+\begin{lemma}
+If $G$ has no negative cycles, then there exists a cheapest $v \leadsto t$ path that is
+simple (uses at most $n - 1$ edges).
+\end{lemma}
+
+\begin{proof}
+Take a cheapest path with the fewest edges. If it contains a cycle $W$, removing $W$ gives
+a cheaper or equal-cost path with fewer edges (since $c(W) \geq 0$). Contradiction.
+\end{proof}
+
+\subsection{Dynamic Programming Formulation}
+
+\begin{definition}
+$\text{OPT}(i, v)$ = cost of the cheapest $v \leadsto t$ path using at most $i$ edges.
+\end{definition}
+
+\textbf{Recurrence:}
+\[
+    \text{OPT}(i, v) =
+    \begin{cases}
+        0 & \text{if } i = 0 \text{ and } v = t \\
+        \infty & \text{if } i = 0 \text{ and } v \neq t \\
+        \min\!\left\{
+            \text{OPT}(i-1, v),\;
+            \min_{(v,w) \in E}\bigl\{\text{OPT}(i-1, w) + c_{vw}\bigr\}
+        \right\} & \text{otherwise}
+    \end{cases}
+\]
+
+The two cases are: (1) the cheapest path uses $\leq i - 1$ edges (do not move yet), or (2) it
+uses exactly $i$ edges (take the first edge $(v, w)$ and then find the best $w \leadsto t$
+path with $\leq i - 1$ edges).
+
+\textbf{Key observation.} If $G$ has no negative cycles, then $\text{OPT}(n-1, v)$ gives
+the cost of the cheapest $v \leadsto t$ path (by Lemma 2, the cheapest path is simple and has
+at most $n - 1$ edges).
+
+\subsection{Implementation}
+
+\begin{lstlisting}[language=Python]
+SHORTEST-PATHS(V, E, c, t)
+  FOR each node v in V:
+      M[0, v] = infinity
+  M[0, t] = 0
+  FOR i = 1 TO n-1:
+      FOR each node v in V:
+          M[i, v] = M[i-1, v]
+          FOR each edge (v, w) in E:
+              M[i, v] = min(M[i, v], M[i-1, w] + c(v,w))
+  RETURN M
+\end{lstlisting}
+
+\begin{theorem}
+Given a digraph with no negative cycles, the DP algorithm computes the cost of the cheapest
+$v \leadsto t$ path for each node $v$ in $\Theta(mn)$ time and $\Theta(n^2)$ space.
+\end{theorem}
+
+\subsection{Bellman-Ford: Efficient Implementation}
+
+In practice, we use only $O(n)$ space by maintaining a single array $d(v)$ (the best distance
+found so far) and a successor pointer.
+
+\begin{lstlisting}[language=Python]
+BELLMAN-FORD(V, E, c, t)
+  FOR each node v in V:
+      d(v) = infinity
+      successor(v) = null
+  d(t) = 0
+  FOR i = 1 TO n-1:
+      FOR each node w in V:
+          IF d(w) was updated in previous iteration:
+              FOR each edge (v, w) in E:
+                  IF d(v) > d(w) + c(v,w):
+                      d(v) = d(w) + c(v,w)
+                      successor(v) = w
+      IF no d(w) value changed in this iteration: STOP
+\end{lstlisting}
+
+\textbf{Performance optimisation.} If $d(w)$ was not updated in iteration $i - 1$, there is
+no reason to consider edges entering $w$ in iteration $i$. This can make the algorithm much
+faster in practice.
+
+\subsection{Analysis and Correctness}
+
+\begin{lemma}
+Throughout Bellman-Ford, $d(v)$ is the cost of \emph{some} $v \leadsto t$ path. After pass
+$i$, $d(v) \leq \text{OPT}(i, v)$.
+\end{lemma}
+
+\begin{proof}[Proof (by induction on $i$)]
+After pass $i+1$, for any $v \leadsto t$ path $P$ with $i+1$ edges, let $(v, w)$ be the
+first edge and $P'$ be the subpath from $w$ to $t$. By the inductive hypothesis,
+$d(w) \leq c(P')$. After considering $v$ in pass $i+1$:
+\[
+    d(v) \leq c_{vw} + d(w) \leq c_{vw} + c(P') = c(P). \qquad \square
+\]
+\end{proof}
+
+\begin{theorem}
+Given a digraph with no negative cycles, Bellman-Ford computes the costs of the cheapest
+$v \leadsto t$ paths in $O(mn)$ time and $\Theta(n)$ extra space.
+\end{theorem}
+
+\textbf{Caution.} The claim that ``following successor pointers always gives a path of cost
+$d(v)$'' is \emph{false} in general during the algorithm (the successor graph may contain
+cycles or have inconsistent costs). However, upon termination with no negative cycles, the
+successor graph is a tree and following pointers from any $s$ gives the correct shortest path.
+
+\begin{lemma}
+If the successor graph contains a directed cycle $W$ at any point during Bellman-Ford, then
+$W$ is a negative cycle.
+\end{lemma}
+
+\begin{proof}
+When \texttt{successor(v) = w} is set, we have $d(v) \geq d(w) + c_{vw}$. Let
+$v_1 \to v_2 \to \cdots \to v_k \to v_1$ be the cycle. Summing the inequalities (with a strict
+inequality for the last edge added to the cycle) gives:
+\[
+    c(v_1, v_2) + c(v_2, v_3) + \cdots + c(v_k, v_1) < 0. \qquad \square
+\]
+\end{proof}
+
+\begin{theorem}
+Given a digraph with no negative cycles, Bellman-Ford finds the cheapest $s \leadsto t$ paths
+in $O(mn)$ time and $\Theta(n)$ extra space.
+\end{theorem}
+
+\begin{proof}
+By Lemma 4, the successor graph has no cycle on termination. Following successor pointers from
+$s$ gives a path $s = v_1 \to v_2 \to \cdots \to v_k = t$. Upon termination, for each
+$\texttt{successor}(v) = w$, we have $d(v) = d(w) + c_{vw}$ (since values no longer change).
+Summing along the path: $d(s) = d(t) + \sum_{\text{edges}} c = c(P)$. Combined with Theorem 2,
+$c(P)$ is the minimum cost. \qquad$\square$
+\end{proof}
+
+% ─────────────────────────────────────────────
+\section{Distance Vector Protocols}
+
+\subsection{Routing in Communication Networks}
+
+In a communication network, nodes are routers, edges are direct links, and edge weights
+represent link delays. We want each router to know the shortest path to every other router.
+
+\textbf{Dijkstra} needs global knowledge of the whole network. \textbf{Bellman-Ford} needs
+only local knowledge of neighbouring nodes — each router only talks to its neighbours.
+
+\subsection{Distance Vector Protocols}
+
+Each router maintains:
+\begin{itemize}
+    \item A vector of shortest known distances to every other node.
+    \item The first hop (direction) on each shortest path.
+\end{itemize}
+
+The algorithm runs $n$ separate Bellman-Ford computations, one for each destination.
+Updates propagate through the network by \emph{``routing by rumour''}: each router shares
+its distance vector with its neighbours, and they update their own vectors accordingly.
+
+\textbf{Examples:} RIP, Cisco's IGRP, AppleTalk's RTMP, Novell's IPX RIP.
+
+\textbf{Asynchrony.} The algorithm still converges even if routers do not update in lockstep.
+
+\subsection{Counting-to-Infinity Problem}
+
+\textbf{Problem.} If a link is deleted, distance vector protocols can get stuck in a loop
+where routers keep increasing their estimated distances, very slowly converging.
+
+\textbf{Example.} If the link $s \to t$ (cost 1) is deleted, $s$ thinks it can reach $t$
+via $v$ (cost 2), then $v$ updates via $s$ (cost 3), and so on — slowly counting to infinity.
+
+\subsection{Path Vector Protocols}
+
+\textbf{Link-state routing} fixes the counting-to-infinity problem by storing the full path
+(not just the distance and first hop). This allows routers to detect loops immediately.
+Requires much more storage. Used in \textbf{BGP} (internet routing) and \textbf{OSPF}.
+
+% ─────────────────────────────────────────────
+\section{Negative Cycle Detection}
+
+\subsection{The Problem}
+
+\textbf{Goal.} Given a directed graph $G = (V, E)$ with edge weights $c_{vw}$, find a
+negative cycle if one exists.
+
+\textbf{Application: Currency Arbitrage.} Given $n$ currencies and exchange rates between
+pairs, is there a sequence of conversions that makes a profit?
+
+\textbf{Example.} USD $\to$ EUR $\to$ GBP $\to$ USD with rates $0.741 \times 1.366 \times
+0.995 = 1.00714 > 1$: this is an arbitrage opportunity. Modelling this as a graph problem
+(with $-\log(\text{exchange rate})$ as edge weights), arbitrage corresponds to a negative
+cycle.
+
+\subsection{Detection via Bellman-Ford}
+
+\begin{lemma}
+If $\text{OPT}(n, v) = \text{OPT}(n-1, v)$ for all $v$, then there is no negative cycle.
+\end{lemma}
+
+\begin{lemma}
+If $\text{OPT}(n, v) < \text{OPT}(n-1, v)$ for some node $v$, then the cheapest $v \leadsto t$
+path has exactly $n$ edges. By the pigeonhole principle, it contains a directed cycle $W$.
+Since removing $W$ would give a shorter path, $W$ must be a negative cycle.
+\end{lemma}
+
+\subsection{Algorithm}
+
+\begin{theorem}
+A negative cycle can be found in $\Theta(mn)$ time and $\Theta(n^2)$ space.
+\end{theorem}
+
+\begin{proof}
+Add a new node $t$ and connect every node to $t$ with a 0-cost edge. The new graph $G'$ has
+a negative cycle if and only if $G$ has one. Run the DP for $n$ iterations (instead of $n-1$).
+If $\text{OPT}(n, v) = \text{OPT}(n-1, v)$ for all $v$: no negative cycle. Otherwise,
+extract the directed cycle from the path from $v$ to $t$ (the cycle cannot contain $t$ since
+no edges leave $t$).
+\end{proof}
+
+\begin{theorem}
+A negative cycle can be found in $O(mn)$ time and $O(n)$ extra space.
+\end{theorem}
+
+\begin{proof}
+Run Bellman-Ford for $n$ passes (not $n-1$) on the modified digraph $G'$.
+\begin{itemize}
+    \item If no $d(v)$ is updated in pass $n$: no negative cycle.
+    \item Otherwise, suppose $d(s)$ is updated in pass $n$. Define
+    $\text{pass}(v)$ = last pass in which $d(v)$ was updated. We have
+    $\text{pass}(s) = n$ and $\text{pass}(\text{successor}(v)) \geq \text{pass}(v) - 1$.
+    Following successor pointers from $s$, we must eventually revisit a node. By Lemma 4,
+    the resulting cycle is a negative cycle. \qquad$\square$
+\end{itemize}
+\end{proof}
+
+\subsection{Summary of Complexities}
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Algorithm} & \textbf{Problem} & \textbf{Time} & \textbf{Space} \\
+\midrule
+Sequence Alignment (basic DP) & Edit distance + alignment & $\Theta(mn)$ & $\Theta(mn)$ \\
+Sequence Alignment (space opt.) & Edit distance only & $O(mn)$ & $O(m+n)$ \\
+Hirschberg's algorithm & Edit distance + alignment & $O(mn)$ & $O(m+n)$ \\
+Shortest Paths (basic DP) & No negative cycles & $\Theta(mn)$ & $\Theta(n^2)$ \\
+Bellman-Ford (efficient) & No negative cycles & $O(mn)$ & $\Theta(n)$ \\
+Negative Cycle Detection & Find neg. cycle & $\Theta(mn)$ / $O(mn)$ & $\Theta(n^2)$ / $O(n)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\chapter{ exercises on dynamic programming}
+\textbf{Problem 1 (Max Independent Set on Line Graphs)}
+
+Let $G = (V,E)$ be a line graph of $n$ nodes formed by a sequence of nodes
+$v_1, v_2, \ldots, v_n$ with an edge between $v_i$ and $v_j$ if and only if
+$i$ and $j$ differs by exactly $1$. With every vertex $i$, we associate a
+positive integer weight $w_i$. Recall that a set of nodes is an
+\emph{independent set} if no two nodes of them are joined by an edge.
+The goal is to find an independent set of $G$ of maximum total weight.
+
+\begin{enumerate}
+  \item[(a)] Show on an example that a greedy strategy fails to find an optimal solution.
+  \item[(b)] Give an algorithm that finds an independent set of maximum total
+            weight in time which is polynomial in the number of vertices and
+            it does not depend from the weights of the nodes.
+  \item[(c)] Provide the pseudo-code of an efficient implementation of the
+            algorithm and discuss its time and space complexity.
+\end{enumerate}
+\textbf{solution}
+\begin{enumerate}
+  \item[(a)] the greedy strategy fails to find an optimal solution. For example, consider the line graph with 7 nodes and weights 
+  $w_1 = 9$, $w_2 = 10$, $w_3 = 9$, $w_4 = 0$, $w_5 = 9$, $w_6 = 10$, $w_7 = 9$.
+The greedy strategy would pick the greater value so it would pick $v_2$ and $v_6$ with total weight $20$. However, the optimal solution is to pick $v_1$, $v_3$, $v_5$, and $v_7$ with total weight $36$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imm/Immagine JPEG-4E60-AE75-26-0.jpeg}
+\end{figure}
+
+  \item[(b)] We can solve this problem using dynamic programming. We define $\text{OPT}(i)$ as the maximum total weight of an independent set that can be formed from the first $i$ nodes.
+\[
+\text{OPT}(i) = 
+\begin{cases}
+0 & \text{se } i = 0 \\
+w_1 & \text{se } i = 1 \\
+\max\left\{ \text{OPT}(i-1),\; \text{OPT}(i-2) + w_i \right\} & \text{se } i \geq 2
+\end{cases}
+\]
+  \item [(c)] The pseudo-code of the algorithm is as follows:
+\begin{lstlisting}[language=Python]
+def max_independent_set(weights):
+    n = len(weights)
+    OPT[0] = 0
+    OPT[1] = weights[1]
+    for i =2 to n:
+        if weights[i] + OPT[i - 2] > OPT[i - 1]:
+            OPT[i] = weights[i] + OPT[i - 2]
+        else:
+            OPT[i] = OPT[i - 1]
+    return OPT[n]
+\end{lstlisting}
+example of the algorithm in action:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imm/Immagine JPEG-4577-94E5-C9-0.jpeg}
+\end{figure}
+\begin{align*}
+\text{OPT}(0) &= 0 \\
+\text{OPT}(1) &= 4 \\
+\text{OPT}(2) &= \max\{ \text{OPT}(1),\; \text{OPT}(0) + 7 \} = \max\{4, 7\} = 7 \\
+\text{OPT}(3) &= \max\{ \text{OPT}(2),\; \text{OPT}(1) + 10 \} = \max\{7, 14\} = 14 \\
+\text{OPT}(4) &= \max\{ \text{OPT}(3),\; \text{OPT}(2) + 9 \} = \max\{14, 16\} = 16 \\
+\text{OPT}(5) &= \max\{ \text{OPT}(4),\; \text{OPT}(3) + 6 \} = \max\{16, 20\} = 20 \\
+\text{OPT}(6) &= \max\{ \text{OPT}(5),\; \text{OPT}(4) + 10 \} = \max\{20, 26\} = 26 \\
+\text{OPT}(7) &= \max\{ \text{OPT}(6),\; \text{OPT}(5) + 3 \} = \max\{26, 23\} = 26 \\
+\end{align*}
+algorithm to know which nodes are in the optimal solution:
+\begin{lstlisting}[language=Python]
+def find_solution(OPT, weights, i):
+    i = len(weights)
+    if i=0:
+        return []
+    if i=1:
+        return [1]
+    if weights[i] + OPT[i - 2] > OPT[i - 1]:
+        return find_solution(OPT, weights, i - 2) + [i]
+    else:
+        return find_solution(OPT, weights, i - 1)
+\end{lstlisting}
+\end{enumerate}
+
+
+
+\textbf{Problem 2 (Rod Cutting)}
+
+We are given a rod of integer length $L$. We assume that a rod of integer
+length $0 \leq l \leq L$ has a known value $v(l)$. The problem is to find
+the best way of cutting the rod, such that the sum of the values of the
+resulting rods is maximised.
+
+\begin{enumerate}
+  \item[(a)] Show a dynamic programming algorithm that solves the problem.
+  \item[(b)] Prove the correctness of the recursive form used, and the optimality of the solution returned by the algorithm.
+  \item[(c)] Provide the pseudo-code of an efficient implementation of the
+            algorithm and discuss its time complexity.
+\end{enumerate}
+\textbf{Solution}
+
+\begin{enumerate}
+    \item[(a)] We can solve this problem using dynamic programming. 
+    Let $v(i)$ be the value of a rod of length $i$, and $R(l)$ be the maximum value obtainable for a rod of length $l$.
+    
+    The optimal substructure of the problem allows us to define the following recurrence:
+    \[
+    R(l) = 
+    \begin{cases}
+    0 & \text{if } l = 0 \\
+    \max_{1 \leq j \leq l} \left\{ v(j) + R(l-j) \right\} & \text{if } l > 0
+    \end{cases}
+    \]
+
+    \item[(b)] \textbf{Proof of Correctness}: 
+    An optimal cut for a rod of length $l$ consists of a first piece of length $j$ and an optimal arrangement of the remaining $l-j$ length. Since the value of the first piece $v(j)$ is fixed, to maximize the total value we must maximize the value of the remaining part, which is $R(l-j)$. By iterating over all possible first cuts $j \in \{1, \dots, l\}$, we are guaranteed to find the global maximum.
+    % --- Il tuo TikZ (ottimizzato) ---
+\begin{center}
+\begin{tikzpicture}[x=1.1cm, y=1.1cm, >=stealth]
+    % Tabella v
+    \node[left] at (-0.2, 4.5) {$v$};
+    \foreach \x/\val [count=\i from 0] in {0/0, 1/1, 2/1.5, 3/4, 4/1, 5/0.5, 6/0} {
+        \draw (\i, 4.3) rectangle (\i+1, 4.7);
+        \node at (\i+0.5, 4.5) {\val};
+        \node[blue, below, scale=0.8] at (\i+0.5, 4.3) {\i};
+    }
+    
+    % Grafico
+    \draw[->] (0,0) -- (0,3) node[left] {$v(j)$};
+    \draw[->] (0,0) -- (7,0) node[right] {$j$};
+    \draw[blue, thick, mark=*] plot coordinates {(0,0) (1,1) (2,1.5) (3,3.5) (4,1.2) (5,0.9) (6,0.3)};
+
+    % Tabella Rod
+    \node[blue, above] at (3.5, -1.2) {\textbf{Table $R[l]$ (Max Values)}}; 
+    \foreach \x/\val [count=\i from 0] in {0/0, 1/1, 2/2, 3/4, 4/5, 5/6, 6/8} {
+        \draw (\i+0.5, -1.8) rectangle (\i+1.5, -1.4);
+        \node at (\i+1, -1.6) {\val};
+        \node[blue, below, scale=0.8] at (\i+1, -1.8) {\i};
+    }
+    % Dettaglio Calcoli Incolonnati
+\begin{scope}[shift={(0,-2.5)}]
+    \node[anchor=west] at (0, 0) {$\mathbf{R(0)=0}$};
+    \node[anchor=west] at (0, -0.6) {$\mathbf{R(1)=1}$};
+    
+    % R(2)
+    \node[anchor=west] at (0, -1.2) {$\mathbf{R(2)=2}$};
+    \node[anchor=west, font=\small] at (2.5, -1.2) {$\max \{ v(1)+R(1), v(2)+R(0) \}$};
+    \node[anchor=west, font=\scriptsize, gray] at (2.5, -1.5) {Scelta ottima: $j=1$};
+
+    % R(3)
+    \node[anchor=west] at (0, -2.2) {$\mathbf{R(3)=4}$};
+    \node[anchor=west, font=\small] at (2.5, -2.2) {$\max \{ v(1)+R(2), v(2)+R(1), v(3)+R(0) \}$};
+    
+    % Frecce logiche per R(3)
+    \draw[->, bend left] (3, -2.8) to (3.2, -2.4);
+    \node[below, scale=0.7] at (3, -2.8) {$v(3)=4$};
+    
+    \draw[->, bend right] (5.5, -2.8) to (5.3, -2.4);
+    \node[below, scale=0.7] at (5.5, -2.8) {$R(0)=0$};
+    
+    \node[anchor=west, font=\scriptsize, gray] at (2.5, -3.3) {Scelta ottima: $j=3$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+  \item[(c)] \textbf{Implementation and Complexity}:
+
+First, we consider the basic \textit{bottom-up} implementation that computes only the maximum revenue $R[L]$:
+
+\begin{lstlisting}[language=Python, caption={Basic Bottom-Up Rod Cutting}]
+def rod_cutting(v, L):
+    R = [0] * (L + 1)
+    for j in range(1, L + 1):
+        q = float('-inf')
+        for k in range(1, j + 1):
+            q = max(q, v[k] + R[j - k])
+        R[j] = q
+    return R[L]
+\end{lstlisting}
+
+To reconstruct the actual cuts used to achieve this maximum, we extend the algorithm by using an auxiliary array $S$ to store the length of the first piece $i$ that achieved the maximum revenue for each subproblem $j$:
+
+\begin{lstlisting}[language=Python, caption={Extended Bottom-Up Rod Cutting}]
+def extended_bottom_up_rod_cutting(v, L):
+    R = [0] * (L + 1)
+    S = [0] * (L + 1)
+    for j in range(1, L + 1):
+        q = float('-inf')
+        for i in range(1, j + 1):
+            if q < v[i] + R[j - i]:
+                q = v[i] + R[j - i]
+                S[j] = i
+        R[j] = q
+    return R, S
+\end{lstlisting}
+
+
+
+\textbf{Complexity Analysis}:
+\begin{itemize}
+    \item \textbf{Time Complexity}: $O(L^2)$. The nested loops result in a summation $\sum_{j=1}^{L} j = \frac{L(L+1)}{2}$, which is quadratic.
+    \item \textbf{Space Complexity}: $O(L)$ to store the memoization table $R$ and the optimal cuts $S$.
+\end{itemize}
+
+\textbf{Solution Reconstruction}:
+To print the lengths of the pieces in an optimal solution for length $L$:
+\begin{lstlisting}[language=Python]
+def print_optimal_cuts(S, L):
+    while L > 0:
+        print(S[L])
+        L = L - S[L]
+\end{lstlisting}
+\end{enumerate}
+\chapter{Network Flow}
+
+\section{Max-Flow and Min-Cut Problems}
+
+Max-flow and min-cut are two fundamental problems in network flow theory,
+defined on a directed graph $G = (V, E)$ with a source node $s$, a sink
+node $t$, and a capacity function $c : E \to \mathbb{R}^+$ that assigns a
+non-negative capacity to each edge.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 08.33.35.png}
+    \caption{Example of a flow network with source $s$, sink $t$, and edge capacities.}
+\end{figure}
+
+\begin{definition}
+    An \emph{st-cut} (cut) is a partition $(A, B)$ of the vertices such that
+    $s \in A$ and $t \in B$.
+\end{definition}
+
+\begin{definition}
+    The \emph{capacity} of an st-cut $(A, B)$ is the sum of the capacities
+    of edges going \emph{from} $A$ \emph{to} $B$:
+    \[
+        \mathrm{cap}(A, B) = \sum_{\substack{e \,=\, (u,v) \\ u \in A,\; v \in B}} c(e).
+    \]
+    Edges from $B$ to $A$ are \textbf{not} counted.
+\end{definition}
+
+\textbf{Min-cut problem.} Find an st-cut of minimum capacity.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 08.40.26.png}
+    \caption{capacity of 28.}
+\end{figure}
+
+\begin{definition}
+    An \emph{st-flow} is a function $f : E \to \mathbb{R}^+$ satisfying:
+    \begin{itemize}
+        \item \textbf{Capacity constraint}: For every edge $e \in E$,
+              $0 \leq f(e) \leq c(e)$.
+        \item \textbf{Flow conservation}: For every vertex $v \in V \setminus
+              \{s, t\}$, the total flow into $v$ equals the total flow out of
+              $v$:
+              \[
+                  \sum_{\substack{e \,=\, (u,v) \\ (u,v) \in E}} f(e)
+                  \;=\;
+                  \sum_{\substack{e \,=\, (v,w) \\ (v,w) \in E}} f(e).
+              \]
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    The \emph{value} of a flow $f$ is
+    \[
+        \mathrm{val}(f) = \sum_{e \text{ out of } s} f(e),
+    \]
+    i.e., the total flow leaving the source $s$.
+\end{definition}
+
+\textbf{Max-flow problem.} Find an st-flow of maximum value.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 08.47.19.png}
+    \caption{Example of a maximum flow with value 28.}
+\end{figure}
+
+% -------------------------------------------------------------------
+\section{Ford-Fulkerson Algorithm}
+
+\subsection{Greedy Approach and Its Limits}
+
+A natural greedy strategy is:
+\begin{itemize}
+    \item Start with $f(e) = 0$ for all edges $e \in E$.
+    \item Find an st-path $P$ where every edge $e$ satisfies $f(e) < c(e)$
+          (i.e., has remaining capacity).
+    \item Push as much flow as possible along $P$ (limited by the minimum
+          remaining capacity on the path).
+    \item Repeat until no such path exists.
+\end{itemize}
+
+\textbf{Problem with the greedy approach.} The order in which augmenting
+paths are chosen can cause the algorithm to terminate with a sub-optimal
+flow. For instance, on certain networks the greedy approach reaches a flow
+of value 16, even though the true maximum is 19. This happens because
+saturating some edges blocks all remaining paths from $s$ to $t$, even
+when additional flow could theoretically be routed differently.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Immagine JPEG-4C88-8821-02-0.jpeg}
+    \caption{}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.21.45.png}
+    \caption{Along the augmenting path s→2→4→t, the bottleneck is 8 (limited by edge 2→4, capacity 8), bringing the total flow to 8. Edge s→2 still has 10 $-$ 8 = 2 units of residual capacity, which are routed along path s→2→3→4→t through edge 2→3 (capacity 2), saturating s→2 and raising the total flow to 10. Finally, the augmenting path s→3→4→5→t has bottleneck 6, yielding a total flow of 10 + 6 = 16.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-02 alle 20.01.14.png}
+    \caption{}
+\end{figure}
+
+The solution is to use a \emph{residual graph} that allows the algorithm
+to \emph{undo} previously sent flow, which is the core idea behind
+Ford-Fulkerson.
+
+\subsection{Residual Graph}
+
+\begin{definition}
+    Given a flow network $G = (V, E)$ and a flow $f$, the
+    \emph{residual graph} $G_f = (V, E_f)$ is constructed as follows.
+    For each original edge $e = (u, v) \in E$ with capacity $c(e)$ and
+    flow $f(e)$, we create:
+    \begin{itemize}
+        \item A \emph{forward residual edge} $e = (u, v)$ with residual
+              capacity $c_f(e) = c(e) - f(e)$, representing the remaining
+              capacity (included only if $c_f(e) > 0$, i.e., $f(e) < c(e)$).
+              \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.32.43.png}
+              \end{figure}
+    
+            \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.32.52.png}
+                     \caption{The forward residual edge from $u$ to $v$ has capacity $c(e) - f(e)$.}
+              \end{figure}
+              \item A \emph{backward residual edge} $e^R = (v, u)$ with residual
+              capacity $c_f(e^R) = f(e)$, representing the flow that can be
+              \emph{cancelled} (included only if $f(e) > 0$).
+    \end{itemize}
+    Formally:
+    \[
+        E_f = \bigl\{e \in E : f(e) < c(e)\bigr\}
+              \;\cup\;
+              \bigl\{e^R : e \in E,\; f(e) > 0\bigr\},
+    \]
+    \[
+        c_f(e) =
+        \begin{cases}
+            c(e) - f(e) & \text{if } e \in E, \\
+            f(e)        & \text{if } e^R \in E.
+        \end{cases}
+    \]
+\end{definition}
+
+\textbf{Key property.} A flow $f'$ in $G_f$ corresponds to a valid flow
+$f + f'$ in the original graph $G$.
+
+\subsection{Augmenting Path}
+
+\begin{definition}
+    An \emph{augmenting path} is a simple st-path $P$ in the residual graph
+    $G_f$ such that every edge on $P$ has strictly positive residual capacity.
+\end{definition}
+
+\begin{definition}
+    The \emph{bottleneck capacity} of an augmenting path $P$ in $G_f$ is
+    \[
+        \mathrm{bottleneck}(G_f, P)
+        = \min_{e \in P} c_f(e),
+    \]
+    i.e., the minimum residual capacity among all edges on $P$.
+    It is the maximum amount of additional flow that can be pushed
+    along $P$ without violating any capacity constraint.
+\end{definition}
+
+\textbf{Key property.} Let $f$ be a flow in $G$ and $P$ be an augmenting
+path in $G_f$. Let $b = \mathrm{bottleneck}(G_f, P)$. After augmenting
+along $P$:
+\[
+    \mathrm{val}(f') = \mathrm{val}(f) + b.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.33.50.png}
+   
+\end{figure}
+
+
+\subsection{Ford-Fulkerson Algorithm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.35.20.png}
+\end{figure}
+
+\subsection*{example}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 08.57.26.png}
+\end{figure}
+\paragraph{Step 1.}
+Find an augmenting path $P_1$ in the residual graph $G_f$.
+The bottleneck capacity is 8. Augment along $P_1$:
+\[
+    \mathrm{val}(f) = 0 + 8 = 8.
+\]
+
+\paragraph{Step 2.}
+Find a new augmenting path $P_2$ in the updated residual graph.
+The bottleneck capacity is 2. Augment along $P_2$:
+\[
+    \mathrm{val}(f) = 8 + 2 = 10.
+\]
+
+\paragraph{Step 3.}
+Find augmenting path $P_3$ with bottleneck capacity 6:
+\[
+    \mathrm{val}(f) = 10 + 6 = 16.
+\]
+
+At this point, a purely greedy algorithm (without the residual graph)
+would get stuck: no forward-edge-only path from $s$ to $t$ remains.
+However, the residual graph $G_f$ still contains augmenting paths that
+use \textbf{backward edges} to ``reroute'' flow already sent.
+
+\paragraph{Step 4 — use of a backward edge.}
+In $G_f$, there exists a path $P_4$ that traverses a backward
+(reverse) residual edge. Sending flow along a backward edge
+\emph{cancels} part of a previously assigned flow, effectively
+rerouting it. The bottleneck capacity is 2:
+\[
+    \mathrm{val}(f) = 16 + 2 = 18.
+\]
+
+\paragraph{Step 5.}
+One further augmenting path $P_5$ with bottleneck capacity 1:
+\[
+    \mathrm{val}(f) = 18 + 1 = 19.
+\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.37.37.png}
+\end{figure}
+After step 5 there is no augmenting path in $G_f$, so the algorithm
+terminates.
+
+% -------------------------------------------------------------------
+\section{Max-Flow Min-Cut Theorem}
+
+The Max-Flow Min-Cut Theorem establishes a fundamental duality between
+flows and cuts: the maximum value of any st-flow equals the minimum
+capacity of any st-cut. We build towards this result in three steps.
+
+% -------------------------------------------------------------------
+\subsection{Flow Value Lemma}
+
+\begin{lemma}[Flow Value Lemma]
+    Let $f$ be any st-flow and let $(A, B)$ be any st-cut. Then the
+    \emph{net flow} across $(A, B)$ equals the value of $f$:
+    \[
+        \mathrm{val}(f)
+        = \sum_{\substack{e \,=\,(u,v) \\ u \in A,\; v \in B}} f(e)
+        \;-\;
+        \sum_{\substack{e \,=\,(u,v) \\ u \in B,\; v \in A}} f(e).
+    \]
+\end{lemma}
+
+\begin{proof}
+By definition, $\mathrm{val}(f) = \sum_{e \text{ out of } s} f(e)$.
+We extend the sum over all nodes in $A$:
+\[
+    \mathrm{val}(f)
+    = \sum_{v \in A}
+      \left(
+        \sum_{e \text{ out of } v} f(e)
+        - \sum_{e \text{ into } v} f(e)
+      \right).
+\]
+By \textbf{flow conservation}, every term with $v \neq s$ vanishes.
+Rearranging the remaining terms by whether the edge crosses the cut
+$(A \to B)$ or goes backwards $(B \to A)$ yields the result.
+\end{proof}
+
+    Edges entirely within $A$ or within $B$ cancel out in the sum,
+    so only edges \emph{crossing} the cut contribute to $\mathrm{val}(f)$.
+
+
+% -------------------------------------------------------------------
+\subsection{Weak Duality}
+
+\begin{corollary}[Weak Duality]
+    For any st-flow $f$ and any st-cut $(A, B)$:
+    \[
+        \mathrm{val}(f) \;\leq\; \mathrm{cap}(A, B).
+    \]
+\end{corollary}
+
+\begin{proof}
+Using the Flow Value Lemma and the capacity constraint $f(e) \leq c(e)$:
+\[
+    \mathrm{val}(f)
+    = \sum_{\substack{e \text{ out of } A}} f(e)
+    - \sum_{\substack{e \text{ into } A}} f(e)
+    \;\leq\;
+    \sum_{\substack{e \text{ out of } A}} f(e)
+    \;\leq\;
+    \sum_{\substack{e \text{ out of } A}} c(e)
+    = \mathrm{cap}(A,B).
+\]
+\end{proof}
+
+Weak duality immediately implies that any flow value is an
+\emph{upper bound} on every cut capacity, and vice versa.
+In particular, if we ever find a flow $f$ and a cut $(A,B)$
+such that $\mathrm{val}(f) = \mathrm{cap}(A,B)$, both must be
+simultaneously optimal.
+
+% -------------------------------------------------------------------
+\subsection{Max-Flow Min-Cut Theorem}
+
+\begin{theorem}[Max-Flow Min-Cut Theorem]
+    In any flow network, the value of a maximum st-flow equals the
+    capacity of a minimum st-cut:
+    \[
+        \max_{f} \,\mathrm{val}(f)
+        \;=\;
+        \min_{(A,B)} \mathrm{cap}(A,B).
+    \]
+\end{theorem}
+
+\begin{proof}
+We prove the equivalence of the following three conditions for any
+flow $f$:
+\begin{enumerate}[label=(\roman*)]
+    \item There exists an st-cut $(A,B)$ such that
+          $\mathrm{cap}(A,B) = \mathrm{val}(f)$.
+    \item $f$ is a maximum flow.
+    \item There is no augmenting path in the residual graph $G_f$.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{(i) $\Rightarrow$ (ii).}
+Suppose $(A,B)$ is a cut with $\mathrm{cap}(A,B) = \mathrm{val}(f)$.
+For any other flow $f'$, weak duality gives
+$\mathrm{val}(f') \leq \mathrm{cap}(A,B) = \mathrm{val}(f)$,
+so $f$ is a maximum flow.
+
+\medskip
+\noindent\textbf{(ii) $\Rightarrow$ (iii).}
+We prove the contrapositive.
+If there exists an augmenting path $P$ in $G_f$, then we can
+strictly increase $\mathrm{val}(f)$ by pushing
+$\mathrm{bottleneck}(G_f, P) > 0$ additional units of flow along $P$.
+Hence $f$ is not a maximum flow.
+
+\medskip
+\noindent\textbf{(iii) $\Rightarrow$ (i).}
+Suppose no augmenting path exists in $G_f$. Define:
+\[
+    A = \{ v \in V : v \text{ is reachable from } s \text{ in } G_f \}.
+\]
+By definition, $s \in A$. Since there is no augmenting path, $t \notin A$,
+so $(A, B = V \setminus A)$ is a valid st-cut.
+
+Now consider any edge $e = (u,v)$ with $u \in A$, $v \in B$:
+\begin{itemize}
+    \item The forward residual edge $(u,v)$ cannot be in $G_f$
+          (otherwise $v$ would be reachable), so $f(e) = c(e)$.
+    \item Any edge $e' = (v,u)$ with $v \in B$, $u \in A$: the backward
+          residual edge $(u,v)$ cannot be in $G_f$, so $f(e') = 0$.
+\end{itemize}
+Therefore, applying the Flow Value Lemma:
+\[
+    \mathrm{val}(f)
+    = \sum_{\substack{e \text{ out of } A}} f(e)
+    - \sum_{\substack{e \text{ into } A}} f(e)
+    = \sum_{\substack{e \text{ out of } A}} c(e) - 0
+    = \mathrm{cap}(A, B).
+\]
+\end{proof}
+
+% -------------------------------------------------------------------
+\subsection{Augmenting Path Theorem}
+
+A direct consequence of the proof above is the following algorithmic
+certificate:
+
+\begin{corollary}[Augmenting Path Theorem]
+    A flow $f$ is a maximum flow if and only if there is no augmenting
+    path in the residual graph $G_f$.
+\end{corollary}
+
+This corollary is the theoretical foundation of the Ford-Fulkerson
+algorithm: the algorithm terminates precisely when $f$ is optimal,
+and at that point the set of nodes reachable from $s$ in $G_f$
+defines the corresponding minimum cut.
+
+GGGGGGGGGGGGGGGGGGGGGG\subsection*{Running Time}
+
+\paragraph{Assumption}
+All edge capacities are integers between $1$ and $C$.
+    All edge capacities are integers between $1$ and $C$.
+
+\begin{lemma}[Integrality Invariant]
+    Throughout the Ford-Fulkerson algorithm, all flow values $f(e)$ and
+    all residual capacities $c_f(e)$ remain integers.
+\end{lemma}
+
+\begin{proof}
+    Initially all flows are 0. Each augmentation increases the flow
+    along a path by $\mathrm{bottleneck}(G_f, P)$, which is the minimum
+    of a finite set of integer residual capacities, hence an integer.
+    By induction, all values remain integers throughout.
+\end{proof}
+
+\begin{theorem}
+    The Ford-Fulkerson algorithm terminates in at most
+    $\mathrm{val}(f^*) \leq nC$ iterations.
+\end{theorem}
+
+\begin{proof}
+    By the integrality invariant, every augmentation increases
+    $\mathrm{val}(f)$ by at least 1. Since $\mathrm{val}(f^*)$ is the
+    maximum possible flow value and $\mathrm{val}(f^*) \leq nC$
+    (at most $n$ edges out of $s$, each with capacity at most $C$),
+    the algorithm terminates after at most $nC$ iterations.
+\end{proof}
+
+\begin{corollary}
+    The running time of Ford-Fulkerson is $O(m \cdot n \cdot C)$, since
+    each iteration requires $O(m)$ time to find an augmenting path via
+    DFS or BFS.
+\end{corollary}
+
+\begin{corollary}
+    If $C = 1$, the running time of Ford-Fulkerson reduces to $O(mn)$.
+\end{corollary}
+
+\begin{theorem}[Integrality Theorem]
+    If all edge capacities are integers, then there exists a maximum
+    flow $f^*$ in which every flow value $f^*(e)$ is an integer.
+\end{theorem}
+
+\begin{proof}
+    Since all capacities are integers, the integrality invariant
+    guarantees that the flow $f$ maintained by the algorithm is always
+    integer-valued. Because the algorithm terminates (by the previous
+    theorem), the flow upon termination is both a maximum flow and
+    integer-valued.
+\end{proof}
+
+    Ford-Fulkerson is \textbf{not} a polynomial-time algorithm in general:
+    its complexity $O(mnC)$ depends on the \emph{value} of the capacities,
+    not just on the \emph{size} of the input. In the worst case, if
+    $C$ is exponentially large, the algorithm takes exponentially many
+    iterations. For polynomial guarantees, variants such as
+    \textbf{Edmonds-Karp} (shortest augmenting path, $O(m^2 n)$) or
+    \textbf{capacity scaling} ($O(m^2 \log C)$) must be used.
+
+
+\end{document}
