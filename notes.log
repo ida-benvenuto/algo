@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.15)  14 APR 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.15)  14 APR 2026 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1004,94 +1004,89 @@ l.1785
 <imm/Screenshot 2026-03-30 alle 08.47.19.png, id=937, 384.43625pt x 166.6225pt>
 File: imm/Screenshot 2026-03-30 alle 08.47.19.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 08.47.19.png>
-Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 08.47.19.png  used on input line 1814.
+Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 08.47.19.png  used on input line 1817.
 (pdftex.def)             Requested size: 227.62206pt x 98.65727pt.
-<imm/Immagine JPEG-4C88-8821-02-0.jpeg, id=938, 2801.46625pt x 1003.75pt>
-File: imm/Immagine JPEG-4C88-8821-02-0.jpeg Graphic file (type jpg)
-<use imm/Immagine JPEG-4C88-8821-02-0.jpeg>
-Package pdftex.def Info: imm/Immagine JPEG-4C88-8821-02-0.jpeg  used on input line 1841.
-(pdftex.def)             Requested size: 227.62206pt x 81.54224pt.
 
 
 [44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1843 \end{figure}
-                   
+l.1833     \item R
+                  epeat until no such path exists.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1843 \end{figure}
-                    </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png>]
-<imm/Screenshot 2026-03-30 alle 09.21.45.png, id=949, 458.71375pt x 141.52875pt>
+l.1833     \item R
+                  epeat until no such path exists. </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png>]
+<imm/Screenshot 2026-03-30 alle 09.21.45.png, id=948, 458.71375pt x 141.52875pt>
 File: imm/Screenshot 2026-03-30 alle 09.21.45.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.21.45.png>
-Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.21.45.png  used on input line 1846.
+Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.21.45.png  used on input line 1844.
 (pdftex.def)             Requested size: 227.62206pt x 70.22862pt.
-<imm/Screenshot 2026-04-02 alle 20.01.14.png, id=950, 705.63625pt x 222.8325pt>
-File: imm/Screenshot 2026-04-02 alle 20.01.14.png Graphic file (type png)
-<use imm/Screenshot 2026-04-02 alle 20.01.14.png>
-Package pdftex.def Info: imm/Screenshot 2026-04-02 alle 20.01.14.png  used on input line 1852.
-(pdftex.def)             Requested size: 227.62206pt x 71.87907pt.
-<imm/Screenshot 2026-03-30 alle 09.32.43.png, id=951, 292.09125pt x 130.4875pt>
+<imm/Immagine JPEG-46B2-83B7-C2-0.jpeg, id=949, 2066.72125pt x 671.50874pt>
+File: imm/Immagine JPEG-46B2-83B7-C2-0.jpeg Graphic file (type jpg)
+<use imm/Immagine JPEG-46B2-83B7-C2-0.jpeg>
+Package pdftex.def Info: imm/Immagine JPEG-46B2-83B7-C2-0.jpeg  used on input line 1850.
+(pdftex.def)             Requested size: 227.62206pt x 73.94815pt.
+<imm/Screenshot 2026-03-30 alle 09.32.43.png, id=950, 292.09125pt x 130.4875pt>
 File: imm/Screenshot 2026-03-30 alle 09.32.43.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.32.43.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.32.43.png  used on input line 1873.
-(pdftex.def)             Requested size: 227.62206pt x 101.69023pt.
+(pdftex.def)             Requested size: 200.30852pt x 89.48692pt.
+<imm/Screenshot 2026-03-30 alle 09.32.52.png, id=951, 329.23pt x 120.45pt>
+File: imm/Screenshot 2026-03-30 alle 09.32.52.png Graphic file (type png)
+<use imm/Screenshot 2026-03-30 alle 09.32.52.png>
+Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.32.52.png  used on input line 1877.
+(pdftex.def)             Requested size: 245.82875pt x 89.93843pt.
 
 
 [45
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1875 
-       
+l.1881               \item A
+                             \emph{backward residual edge} $e^R = (v, u)$ wi...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1875 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1875 
-        </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4C88-8821-02-0.jpeg> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-02 alle 20.01.14.png>]
-<imm/Screenshot 2026-03-30 alle 09.32.52.png, id=962, 329.23pt x 120.45pt>
-File: imm/Screenshot 2026-03-30 alle 09.32.52.png Graphic file (type png)
-<use imm/Screenshot 2026-03-30 alle 09.32.52.png>
-Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.32.52.png  used on input line 1878.
-(pdftex.def)             Requested size: 227.62206pt x 83.27782pt.
-<imm/Screenshot 2026-03-30 alle 09.33.50.png, id=963, 338.26375pt x 212.795pt>
+l.1881               \item A
+                             \emph{backward residual edge} $e^R = (v, u)$ wi... </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-46B2-83B7-C2-0.jpeg>]
+<imm/Screenshot 2026-03-30 alle 09.33.50.png, id=960, 338.26375pt x 212.795pt>
 File: imm/Screenshot 2026-03-30 alle 09.33.50.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.33.50.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.33.50.png  used on input line 1930.
 (pdftex.def)             Requested size: 227.62206pt x 143.19531pt.
-
-
-[46
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1933 
-        </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png>]
-<imm/Screenshot 2026-03-30 alle 09.35.20.png, id=973, 419.5675pt x 271.0125pt>
+<imm/Screenshot 2026-03-30 alle 09.35.20.png, id=961, 419.5675pt x 271.0125pt>
 File: imm/Screenshot 2026-03-30 alle 09.35.20.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.35.20.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.35.20.png  used on input line 1939.
 (pdftex.def)             Requested size: 227.62206pt x 147.02689pt.
-<imm/Screenshot 2026-03-30 alle 08.57.26.png, id=974, 465.74pt x 157.58875pt>
+
+
+[46
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1941 
+        </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png>]
+<imm/Screenshot 2026-03-30 alle 08.57.26.png, id=972, 465.74pt x 157.58875pt>
 File: imm/Screenshot 2026-03-30 alle 08.57.26.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 08.57.26.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 08.57.26.png  used on input line 1945.
 (pdftex.def)             Requested size: 227.62206pt x 77.01717pt.
+<imm/Screenshot 2026-04-14 alle 15.30.02.png, id=973, 463.7325pt x 157.58875pt>
+File: imm/Screenshot 2026-04-14 alle 15.30.02.png Graphic file (type png)
+<use imm/Screenshot 2026-04-14 alle 15.30.02.png>
+Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 15.30.02.png  used on input line 1962.
+(pdftex.def)             Requested size: 227.62206pt x 77.3538pt.
 
 
-[47 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png>]
-<imm/Screenshot 2026-03-30 alle 09.37.37.png, id=987, 479.7925pt x 174.6525pt>
+[47 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 15.30.02.png>]
+<imm/Screenshot 2026-03-30 alle 09.37.37.png, id=986, 479.7925pt x 174.6525pt>
 File: imm/Screenshot 2026-03-30 alle 09.37.37.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.37.37.png>
-Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.37.37.png  used on input line 1988.
+Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.37.37.png  used on input line 1990.
 (pdftex.def)             Requested size: 227.62206pt x 82.85953pt.
 
 
@@ -1099,9 +1094,7 @@ Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.37.37.png  used on in
 
 [49]
 
-[50]
-
-[51] (/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux)
+[50] (/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1110,18 +1103,18 @@ Package rerunfilecheck Info: File `notes.out' has not changed.
 (rerunfilecheck)             Checksum: F4317B9555DDCE7D0AA5D403C04F506C;18067.
  ) 
 Here is how much of TeX's memory you used:
- 24653 strings out of 474662
- 451254 string characters out of 5751108
+ 24651 strings out of 474662
+ 451237 string characters out of 5751108
  1009775 words of memory out of 5000000
  46963 multiletter control sequences out of 15000+600000
  584549 words of font info for 101 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  84i,12n,87p,648b,2052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" (52 pages, 3990054 bytes).
+Output written on "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" (51 pages, 3645049 bytes).
 PDF statistics:
- 1217 PDF objects out of 1440 (max. 8388607)
- 1011 compressed objects within 11 object streams
- 334 named destinations out of 1000 (max. 500000)
+ 1212 PDF objects out of 1440 (max. 8388607)
+ 1007 compressed objects within 11 object streams
+ 332 named destinations out of 1000 (max. 500000)
  1030 words of extra memory for PDF output out of 10000 (max. 10000000)
 

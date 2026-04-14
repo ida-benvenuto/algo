@@ -1788,6 +1788,7 @@ non-negative capacity to each edge.
     \begin{itemize}
         \item \textbf{Capacity constraint}: For every edge $e \in E$,
               $0 \leq f(e) \leq c(e)$.
+              un arco non può trasportare più del suo limite di capacità.
         \item \textbf{Flow conservation}: For every vertex $v \in V \setminus
               \{s, t\}$, the total flow into $v$ equals the total flow out of
               $v$:
@@ -1796,6 +1797,8 @@ non-negative capacity to each edge.
                   \;=\;
                   \sum_{\substack{e \,=\, (v,w) \\ (v,w) \in E}} f(e).
               \]
+                un nodo che non è né la sorgente né il pozzo non può accumulare
+                flusso, quindi tutto quello che entra deve uscire.
     \end{itemize}
 \end{definition}
 
@@ -1838,18 +1841,13 @@ saturating some edges blocks all remaining paths from $s$ to $t$, even
 when additional flow could theoretically be routed differently.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{imm/Immagine JPEG-4C88-8821-02-0.jpeg}
-    \caption{}
-\end{figure}
-\begin{figure}[H]
-    \centering
     \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.21.45.png}
     \caption{Along the augmenting path s→2→4→t, the bottleneck is 8 (limited by edge 2→4, capacity 8), bringing the total flow to 8. Edge s→2 still has 10 $-$ 8 = 2 units of residual capacity, which are routed along path s→2→3→4→t through edge 2→3 (capacity 2), saturating s→2 and raising the total flow to 10. Finally, the augmenting path s→3→4→5→t has bottleneck 6, yielding a total flow of 10 + 6 = 16.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-02 alle 20.01.14.png}
+    \includegraphics[width=0.5\textwidth]{imm/Immagine JPEG-46B2-83B7-C2-0.jpeg}
     \caption{}
 \end{figure}
 
@@ -1869,15 +1867,17 @@ Ford-Fulkerson.
               capacity $c_f(e) = c(e) - f(e)$, representing the remaining
               capacity (included only if $c_f(e) > 0$, i.e., $f(e) < c(e)$).
               \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.32.43.png}
-              \end{figure}
-    
-            \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-03-30 alle 09.32.52.png}
-                     \caption{The forward residual edge from $u$ to $v$ has capacity $c(e) - f(e)$.}
-              \end{figure}
+                                \centering
+                                \begin{minipage}{0.44\textwidth}
+                                    \centering
+                                    \includegraphics[width=\textwidth]{imm/Screenshot 2026-03-30 alle 09.32.43.png}
+                                \end{minipage}\hfill
+                                \begin{minipage}{0.54\textwidth}
+                                    \centering
+                                    \includegraphics[width=\textwidth]{imm/Screenshot 2026-03-30 alle 09.32.52.png}
+                                \end{minipage}
+                                \caption{The forward residual edge from $u$ to $v$ has capacity $c(e) - f(e)$.}
+                          \end{figure}
               \item A \emph{backward residual edge} $e^R = (v, u)$ with residual
               capacity $c_f(e^R) = f(e)$, representing the flow that can be
               \emph{cancelled} (included only if $f(e) > 0$).
@@ -1957,7 +1957,10 @@ The bottleneck capacity is 2. Augment along $P_2$:
 \[
     \mathrm{val}(f) = 8 + 2 = 10.
 \]
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-14 alle 15.30.02.png}
+\end{figure}
 \paragraph{Step 3.}
 Find augmenting path $P_3$ with bottleneck capacity 6:
 \[
@@ -1977,7 +1980,6 @@ rerouting it. The bottleneck capacity is 2:
 \[
     \mathrm{val}(f) = 16 + 2 = 18.
 \]
-
 \paragraph{Step 5.}
 One further augmenting path $P_5$ with bottleneck capacity 1:
 \[
@@ -2141,7 +2143,7 @@ algorithm: the algorithm terminates precisely when $f$ is optimal,
 and at that point the set of nodes reachable from $s$ in $G_f$
 defines the corresponding minimum cut.
 
-GGGGGGGGGGGGGGGGGGGGGG\subsection*{Running Time}
+\subsection*{Running Time}
 
 \paragraph{Assumption}
 All edge capacities are integers between $1$ and $C$.
