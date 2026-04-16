@@ -105,22 +105,24 @@
 \contentsline {paragraph}{Assumption}{50}{section*.14}%
 \contentsline {section}{\numberline {5.5}Capacity-Scaling Algorithm}{51}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Shortest Augmenting Paths}{52}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Unit-Capacity Simple Networks}{52}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Bipartite Matching}{53}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Reduction to Max Flow}{53}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}Perfect Matching and Hall's Theorem}{53}{subsection.5.8.2}%
-\contentsline {subsection}{\numberline {5.8.3}Edge-Disjoint Paths}{53}{subsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.8.4}Reduction to Max Flow}{53}{subsection.5.8.4}%
-\contentsline {subsection}{\numberline {5.8.5}Circulation with Demands}{54}{subsection.5.8.5}%
-\contentsline {subsection}{\numberline {5.8.6}Reduction to Max Flow}{54}{subsection.5.8.6}%
-\contentsline {subsection}{\numberline {5.8.7}Lower Bounds}{54}{subsection.5.8.7}%
-\contentsline {section}{\numberline {5.9}Survey Design}{54}{section.5.9}%
-\contentsline {section}{\numberline {5.10}Airline Scheduling}{55}{section.5.10}%
-\contentsline {subsection}{\numberline {5.10.1}Project Selection}{55}{subsection.5.10.1}%
-\contentsline {chapter}{\numberline {6} exercises on Network Flow}{56}{chapter.6}%
-\contentsline {paragraph}{Construction of $G'$.}{56}{section*.25}%
-\contentsline {paragraph}{Construction of $G''$.}{57}{section*.27}%
-\contentsline {paragraph}{Key Observation.}{58}{section*.30}%
-\contentsline {paragraph}{Construction of the Flow Network $G'$.}{59}{section*.31}%
-\contentsline {paragraph}{Algorithm.}{59}{section*.32}%
-\contentsline {paragraph}{Correctness.}{59}{section*.33}%
+\contentsline {subsection}{\numberline {5.6.1}Level Graph}{52}{subsection.5.6.1}%
+\contentsline {paragraph}{Remark.}{53}{section*.20}%
+\contentsline {section}{\numberline {5.7}Unit-Capacity Simple Networks}{54}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Bipartite Matching}{54}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Reduction to Max Flow}{54}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Perfect Matching and Hall's Theorem}{55}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Edge-Disjoint Paths}{55}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}Reduction to Max Flow}{55}{subsection.5.8.4}%
+\contentsline {subsection}{\numberline {5.8.5}Circulation with Demands}{55}{subsection.5.8.5}%
+\contentsline {subsection}{\numberline {5.8.6}Reduction to Max Flow}{55}{subsection.5.8.6}%
+\contentsline {subsection}{\numberline {5.8.7}Lower Bounds}{56}{subsection.5.8.7}%
+\contentsline {section}{\numberline {5.9}Survey Design}{56}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Airline Scheduling}{56}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Project Selection}{56}{subsection.5.10.1}%
+\contentsline {chapter}{\numberline {6} exercises on Network Flow}{58}{chapter.6}%
+\contentsline {paragraph}{Construction of $G'$.}{58}{section*.25}%
+\contentsline {paragraph}{Construction of $G''$.}{59}{section*.27}%
+\contentsline {paragraph}{Key Observation.}{60}{section*.30}%
+\contentsline {paragraph}{Construction of the Flow Network $G'$.}{61}{section*.31}%
+\contentsline {paragraph}{Algorithm.}{61}{section*.32}%
+\contentsline {paragraph}{Correctness.}{61}{section*.33}%

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1776348399.868 "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" "notes" 1776348402.64448 0
+["pdflatex"] 1776352259.4959 "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" "notes" 1776352262.67259 0
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png" 1776166565.05745 126438 4b88e759dbceb2e85f83e23d616ac570 ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg" 1776166565.05843 147736 91873e7e528853b70caa73ad8afe21bb ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4101-9BE8-E1-0.jpeg" 1776347407.93889 258007 68e4fec57330f8e5616924b3f7e943d6 ""
@@ -48,11 +48,16 @@
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 14.10.03.png" 1776168605.89102 18617 69d810652d8af7106cbe2d236eb59310 ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 15.30.02.png" 1776173403.80238 32799 fcaea6cc93310689e194db5113720a05 ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 14.31.29.png" 1776342696.3628 479044 33d3a242f23176528ac375aef7e52009 ""
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 16.50.23.png" 1776351025.57217 117647 c6b8584a83d1f7b0b9da07d9e9b1e68a ""
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 16.54.45.png" 1776351287.89183 102188 a0c245b73372ee8ee2b9c45e1b2c6371 ""
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 16.59.49.png" 1776351590.9962 89663 8852bdf055e8388ff7147a820934cdce ""
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 17.04.11.png" 1776351852.73874 92969 56d2a91508628f09c55d4e0579828abd ""
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 17.10.20.png" 1776352222.00248 90881 d3ee244ab8e159fc48b1b70b438b79ce ""
   "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png" 1776166565.11911 80013 418e5f834f745325a9c2f1d20b606a6b ""
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux" 1776348402.50654 19148 750931ad9af017b7cc84e0e33023d7f7 "pdflatex"
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out" 1776348402.50835 20663 f46a94de9182991dd15e67b19e412eef "pdflatex"
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" 1776348396.71928 104755 b0d2ff405c447ac422439b831d7107a0 ""
-  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc" 1776348402.5086 11105 0e293a1a5bd7c80cc6ca9532eced00cc "pdflatex"
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux" 1776352262.5159 19365 0d15e43827f45ca360f921ddea623de0 "pdflatex"
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.out" 1776352262.51756 20784 da1952b9cbc42d62f3b7094c590592dd "pdflatex"
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.tex" 1776352259.18194 106298 b34362b3e8b64c20389a3b28784bcc81 ""
+  "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.toc" 1776352262.51801 11240 e15c9b8c1ed4ee66310071fc6d8ee6e8 "pdflatex"
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbi1200.tfm" 1136768653 3072 ccae1a240ab272417e4399fe942df546 ""

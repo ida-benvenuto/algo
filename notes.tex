@@ -2210,7 +2210,10 @@ All edge capacities are integers between $1$ and $C$.
 The basic Ford-Fulkerson algorithm can be very slow if it picks augmenting
 paths with small bottleneck capacity. The \textbf{capacity-scaling algorithm}
 fixes this by always working with large-capacity paths first.
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 16.50.23.png}
+\end{figure}
 \subsubsection*{Key Idea}
 
 Instead of using the full residual graph, we work on a restricted subgraph
@@ -2218,17 +2221,10 @@ $G_f(\Delta)$ that contains only edges with residual capacity $\geq \Delta$.
 We start with $\Delta$ equal to the largest power of 2 that is $\leq C$
 (the maximum capacity), and we halve $\Delta$ at each phase.
 
-\begin{verbatim}
-CAPACITY-SCALING(G, s, t, c):
-  f(e) = 0 for all edges e
-  Delta = largest power of 2 <= C
-  WHILE Delta >= 1:
-    WHILE there exists augmenting path P in G_f(Delta):
-      f = AUGMENT(f, c, P)
-      Update G_f(Delta)
-    Delta = Delta / 2
-  RETURN f
-\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imm/Screenshot 2026-04-16 alle 16.54.45.png}
+\end{figure}
 
 \subsubsection*{Correctness}
 
@@ -2272,42 +2268,70 @@ edge from $A$ to $B$ has residual capacity $< \Delta$, so:
 Another way to improve Ford-Fulkerson is to always pick the augmenting path
 with the \textbf{fewest edges}, found using BFS.
 
-\begin{verbatim}
-SHORTEST-AUGMENTING-PATH(G, s, t, c):
-  f(e) = 0 for all edges e
-  WHILE there exists augmenting path in G_f:
-    P = BFS(G_f, s, t)
-    f = AUGMENT(f, c, P)
-    Update G_f
-  RETURN f
-\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-04-16 alle 16.59.49.png}
+\end{figure}
 
-\subsubsection*{Level Graph}
+\subsection{Level Graph}
 
 The \textbf{level graph} $L_G$ of a graph $G$ assigns to each node $v$ a
 level $\ell(v)$ equal to the number of edges in the shortest path from $s$
 to $v$. It contains only edges $(v, w)$ where $\ell(w) = \ell(v) + 1$.
 
 A path is a shortest $s$-$v$ path in $G$ if and only if it is a path in
-$L_G$.
+$L_G$. The level graph can be computed in $O(m + n)$ time by running BFS
+and deleting all backward and side edges.
 
-\subsubsection*{Analysis}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 17.04.11.png}
+\end{figure}\subsection*{Analysis}
 
 \begin{itemize}
-    \item \textbf{L1.} The length of the shortest augmenting path never
-    decreases. When we augment along a shortest path, any new edge added to
-    the residual graph goes \emph{backwards}, which can only increase the
-    shortest path length.
-    \item \textbf{L2.} After at most $m$ augmentations at the same length,
-    the shortest path strictly increases. Each augmentation saturates at
-    least one edge (the bottleneck), which is then removed from $L_G$. No
-    new edge is added to $L_G$ until the length increases.
+    \item \textbf{L1. The shortest path length never decreases.}
+    Let $f$ and $f'$ be the flows before and after an augmentation, and
+    let $L$, $L'$ be the corresponding level graphs. When we augment along
+    a shortest path, the only new edges added to $G_{f'}$ are
+    \emph{backward} edges (reversals of edges used). A backward edge
+    $(w, v)$ goes from a higher level to a lower level, so any path using
+    it is strictly longer than the current shortest path. Therefore the
+    shortest path length in $G_{f'}$ is at least that in $G_f$.
+
+    \item \textbf{L2. After at most $m$ augmentations, the shortest path
+    strictly increases.}
+    Each augmentation saturates at least one edge --- the bottleneck ---
+    which is then removed from $L_G$. The only new edges added to $L_G$
+    are backward edges, which go in the wrong direction and cannot be part
+    of a shortest path of the same length. Therefore, after at most $m$
+    augmentations, all edges at the current length are exhausted and the
+    shortest path must strictly increase.
 \end{itemize}
 
 \begin{theorem}
-The shortest augmenting path algorithm runs in $O(m^2 n)$ time: $O(m+n)$
-per BFS, $O(m)$ augmentations at each of the $O(n)$ possible path lengths.
+The shortest augmenting path algorithm runs in $O(m^2 n)$ time.
 \end{theorem}
+
+\begin{proof}
+\begin{itemize}
+    \item Each BFS to find a shortest augmenting path takes $O(m + n)$
+    time.
+    \item By L2, there are at most $m$ augmentations for each fixed path
+    length.
+    \item By L1, the path length can increase at most $n - 1$ times
+    (it starts at 1 and is at most $n - 1$).
+    \item Total augmentations: $O(m \cdot n)$.
+    \item Total time: $O(mn) \cdot O(m + n) = O(m^2 n)$.
+\end{itemize}
+\end{proof}
+
+\paragraph{Remark.}
+The bound $O(m^2 n)$ can be improved. By explicitly maintaining the level
+graph and processing all augmentations at the same length together
+(\textbf{blocking flow}), one phase takes $O(mn)$ time instead of $O(m^2)$,
+giving \textbf{Dinic's algorithm} with total running time $O(mn^2)$.
+Using dynamic trees (Sleator--Tarjan, 1983), this further improves to
+$O(mn \log n)$.
 
 %------------------------------------------------------------
 \section{Unit-Capacity Simple Networks}
@@ -2315,7 +2339,10 @@ per BFS, $O(m)$ augmentations at each of the $O(n)$ possible path lengths.
 A network is \textbf{unit-capacity simple} if every edge has capacity 1, and
 every non-source, non-sink node has either at most one entering edge or at
 most one leaving edge. Bipartite matching graphs are an important example.
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 17.10.20.png}
+\end{figure}
 \subsubsection*{Faster Analysis for This Special Case}
 
 \begin{theorem}[Even--Tarjan, 1975]

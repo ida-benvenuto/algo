@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.15)  16 APR 2026 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.15)  16 APR 2026 17:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -658,7 +658,7 @@ Overfull \hbox (30.60829pt too wide) in paragraph at lines 80--90
  [] 
  []
 
-<imm/O-grande.png, id=615, 216.81pt x 181.67876pt>
+<imm/O-grande.png, id=620, 216.81pt x 181.67876pt>
 File: imm/O-grande.png Graphic file (type png)
 <use imm/O-grande.png>
 Package pdftex.def Info: imm/O-grande.png  used on input line 114.
@@ -677,12 +677,12 @@ Package pdftex.def Info: imm/O-grande.png  used on input line 114.
 
 [10]
 Chapter 2.
-<imm/counterexample.png, id=655, 441.65pt x 450.68375pt>
+<imm/counterexample.png, id=660, 441.65pt x 450.68375pt>
 File: imm/counterexample.png Graphic file (type png)
 <use imm/counterexample.png>
 Package pdftex.def Info: imm/counterexample.png  used on input line 424.
 (pdftex.def)             Requested size: 182.09486pt x 185.81993pt.
-<imm/E_F_T_F.png, id=656, 557.08125pt x 311.1625pt>
+<imm/E_F_T_F.png, id=661, 557.08125pt x 311.1625pt>
 File: imm/E_F_T_F.png Graphic file (type png)
 <use imm/E_F_T_F.png>
 Package pdftex.def Info: imm/E_F_T_F.png  used on input line 431.
@@ -692,12 +692,12 @@ Package pdftex.def Info: imm/E_F_T_F.png  used on input line 431.
 [11
 
  </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/counterexample.png>]
-<imm/Immagine JPEG-4835-9E45-EC-0.jpeg, id=666, 1978.39125pt x 1003.75pt>
+<imm/Immagine JPEG-4835-9E45-EC-0.jpeg, id=671, 1978.39125pt x 1003.75pt>
 File: imm/Immagine JPEG-4835-9E45-EC-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-4835-9E45-EC-0.jpeg>
 Package pdftex.def Info: imm/Immagine JPEG-4835-9E45-EC-0.jpeg  used on input line 437.
 (pdftex.def)             Requested size: 136.57462pt x 69.28944pt.
-<imm/Screenshot 2026-03-02 alle 19.14.47.png, id=667, 1310.8975pt x 448.67625pt>
+<imm/Screenshot 2026-03-02 alle 19.14.47.png, id=672, 1310.8975pt x 448.67625pt>
 File: imm/Screenshot 2026-03-02 alle 19.14.47.png Graphic file (type png)
 <use imm/Screenshot 2026-03-02 alle 19.14.47.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-02 alle 19.14.47.png  used on input line 466.
@@ -705,17 +705,17 @@ Package pdftex.def Info: imm/Screenshot 2026-03-02 alle 19.14.47.png  used on in
 
 
 [12 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/E_F_T_F.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4835-9E45-EC-0.jpeg> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.14.47.png>]
-<imm/Screenshot 2026-03-02 alle 19.17.29.png, id=679, 1217.54875pt x 334.24875pt>
+<imm/Screenshot 2026-03-02 alle 19.17.29.png, id=684, 1217.54875pt x 334.24875pt>
 File: imm/Screenshot 2026-03-02 alle 19.17.29.png Graphic file (type png)
 <use imm/Screenshot 2026-03-02 alle 19.17.29.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-02 alle 19.17.29.png  used on input line 482.
 (pdftex.def)             Requested size: 318.66948pt x 87.48404pt.
-<imm/Screenshot 2026-03-02 alle 19.21.30.png, id=680, 1171.37625pt x 328.22626pt>
+<imm/Screenshot 2026-03-02 alle 19.21.30.png, id=685, 1171.37625pt x 328.22626pt>
 File: imm/Screenshot 2026-03-02 alle 19.21.30.png Graphic file (type png)
 <use imm/Screenshot 2026-03-02 alle 19.21.30.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-02 alle 19.21.30.png  used on input line 494.
 (pdftex.def)             Requested size: 318.66948pt x 89.29338pt.
-<imm/Screenshot 2026-03-02 alle 19.22.41.png, id=681, 848.16875pt x 635.37375pt>
+<imm/Screenshot 2026-03-02 alle 19.22.41.png, id=686, 848.16875pt x 635.37375pt>
 File: imm/Screenshot 2026-03-02 alle 19.22.41.png Graphic file (type png)
 <use imm/Screenshot 2026-03-02 alle 19.22.41.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-02 alle 19.22.41.png  used on input line 504.
@@ -725,17 +725,17 @@ Package pdftex.def Info: imm/Screenshot 2026-03-02 alle 19.22.41.png  used on in
 [13 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.17.29.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.21.30.png>]
 
 [14 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-02 alle 19.22.41.png>]
-<imm/Screenshot 2026-03-05 alle 13.00.49.png, id=695, 987.69pt x 341.275pt>
+<imm/Screenshot 2026-03-05 alle 13.00.49.png, id=700, 987.69pt x 341.275pt>
 File: imm/Screenshot 2026-03-05 alle 13.00.49.png Graphic file (type png)
 <use imm/Screenshot 2026-03-05 alle 13.00.49.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-05 alle 13.00.49.png  used on input line 546.
 (pdftex.def)             Requested size: 409.71692pt x 141.56398pt.
-<imm/Immagine JPEG-4277-B732-48-0.jpeg, id=696, 1603.9925pt x 1003.75pt>
+<imm/Immagine JPEG-4277-B732-48-0.jpeg, id=701, 1603.9925pt x 1003.75pt>
 File: imm/Immagine JPEG-4277-B732-48-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-4277-B732-48-0.jpeg>
 Package pdftex.def Info: imm/Immagine JPEG-4277-B732-48-0.jpeg  used on input line 559.
 (pdftex.def)             Requested size: 227.62206pt x 142.43854pt.
-<imm/Screenshot 2026-03-05 alle 13.13.53.png, id=697, 772.8875pt x 478.78876pt>
+<imm/Screenshot 2026-03-05 alle 13.13.53.png, id=702, 772.8875pt x 478.78876pt>
 File: imm/Screenshot 2026-03-05 alle 13.13.53.png Graphic file (type png)
 <use imm/Screenshot 2026-03-05 alle 13.13.53.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-05 alle 13.13.53.png  used on input line 567.
@@ -748,7 +748,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) h
                                                   \__shipout_drop_firstpage_...
 l.569 
        </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-05 alle 13.00.49.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4277-B732-48-0.jpeg>]
-<imm/Screenshot 2026-03-05 alle 13.23.42.png, id=707, 624.3325pt x 168.63pt>
+<imm/Screenshot 2026-03-05 alle 13.23.42.png, id=712, 624.3325pt x 168.63pt>
 File: imm/Screenshot 2026-03-05 alle 13.23.42.png Graphic file (type png)
 <use imm/Screenshot 2026-03-05 alle 13.23.42.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-05 alle 13.23.42.png  used on input line 576.
@@ -759,7 +759,7 @@ Package pdftex.def Info: imm/Screenshot 2026-03-05 alle 13.23.42.png  used on in
 
 [17]
 Chapter 3.
-<imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg, id=730, 1695.33376pt x 1002.74625pt>
+<imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg, id=735, 1695.33376pt x 1002.74625pt>
 File: imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg>
 Package pdftex.def Info: imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg  used on input line 692.
@@ -769,12 +769,12 @@ Package pdftex.def Info: imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg  used on input li
 [18
 
  </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-40DA-B0D9-F4-0.jpeg>]
-<imm/Screenshot 2026-03-12 alle 12.22.06.png, id=739, 687.56876pt x 364.36125pt>
+<imm/Screenshot 2026-03-12 alle 12.22.06.png, id=744, 687.56876pt x 364.36125pt>
 File: imm/Screenshot 2026-03-12 alle 12.22.06.png Graphic file (type png)
 <use imm/Screenshot 2026-03-12 alle 12.22.06.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-12 alle 12.22.06.png  used on input line 715.
 (pdftex.def)             Requested size: 318.66948pt x 168.87025pt.
-<imm/Screenshot 2026-03-12 alle 12.29.45.png, id=740, 445.665pt x 187.70125pt>
+<imm/Screenshot 2026-03-12 alle 12.29.45.png, id=745, 445.665pt x 187.70125pt>
 File: imm/Screenshot 2026-03-12 alle 12.29.45.png Graphic file (type png)
 <use imm/Screenshot 2026-03-12 alle 12.29.45.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-12 alle 12.29.45.png  used on input line 745.
@@ -782,12 +782,12 @@ Package pdftex.def Info: imm/Screenshot 2026-03-12 alle 12.29.45.png  used on in
 
 
 [19 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.22.06.png>]
-<imm/Screenshot 2026-03-12 alle 12.35.59.png, id=750, 685.56125pt x 232.87pt>
+<imm/Screenshot 2026-03-12 alle 12.35.59.png, id=755, 685.56125pt x 232.87pt>
 File: imm/Screenshot 2026-03-12 alle 12.35.59.png Graphic file (type png)
 <use imm/Screenshot 2026-03-12 alle 12.35.59.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-12 alle 12.35.59.png  used on input line 755.
 (pdftex.def)             Requested size: 409.71692pt x 139.17586pt.
-<imm/Screenshot 2026-03-12 alle 12.36.37.png, id=751, 610.28pt x 347.2975pt>
+<imm/Screenshot 2026-03-12 alle 12.36.37.png, id=756, 610.28pt x 347.2975pt>
 File: imm/Screenshot 2026-03-12 alle 12.36.37.png Graphic file (type png)
 <use imm/Screenshot 2026-03-12 alle 12.36.37.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-12 alle 12.36.37.png  used on input line 764.
@@ -795,12 +795,12 @@ Package pdftex.def Info: imm/Screenshot 2026-03-12 alle 12.36.37.png  used on in
 
 
 [20 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.29.45.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-12 alle 12.35.59.png>]
-<imm/Screenshot 2026-03-17 alle 17.51.54.png, id=758, 417.56pt x 202.7575pt>
+<imm/Screenshot 2026-03-17 alle 17.51.54.png, id=763, 417.56pt x 202.7575pt>
 File: imm/Screenshot 2026-03-17 alle 17.51.54.png Graphic file (type png)
 <use imm/Screenshot 2026-03-17 alle 17.51.54.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-17 alle 17.51.54.png  used on input line 788.
 (pdftex.def)             Requested size: 409.71692pt x 198.96088pt.
-<imm/Screenshot 2026-03-17 alle 18.04.43.png, id=759, 414.54875pt x 202.7575pt>
+<imm/Screenshot 2026-03-17 alle 18.04.43.png, id=764, 414.54875pt x 202.7575pt>
 File: imm/Screenshot 2026-03-17 alle 18.04.43.png Graphic file (type png)
 <use imm/Screenshot 2026-03-17 alle 18.04.43.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-17 alle 18.04.43.png  used on input line 800.
@@ -814,7 +814,7 @@ Overfull \hbox (41.20866pt too wide) detected at line 906
 \OML/cmm/m/it/12 OPT\OT1/cmr/m/n/12 (3) = []\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 e[] \OT1/cmr/m/n/12 + 1 + \OML/cmm/m/it/12 OPT\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 ;  e[] \OT1/cmr/m/n/12 + 1 + \OML/cmm/m/it/12 OPT\OT1/cmr/m/n/12 (1)\OML/cmm/m/it/12 ;  e[] \OT1/cmr/m/n/12 + 1 + \OML/cmm/m/it/12 OPT\OT1/cmr/m/n/12 (2)\OMS/cmsy/m/n/12 g \OT1/cmr/m/n/12 = []\OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ;  \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ;  \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OMS/cmsy/m/n/12 g \OT1/cmr/m/n/12 = 2\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ;
  []
 
-<imm/Screenshot 2026-03-17 alle 18.06.31.png, id=774, 572.1375pt x 315.1775pt>
+<imm/Screenshot 2026-03-17 alle 18.06.31.png, id=779, 572.1375pt x 315.1775pt>
 File: imm/Screenshot 2026-03-17 alle 18.06.31.png Graphic file (type png)
 <use imm/Screenshot 2026-03-17 alle 18.06.31.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-17 alle 18.06.31.png  used on input line 919.
@@ -824,12 +824,12 @@ Package pdftex.def Info: imm/Screenshot 2026-03-17 alle 18.06.31.png  used on in
 [23]
 
 [24 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-17 alle 18.06.31.png>]
-<imm/Screenshot 2026-03-16 alle 08.49.41.png, id=788, 615.29875pt x 324.21124pt>
+<imm/Screenshot 2026-03-16 alle 08.49.41.png, id=793, 615.29875pt x 324.21124pt>
 File: imm/Screenshot 2026-03-16 alle 08.49.41.png Graphic file (type png)
 <use imm/Screenshot 2026-03-16 alle 08.49.41.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 08.49.41.png  used on input line 1000.
 (pdftex.def)             Requested size: 409.71692pt x 215.88965pt.
-<imm/Screenshot 2026-03-16 alle 08.55.17.png, id=789, 700.6175pt x 566.115pt>
+<imm/Screenshot 2026-03-16 alle 08.55.17.png, id=794, 700.6175pt x 566.115pt>
 File: imm/Screenshot 2026-03-16 alle 08.55.17.png Graphic file (type png)
 <use imm/Screenshot 2026-03-16 alle 08.55.17.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 08.55.17.png  used on input line 1007.
@@ -837,7 +837,7 @@ Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 08.55.17.png  used on in
 
 
 [25 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.49.41.png>]
-<imm/Screenshot 2026-03-16 alle 09.58.55.png, id=798, 725.71124pt x 321.2pt>
+<imm/Screenshot 2026-03-16 alle 09.58.55.png, id=803, 725.71124pt x 321.2pt>
 File: imm/Screenshot 2026-03-16 alle 09.58.55.png Graphic file (type png)
 <use imm/Screenshot 2026-03-16 alle 09.58.55.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 09.58.55.png  used on input line 1047.
@@ -845,12 +845,12 @@ Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 09.58.55.png  used on in
 
 
 [26 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 08.55.17.png>]
-<imm/Screenshot 2026-03-16 alle 10.03.50.png, id=805, 393.47pt x 134.5025pt>
+<imm/Screenshot 2026-03-16 alle 10.03.50.png, id=810, 393.47pt x 134.5025pt>
 File: imm/Screenshot 2026-03-16 alle 10.03.50.png Graphic file (type png)
 <use imm/Screenshot 2026-03-16 alle 10.03.50.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 10.03.50.png  used on input line 1058.
 (pdftex.def)             Requested size: 227.62206pt x 77.8083pt.
-<imm/Screenshot 2026-03-16 alle 10.11.11.png, id=806, 385.44pt x 220.825pt>
+<imm/Screenshot 2026-03-16 alle 10.11.11.png, id=811, 385.44pt x 220.825pt>
 File: imm/Screenshot 2026-03-16 alle 10.11.11.png Graphic file (type png)
 <use imm/Screenshot 2026-03-16 alle 10.11.11.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 10.11.11.png  used on input line 1084.
@@ -867,7 +867,7 @@ Overfull \hbox (44.49422pt too wide) detected at line 1115
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 i; j\OT1/cmr/m/n/12 ) = []
  []
 
-<imm/Screenshot 2026-03-16 alle 10.16.56.png, id=817, 463.7325pt x 428.60126pt>
+<imm/Screenshot 2026-03-16 alle 10.16.56.png, id=822, 463.7325pt x 428.60126pt>
 File: imm/Screenshot 2026-03-16 alle 10.16.56.png Graphic file (type png)
 <use imm/Screenshot 2026-03-16 alle 10.16.56.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 10.16.56.png  used on input line 1121.
@@ -875,7 +875,7 @@ Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 10.16.56.png  used on in
 
 
 [28 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.16.56.png>]
-<imm/Screenshot 2026-03-16 alle 10.24.13.png, id=827, 650.43pt x 351.3125pt>
+<imm/Screenshot 2026-03-16 alle 10.24.13.png, id=832, 650.43pt x 351.3125pt>
 File: imm/Screenshot 2026-03-16 alle 10.24.13.png Graphic file (type png)
 <use imm/Screenshot 2026-03-16 alle 10.24.13.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-16 alle 10.24.13.png  used on input line 1152.
@@ -888,12 +888,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) h
                                                   \__shipout_drop_firstpage_...
 l.1164 \[
           </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-16 alle 10.24.13.png>]
-<imm/Screenshot 2026-04-14 alle 13.46.24.png, id=838, 446.66875pt x 238.8925pt>
+<imm/Screenshot 2026-04-14 alle 13.46.24.png, id=843, 446.66875pt x 238.8925pt>
 File: imm/Screenshot 2026-04-14 alle 13.46.24.png Graphic file (type png)
 <use imm/Screenshot 2026-04-14 alle 13.46.24.png>
 Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 13.46.24.png  used on input line 1186.
 (pdftex.def)             Requested size: 273.14923pt x 146.09236pt.
-<imm/Screenshot 2026-04-14 alle 13.52.49.png, id=839, 484.81125pt x 290.08376pt>
+<imm/Screenshot 2026-04-14 alle 13.52.49.png, id=844, 484.81125pt x 290.08376pt>
 File: imm/Screenshot 2026-04-14 alle 13.52.49.png Graphic file (type png)
 <use imm/Screenshot 2026-04-14 alle 13.52.49.png>
 Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 13.52.49.png  used on input line 1210.
@@ -903,7 +903,7 @@ Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 13.52.49.png  used on in
 [30 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.46.24.png>]
 
 [31 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 13.52.49.png>]
-<imm/Screenshot 2026-04-14 alle 14.08.28.png, id=858, 458.71375pt x 241.90375pt>
+<imm/Screenshot 2026-04-14 alle 14.08.28.png, id=863, 458.71375pt x 241.90375pt>
 File: imm/Screenshot 2026-04-14 alle 14.08.28.png Graphic file (type png)
 <use imm/Screenshot 2026-04-14 alle 14.08.28.png>
 Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 14.08.28.png  used on input line 1262.
@@ -913,7 +913,7 @@ Overfull \hbox (7.02888pt too wide) in paragraph at lines 1271--1272
 [][]\T1/cmr/bx/n/12 Definition 15 \T1/cmr/m/n/12 (Neg-a-tive cy-cle)\T1/cmr/bx/n/12 . []\T1/cmr/m/it/12 A \T1/cmr/m/n/12 neg-a-tive cy-cle \T1/cmr/m/it/12 is a di-rected cy-cle $\OML/cmm/m/it/12 W$ \T1/cmr/m/it/12 such that $[][] \OML/cmm/m/it/12 c[] <
  []
 
-<imm/Screenshot 2026-04-14 alle 14.10.03.png, id=859, 285.065pt x 149.55875pt>
+<imm/Screenshot 2026-04-14 alle 14.10.03.png, id=864, 285.065pt x 149.55875pt>
 File: imm/Screenshot 2026-04-14 alle 14.10.03.png Graphic file (type png)
 <use imm/Screenshot 2026-04-14 alle 14.10.03.png>
 Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 14.10.03.png  used on input line 1275.
@@ -954,7 +954,7 @@ Overfull \hbox (39.37885pt too wide) in paragraph at lines 1526--1538
 
 [37]
 Chapter 4.
-<imm/Immagine JPEG-4E60-AE75-26-0.jpeg, id=927, 3006.23125pt x 1003.75pt>
+<imm/Immagine JPEG-4E60-AE75-26-0.jpeg, id=932, 3006.23125pt x 1003.75pt>
 File: imm/Immagine JPEG-4E60-AE75-26-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-4E60-AE75-26-0.jpeg>
 Package pdftex.def Info: imm/Immagine JPEG-4E60-AE75-26-0.jpeg  used on input line 1565.
@@ -964,7 +964,7 @@ Package pdftex.def Info: imm/Immagine JPEG-4E60-AE75-26-0.jpeg  used on input li
 [38
 
  </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4E60-AE75-26-0.jpeg>]
-<imm/Immagine JPEG-4577-94E5-C9-0.jpeg, id=932, 4015.0pt x 832.10875pt>
+<imm/Immagine JPEG-4577-94E5-C9-0.jpeg, id=937, 4015.0pt x 832.10875pt>
 File: imm/Immagine JPEG-4577-94E5-C9-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-4577-94E5-C9-0.jpeg>
 Package pdftex.def Info: imm/Immagine JPEG-4577-94E5-C9-0.jpeg  used on input line 1593.
@@ -981,12 +981,12 @@ Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on in
 
 [42]
 Chapter 5.
-<imm/Screenshot 2026-03-30 alle 08.33.35.png, id=1002, 373.395pt x 232.87pt>
+<imm/Screenshot 2026-03-30 alle 08.33.35.png, id=1007, 373.395pt x 232.87pt>
 File: imm/Screenshot 2026-03-30 alle 08.33.35.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 08.33.35.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 08.33.35.png  used on input line 1760.
 (pdftex.def)             Requested size: 227.62206pt x 141.9581pt.
-<imm/Screenshot 2026-03-30 alle 08.40.26.png, id=1003, 368.37625pt x 182.6825pt>
+<imm/Screenshot 2026-03-30 alle 08.40.26.png, id=1008, 368.37625pt x 182.6825pt>
 File: imm/Screenshot 2026-03-30 alle 08.40.26.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 08.40.26.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 08.40.26.png  used on input line 1782.
@@ -1001,7 +1001,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) h
                                                   \__shipout_drop_firstpage_...
 l.1785 
         </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.33.35.png>]
-<imm/Screenshot 2026-03-30 alle 08.47.19.png, id=1013, 384.43625pt x 166.6225pt>
+<imm/Screenshot 2026-03-30 alle 08.47.19.png, id=1018, 384.43625pt x 166.6225pt>
 File: imm/Screenshot 2026-03-30 alle 08.47.19.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 08.47.19.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 08.47.19.png  used on input line 1817.
@@ -1019,22 +1019,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) h
                                                   \__shipout_drop_firstpage_...
 l.1833     \item R
                   epeat until no such path exists. </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.40.26.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.47.19.png>]
-<imm/Screenshot 2026-03-30 alle 09.21.45.png, id=1024, 458.71375pt x 141.52875pt>
+<imm/Screenshot 2026-03-30 alle 09.21.45.png, id=1029, 458.71375pt x 141.52875pt>
 File: imm/Screenshot 2026-03-30 alle 09.21.45.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.21.45.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.21.45.png  used on input line 1844.
 (pdftex.def)             Requested size: 227.62206pt x 70.22862pt.
-<imm/Immagine JPEG-46B2-83B7-C2-0.jpeg, id=1025, 2066.72125pt x 671.50874pt>
+<imm/Immagine JPEG-46B2-83B7-C2-0.jpeg, id=1030, 2066.72125pt x 671.50874pt>
 File: imm/Immagine JPEG-46B2-83B7-C2-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-46B2-83B7-C2-0.jpeg>
 Package pdftex.def Info: imm/Immagine JPEG-46B2-83B7-C2-0.jpeg  used on input line 1850.
 (pdftex.def)             Requested size: 227.62206pt x 73.94815pt.
-<imm/Screenshot 2026-03-30 alle 09.32.43.png, id=1026, 292.09125pt x 130.4875pt>
+<imm/Screenshot 2026-03-30 alle 09.32.43.png, id=1031, 292.09125pt x 130.4875pt>
 File: imm/Screenshot 2026-03-30 alle 09.32.43.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.32.43.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.32.43.png  used on input line 1873.
 (pdftex.def)             Requested size: 200.30852pt x 89.48692pt.
-<imm/Screenshot 2026-03-30 alle 09.32.52.png, id=1027, 329.23pt x 120.45pt>
+<imm/Screenshot 2026-03-30 alle 09.32.52.png, id=1032, 329.23pt x 120.45pt>
 File: imm/Screenshot 2026-03-30 alle 09.32.52.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.32.52.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.32.52.png  used on input line 1877.
@@ -1052,12 +1052,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5}) h
                                                   \__shipout_drop_firstpage_...
 l.1881               \item A
                              \emph{backward residual edge} $e^R = (v, u)$ wi... </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.21.45.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-46B2-83B7-C2-0.jpeg>]
-<imm/Screenshot 2026-03-30 alle 09.33.50.png, id=1036, 338.26375pt x 212.795pt>
+<imm/Screenshot 2026-03-30 alle 09.33.50.png, id=1041, 338.26375pt x 212.795pt>
 File: imm/Screenshot 2026-03-30 alle 09.33.50.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.33.50.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.33.50.png  used on input line 1930.
 (pdftex.def)             Requested size: 227.62206pt x 143.19531pt.
-<imm/Screenshot 2026-03-30 alle 09.35.20.png, id=1037, 419.5675pt x 271.0125pt>
+<imm/Screenshot 2026-03-30 alle 09.35.20.png, id=1042, 419.5675pt x 271.0125pt>
 File: imm/Screenshot 2026-03-30 alle 09.35.20.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.35.20.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.35.20.png  used on input line 1939.
@@ -1070,12 +1070,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) h
                                                   \__shipout_drop_firstpage_...
 l.1941 
         </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.43.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.32.52.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.33.50.png>]
-<imm/Screenshot 2026-03-30 alle 08.57.26.png, id=1048, 465.74pt x 157.58875pt>
+<imm/Screenshot 2026-03-30 alle 08.57.26.png, id=1053, 465.74pt x 157.58875pt>
 File: imm/Screenshot 2026-03-30 alle 08.57.26.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 08.57.26.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 08.57.26.png  used on input line 1945.
 (pdftex.def)             Requested size: 227.62206pt x 77.01717pt.
-<imm/Screenshot 2026-04-14 alle 15.30.02.png, id=1049, 463.7325pt x 157.58875pt>
+<imm/Screenshot 2026-04-14 alle 15.30.02.png, id=1054, 463.7325pt x 157.58875pt>
 File: imm/Screenshot 2026-04-14 alle 15.30.02.png Graphic file (type png)
 <use imm/Screenshot 2026-04-14 alle 15.30.02.png>
 Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 15.30.02.png  used on input line 1962.
@@ -1083,7 +1083,7 @@ Package pdftex.def Info: imm/Screenshot 2026-04-14 alle 15.30.02.png  used on in
 
 
 [47 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.35.20.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 08.57.26.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-14 alle 15.30.02.png>]
-<imm/Screenshot 2026-03-30 alle 09.37.37.png, id=1061, 479.7925pt x 174.6525pt>
+<imm/Screenshot 2026-03-30 alle 09.37.37.png, id=1066, 479.7925pt x 174.6525pt>
 File: imm/Screenshot 2026-03-30 alle 09.37.37.png Graphic file (type png)
 <use imm/Screenshot 2026-03-30 alle 09.37.37.png>
 Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.37.37.png  used on input line 1990.
@@ -1093,72 +1093,105 @@ Package pdftex.def Info: imm/Screenshot 2026-03-30 alle 09.37.37.png  used on in
 [48 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-03-30 alle 09.37.37.png>]
 
 [49]
+<imm/Screenshot 2026-04-16 alle 16.50.23.png, id=1085, 662.475pt x 419.5675pt>
+File: imm/Screenshot 2026-04-16 alle 16.50.23.png Graphic file (type png)
+<use imm/Screenshot 2026-04-16 alle 16.50.23.png>
+Package pdftex.def Info: imm/Screenshot 2026-04-16 alle 16.50.23.png  used on input line 2215.
+(pdftex.def)             Requested size: 227.62206pt x 144.15555pt.
+
 
 [50]
+<imm/Screenshot 2026-04-16 alle 16.54.45.png, id=1098, 509.905pt x 425.59pt>
+File: imm/Screenshot 2026-04-16 alle 16.54.45.png Graphic file (type png)
+<use imm/Screenshot 2026-04-16 alle 16.54.45.png>
+Package pdftex.def Info: imm/Screenshot 2026-04-16 alle 16.54.45.png  used on input line 2226.
+(pdftex.def)             Requested size: 364.19667pt x 303.98932pt.
 
-[51]
 
-[52]
+[51 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 16.50.23.png> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 16.54.45.png>]
+<imm/Screenshot 2026-04-16 alle 16.59.49.png, id=1107, 479.7925pt x 314.17375pt>
+File: imm/Screenshot 2026-04-16 alle 16.59.49.png Graphic file (type png)
+<use imm/Screenshot 2026-04-16 alle 16.59.49.png>
+Package pdftex.def Info: imm/Screenshot 2026-04-16 alle 16.59.49.png  used on input line 2273.
+(pdftex.def)             Requested size: 318.66948pt x 208.66884pt.
+<imm/Screenshot 2026-04-16 alle 17.04.11.png, id=1108, 618.31pt x 383.4325pt>
+File: imm/Screenshot 2026-04-16 alle 17.04.11.png Graphic file (type png)
+<use imm/Screenshot 2026-04-16 alle 17.04.11.png>
+Package pdftex.def Info: imm/Screenshot 2026-04-16 alle 17.04.11.png  used on input line 2288.
+(pdftex.def)             Requested size: 227.62206pt x 141.154pt.
 
-[53]
 
-[54]
+[52 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 16.59.49.png>]
+<imm/Screenshot 2026-04-16 alle 17.10.20.png, id=1117, 682.55pt x 290.08376pt>
+File: imm/Screenshot 2026-04-16 alle 17.10.20.png Graphic file (type png)
+<use imm/Screenshot 2026-04-16 alle 17.10.20.png>
+Package pdftex.def Info: imm/Screenshot 2026-04-16 alle 17.10.20.png  used on input line 2344.
+(pdftex.def)             Requested size: 227.62206pt x 96.73712pt.
+
+
+[53 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 17.04.11.png>]
+
+[54 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 17.10.20.png>]
 
 [55]
+
+[56]
+
+[57]
 Chapter 6.
-<imm/Screenshot 2026-04-16 alle 14.31.29.png, id=1130, 730.73pt x 465.74pt>
+<imm/Screenshot 2026-04-16 alle 14.31.29.png, id=1153, 730.73pt x 465.74pt>
 File: imm/Screenshot 2026-04-16 alle 14.31.29.png Graphic file (type png)
 <use imm/Screenshot 2026-04-16 alle 14.31.29.png>
-Package pdftex.def Info: imm/Screenshot 2026-04-16 alle 14.31.29.png  used on input line 2511.
+Package pdftex.def Info: imm/Screenshot 2026-04-16 alle 14.31.29.png  used on input line 2538.
 (pdftex.def)             Requested size: 455.24411pt x 290.1558pt.
-<imm/Immagine JPEG-4502-AD33-DC-0.jpeg, id=1131, 1413.28pt x 1003.75pt>
+<imm/Immagine JPEG-4502-AD33-DC-0.jpeg, id=1154, 1413.28pt x 1003.75pt>
 File: imm/Immagine JPEG-4502-AD33-DC-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-4502-AD33-DC-0.jpeg>
-Package pdftex.def Info: imm/Immagine JPEG-4502-AD33-DC-0.jpeg  used on input line 2531.
+Package pdftex.def Info: imm/Immagine JPEG-4502-AD33-DC-0.jpeg  used on input line 2558.
 (pdftex.def)             Requested size: 227.62206pt x 161.66008pt.
 
 
-[56
+[58
 
  </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Screenshot 2026-04-16 alle 14.31.29.png>]
-<imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg, id=1139, 3058.42625pt x 1003.75pt>
+<imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg, id=1162, 3058.42625pt x 1003.75pt>
 File: imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg>
-Package pdftex.def Info: imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg  used on input line 2571.
+Package pdftex.def Info: imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg  used on input line 2598.
 (pdftex.def)             Requested size: 227.62206pt x 74.69598pt.
 
 
-[57 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4502-AD33-DC-0.jpeg> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg>]
+[59 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4502-AD33-DC-0.jpeg> </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg>]
 
-[58]
-<imm/Immagine JPEG-4101-9BE8-E1-0.jpeg, id=1153, 1882.03125pt x 1003.75pt>
+[60]
+<imm/Immagine JPEG-4101-9BE8-E1-0.jpeg, id=1177, 1882.03125pt x 1003.75pt>
 File: imm/Immagine JPEG-4101-9BE8-E1-0.jpeg Graphic file (type jpg)
 <use imm/Immagine JPEG-4101-9BE8-E1-0.jpeg>
-Package pdftex.def Info: imm/Immagine JPEG-4101-9BE8-E1-0.jpeg  used on input line 2666.
+Package pdftex.def Info: imm/Immagine JPEG-4101-9BE8-E1-0.jpeg  used on input line 2693.
 (pdftex.def)             Requested size: 227.62206pt x 121.3944pt.
 
 
-[59 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4101-9BE8-E1-0.jpeg>] (/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux)
+[61 </Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/imm/Immagine JPEG-4101-9BE8-E1-0.jpeg>] (/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: F46A94DE9182991DD15E67B19E412EEF;20663.
+(rerunfilecheck)             Checksum: DA1952B9CBC42D62F3B7094C590592DD;20784.
  ) 
 Here is how much of TeX's memory you used:
- 24784 strings out of 474662
- 453844 string characters out of 5751108
- 1009785 words of memory out of 5000000
- 47045 multiletter control sequences out of 15000+600000
+ 24821 strings out of 474662
+ 455577 string characters out of 5751108
+ 1009788 words of memory out of 5000000
+ 47079 multiletter control sequences out of 15000+600000
  584549 words of font info for 101 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  84i,13n,87p,648b,2052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" (60 pages, 4878822 bytes).
+Output written on "/Users/idabenvenuto/Documents/università/magistrale/Algorithm Design/algo/notes.pdf" (62 pages, 5137354 bytes).
 PDF statistics:
- 1366 PDF objects out of 1440 (max. 8388607)
- 1146 compressed objects within 12 object streams
- 383 named destinations out of 1000 (max. 500000)
- 1170 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1391 PDF objects out of 1440 (max. 8388607)
+ 1159 compressed objects within 12 object streams
+ 386 named destinations out of 1000 (max. 500000)
+ 1203 words of extra memory for PDF output out of 10000 (max. 10000000)
 
