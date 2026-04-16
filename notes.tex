@@ -92,7 +92,7 @@ Average-case & Expected time on a random input           & 3-way radix sort: $\s
 \textbf{Worst-case analysis} is the most common. It gives a solid guarantee for all
 possible inputs and usually reflects real performance well.
 
-Sometimes the algorithms aren't deterministic, so we use \textbf{probabilistic analysis} to measure the expected running time. This is common for randomised algorithms, which use random bits to make decisions.In this case, we use the expexted value of the running time over the random choices of the algorithm.
+Sometimes the algorithms aren't deterministic, so we use \textbf{probabilistic analysis} to measure the expected running time. This is common for randomised algorithms, which use random bits to make decisions.In this case, we use the expcted value of the running time over the random choices of the algorithm.
 % ─────────────────────────────────────────────
 \section{Asymptotic Order of Growth}
 
@@ -2504,4 +2504,200 @@ Build a graph $G'$:
 
 The infinite capacity edges ensure that the selected set is always feasible.
 The minimum cut in $G'$ gives the maximum revenue subset.
+
+\chapter{ exercises on Network Flow}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imm/Screenshot 2026-04-16 alle 14.31.29.png}  
+\end{figure}
+
+%------------------------------------------------------------
+\subsection*{Part (i): Edge-Disjoint Evacuation Routes}
+
+\paragraph{Construction of $G'$.}
+We build a flow network $G' = (V', E')$ as follows:
+\begin{itemize}
+    \item \textbf{Source edges:} For each $u \in X$, add edge $(s, u)$
+    with capacity $c(s, u) = 1$.
+ \item \textbf{Sink edges:} For each $v \in S$, add edge $(v, t)$
+with capacity $c(v, t) = |X|$ . Multiple evacuation
+routes are allowed to end at the same safe node, so we do not
+restrict the flow entering $t$ from $S$.
+    \item \textbf{Internal edges:} For every original edge $e \in E$,
+    keep it with capacity $c(e) = 1$.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Immagine JPEG-4502-AD33-DC-0.jpeg}
+\end{figure}
+
+
+A valid set of evacuation routes exists if and only if $\mathrm{maxflow} =
+|X|$.
+
+\begin{proof}
+We prove both directions.
+
+\medskip
+\noindent $(\Rightarrow)$ Given $|X|$ edge-disjoint paths, set $f(e) = 1$
+if edge $e$ is used by some path and $f(e) = 0$ otherwise. Edge-disjointness
+ensures all capacity constraints hold. Since one path leaves each $u \in X$,
+the edge $(s, u)$ is saturated for all $u \in X$, so $\mathrm{val}(f) =
+|X|$.
+
+\medskip
+\noindent $(\Leftarrow)$ If the max-flow equals $|X|$, all edges $(s, u)$
+for $u \in X$ are saturated, so one unit of flow leaves each populated node.
+By flow conservation and the fact that all capacities are 1, each unit of
+flow travels along a distinct path from some $u \in X$ to some $v \in S$.
+Since each edge carries at most 1 unit, these paths are edge-disjoint.
+\end{proof}
+
+This construction has $O(|V|)$ nodes and $O(|E|)$ edges, so it runs in
+polynomial time.
+
+%------------------------------------------------------------
+\subsection*{Part (ii): Node-Disjoint Evacuation Routes}
+
+To enforce that paths do not share any intermediate node, we use the
+\textbf{node-splitting technique}.
+
+\paragraph{Construction of $G''$.}
+For \textbf{every} node $w \in V$, we replace it with two nodes $w_{\mathrm{in}}$
+and $w_{\mathrm{out}}$, connected by a directed edge $(w_{\mathrm{in}},\,
+w_{\mathrm{out}})$. The capacity of this internal edge depends on the role of $w$:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Immagine JPEG-4D15-AFBC-7B-0.jpeg}
+\end{figure}
+
+The remaining edges are built as follows:
+\begin{itemize}
+    \item \textbf{Internal edges:} Every original edge $(u, v) \in E$ becomes
+    an edge $(u_{\mathrm{out}},\, v_{\mathrm{in}})$ with capacity 1.
+    \item \textbf{Source edges:} Add a super-source $s$ and, for each $u \in X$,
+    add edge $(s,\, u_{\mathrm{in}})$ with capacity 1.
+    \item \textbf{Sink edges:} Add a super-sink $t$ and, for each $v \in S$,
+    add edge $(v_{\mathrm{out}},\, t)$ with capacity $|X|$ .
+\end{itemize}
+%------------------------------------------------------------
+\subsection*{Part (iii): An Example Where (a) is Yes but (b) is No}
+
+Consider the following graph with $X = \{x_1, x_2\}$,
+$S = \{s_1\}$, and a single intermediate node $m$:
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.8cm, auto, thick]
+  \node (x1) {$x_1$};
+  \node (x2) [below of=x1] {$x_2$};
+  \node (m)  [right of=x1, yshift=-0.9cm] {$m$};
+  \node (s1) [right of=m] {$s_1$};
+  \draw[->] (x1) -- (m);
+  \draw[->] (x2) -- (m);
+  \draw[->] (m)  -- (s1);
+\end{tikzpicture}
+\end{center}
+
+\noindent Formally: $V = \{x_1, x_2, m, s_1\}$,
+$E = \{(x_1, m),\, (x_2, m),\, (m, s_1)\}$,
+$X = \{x_1, x_2\}$, $S = \{s_1\}$.
+
+\begin{itemize}
+    \item \textbf{Part (a) answer: Yes.} The two paths
+    $x_1 \to m \to s_1$ and $x_2 \to m \to s_1$ share the node $m$
+    but share \emph{no edge}. So edge-disjoint evacuation routes exist.
+    \item \textbf{Part (b) answer: No.} Both paths must pass through $m$
+    to reach $s_1$. Since $m$ is the only intermediate node, there is no
+    way to route both $x_1$ and $x_2$ to $S$ without sharing $m$.
+    The max-flow in $G''$ is 1 (the bottleneck is the single edge
+    $m_{\mathrm{in}} \to m_{\mathrm{out}}$ with capacity 1), which is
+    less than $|X| = 2$.
+\end{itemize}
+
+\subsection* {Problem 3 :Free-Standing Subset}
+We are given a set of n countries that are engaged in
+trade with one another. For each country i, we have the value si of its budget surplus; this
+number may be positive or negative, with a negative number indicating a deficit. For each
+pair of countries i, j, we have the total value eij of all exports from i to j; this number is
+always nonnegative. We say that a subset S of the countries is free-standing if the sum
+of the budget surpluses of the countries in S, minus the total value of all exports from
+countries in S to countries not in S, is nonnegative.
+Give a polynomial-time algorithm that takes this data for a set ofn countries and decides
+whether it contains a nonempty free-standing subset that is not equal to the full set.
+
+
+Given $n$ countries with budget surpluses $s_i$ and export values $e_{ij}
+\geq 0$, a subset $S$ is \emph{free-standing} if
+\[
+\sum_{i \in S} s_i \;-\; \sum_{\substack{i \in S,\, j \notin S}} e_{ij}
+\;\geq\; 0.
+\]
+Give a polynomial-time algorithm to decide whether a nonempty free-standing
+subset $S \subsetneq \{1, \dots, n\}$ exists.
+
+\paragraph{Key Observation.}
+We rewrite the free-standing condition. Let $\bar{S} = \{1,\dots,n\}
+\setminus S$. A subset $S$ is free-standing iff:
+\[
+\sum_{i \in S} s_i - \sum_{\substack{i \in S \\ j \in \bar{S}}} e_{ij}
+\geq 0
+\quad \Longleftrightarrow \quad
+\sum_{\substack{i \in S \\ j \in \bar{S}}} e_{ij} \leq \sum_{i \in S} s_i.
+\]
+
+\paragraph{Construction of the Flow Network $G'$.}
+We reduce the problem to a \textbf{minimum cut} problem. Build a directed
+graph $G' = (V', E')$ as follows:
+\begin{itemize}
+    \item \textbf{Nodes:} One node per country, plus a super-source $s$
+    and a super-sink $t$. So $V' = \{1, \dots, n\} \cup \{s, t\}$.
+
+    \item \textbf{Edges between countries:} For each pair $i \neq j$, add
+    edge $(i, j)$ with capacity $c(i,j) = e_{ij}$.
+
+    \item \textbf{Source edges:} For each country $i$ with $s_i > 0$, add
+    edge $(s, i)$ with capacity $c(s, i) = s_i$.
+
+    \item \textbf{Sink edges:} For each country $i$ with $s_i < 0$, add
+    edge $(i, t)$ with capacity $c(i, t) = -s_i$.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Immagine JPEG-4101-9BE8-E1-0.jpeg}
+\end{figure}
+\paragraph{Algorithm.}
+Fix any country $k$. For each other country $\ell \neq k$, compute the
+minimum $s$-$t$ cut in $G'$ with $k$ forced on the source side and $\ell$
+forced on the sink side. A nonempty free-standing proper subset exists if
+and only if the minimum such cut has capacity less than
+$\sum_{i:\, s_i > 0} s_i$.
+
+Alternatively, run $n-1$ min-cut computations (fixing one country on each
+side) and check whether any of them corresponds to a free-standing subset.
+
+\paragraph{Correctness.}
+Consider any cut $(A, B)$ with $s \in A$ and $t \in B$. Let $S = A
+\setminus \{s\}$ be the set of countries on the source side. The capacity
+of this cut is:
+\[
+\mathrm{cap}(A, B)
+= \sum_{\substack{i \in S \\ j \in \bar{S}}} e_{ij}
++ \sum_{\substack{i \in S \\ s_i < 0}} (-s_i)
++ \sum_{\substack{j \in \bar{S} \\ s_j > 0}} s_j.
+\]
+One can verify that $S$ is free-standing if and only if this cut capacity
+is at most $\sum_{i:\, s_i > 0} s_i$, which is the capacity of the trivial
+cut $({\{s\}}, V' \setminus \{s\})$. Therefore:
+
+\begin{claim}
+Minimizing $\mathrm{cap}(A', V \setminus A')$ over all non-trivial cuts
+is equivalent to maximizing $c(A)$, where:
+\[
+\mathrm{cap}(A', V \setminus A') = P + \sum_{\substack{i \in A \\ j \in A}} e_{ij} - \sum_{i \in A} s_i.
+\]
+In particular, a free-standing subset exists if and only if
+\[
+\mathrm{cap}(A', V \setminus A') \leq P.
+\]
+\end{claim}
 \end{document}
