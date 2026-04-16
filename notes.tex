@@ -2381,7 +2381,10 @@ such that each node appears in at most one edge. A graph is \textbf{bipartite}
 if the nodes can be split into two sets $L$ and $R$ so that every edge goes
 from $L$ to $R$. The goal of bipartite matching is to find a matching of
 maximum cardinality.
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 17.13.28.png}
+\end{figure}
 \subsection{Reduction to Max Flow}
 
 Build a directed graph $G'$ as follows:
@@ -2395,6 +2398,14 @@ Build a directed graph $G'$ as follows:
 The maximum cardinality of a matching in $G$ equals the value of the
 maximum flow in $G'$.
 \end{theorem}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 17.14.58.png}
+\end{figure}
+\begin{proof}
+\textbf{(Flow $\Rightarrow$ Matching).} Let $f$ be a maximum flow in $G'$. Since all capacities are 1, the integrality theorem guarantees an integer-valued max flow. The edges with $f(e) = 1$ form a matching in $G$ of size $\mathrm{val}(f)$, since each node can have at most one unit of flow passing through it.
+\textbf{(Matching $\Rightarrow$ Flow).} Let $M$ be a maximum matching in $G$. We can construct a flow $f$ in $G'$ by sending 1 unit of flow along the path $s \to u \to v \to t$ for each edge $(u, v) \in M$. This flow has value equal to the size of the matching, $\mathrm{val}(f) = |M|$.
+\end{proof}
 
 \subsection{Perfect Matching and Hall's Theorem}
 
@@ -2402,6 +2413,10 @@ A \textbf{perfect matching} is a matching where every node appears in
 exactly one edge. For a bipartite graph with $|L| = |R|$, a perfect matching
 exists if and only if for every subset $S \subseteq L$, the set of neighbors
 $N(S)$ satisfies $|N(S)| \geq |S|$. This is \textbf{Hall's theorem}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 17.36.27.png}
+\end{figure}
 
 \begin{theorem}[Hall, 1935]
 A bipartite graph $G = (L \cup R,\, E)$ with $|L| = |R|$ has a perfect
@@ -2414,9 +2429,16 @@ since the flow $f(u,v) = 1/k$ on each edge is a feasible flow of value $|L|$.
 %------------------------------------------------------------
 \subsection{Edge-Disjoint Paths}
 
-Two paths are \textbf{edge-disjoint} if they share no edge. The problem is:
+Two paths are \textbf{edge-disjoint} if they share no edge in common. 
+\newline
+The problem is:
 given a digraph $G$ and two nodes $s$ and $t$, find the maximum number of
 edge-disjoint $s$-$t$ paths.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 17.57.18.png}
+\end{figure}
 
 \subsection{Reduction to Max Flow}
 
@@ -2426,6 +2448,11 @@ Assign unit capacity to every edge. Then:
 The maximum number of edge-disjoint $s$-$t$ paths equals the value of the
 maximum flow.
 \end{theorem}
+
+\begin{proof}
+\textbf{(Flow $\Rightarrow$ Paths).} Let $f$ be a maximum flow. By the integrality theorem, there exists a maximum flow $f^*$ where every flow value is an integer (0 or 1). The edges with $f^*(e) = 1$ form a collection of edge-disjoint $s$-$t$ paths, since each node can have at most one unit of flow passing through it.
+\textbf{(Paths $\Rightarrow$ Flow).} Let $P_1, \ldots, P_k$ be a maximum collection of edge-disjoint $s$-$t$ paths. We can construct a flow $f$ by sending 1 unit of flow along each path $P_i$. This flow has value $k$, which is the number of edge-disjoint paths.
+\end{proof}
 
 A direct consequence is \textbf{Menger's theorem}: the maximum number of
 edge-disjoint $s$-$t$ paths equals the minimum number of edges whose removal
@@ -2448,6 +2475,10 @@ A feasible circulation satisfies:
     \item \textbf{Conservation}: $\sum_{e \text{ into } v} f(e) - \sum_{e
     \text{ out of } v} f(e) = d_v$ for each node $v$.
 \end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 18.11.41.png}
+\end{figure}
 
 \subsection{Reduction to Max Flow}
 
@@ -2462,13 +2493,92 @@ Add a super-source $s^*$ and super-sink $t^*$:
 A feasible circulation exists if and only if the max flow in this new graph
 saturates all edges leaving $s^*$.
 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 18.12.57.png}
+\end{figure}
+\begin{theorem}
+    Integrality theorem: if all capacities and demands are integers, then there exists a feasible circulation where every flow value is an integer.
+\end{theorem}
+
+\begin{theorem}[Cut certificate of infeasibility]
+Given a circulation instance $(V,E,c,d)$, no feasible circulation exists if
+there is a partition $(A,B)$ of $V$ such that
+\[
+    \sum_{v \in B} d_v > \operatorname{cap}(A,B),
+\]
+where
+\[
+    \operatorname{cap}(A,B) = \sum_{\substack{(u,v)\in E\\u\in A,\ v\in B}} c_{uv}.
+\]
+\end{theorem}
+
 \subsection{Lower Bounds}
 
 Edges can also have a \textbf{lower bound} $\ell_e$: the flow must satisfy
 $\ell_e \leq f(e) \leq c_e$. This can be reduced to the standard circulation
 problem by sending $\ell_e$ units along each edge in advance and updating
 the demands of both endpoints accordingly.
+\newline
+A \textbf{circulation} with lower bounds is a flow that satisfies :
+\begin{itemize}
+    \item \textbf{Capacity}: $\ell_e \leq f(e) \leq c_e$ for each edge $e$.
+    \item \textbf{Conservation}: $\sum_{e \text{ into }v} f(e) - \sum_{e \text{ out of } v} f(e) = d_v$ for each node $v$.
+\end{itemize}
 
+\textbf{Simple idea.} First, satisfy all lower bounds in advance: send
+$\ell_e$ units on every edge $e$. Then only the \emph{extra} flow is unknown.
+
+Define:
+\[
+    f'(e)=f(e)-\ell_e.
+\]
+So in the transformed network $G'$:
+\begin{itemize}
+    \item each edge has residual capacity interval
+    $0 \leq f'(e) \leq c_e-\ell_e$;
+    \item node demands must be updated because of the pre-sent flow:
+    \[
+        d'_v = d_v + \sum_{e\text{ out of }v} \ell_e
+              - \sum_{e\text{ into }v} \ell_e.
+    \]
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-04-16 alle 18.36.01.png}
+\end{figure}
+
+\begin{theorem}[Reduction for lower bounds]
+There exists a feasible circulation in $G$ (with bounds
+$\ell_e \le f(e) \le c_e$) if and only if there exists a feasible
+circulation in the transformed instance $G'$ (with bounds
+$0 \le f'(e) \le c_e-\ell_e$ and demands $d'_v$). Moreover, if all data are
+integers, then a feasible circulation can be chosen integer-valued.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Set $f'(e)=f(e)-\ell_e$ (equivalently, $f(e)=f'(e)+\ell_e$).
+
+The capacity constraints are exactly the same information written in two
+different ways:
+\[
+    \ell_e \le f(e) \le c_e
+    \iff
+    0 \le f'(e) \le c_e-\ell_e.
+\]
+
+At each node $v$, replace $f$ with $f'+\ell$ in flow conservation. This gives
+the new demand equation with $d'_v$. So feasibility in $G$ and feasibility in
+$G'$ are equivalent.
+
+If capacities, demands, and lower bounds are integers, then $G'$ has an
+integer feasible circulation (integrality theorem). Adding back $\ell_e$ keeps
+everything integer, so $G$ also has an integer feasible circulation.
+\end{proof}
+
+ 
 %------------------------------------------------------------
 \section{Survey Design}
 
