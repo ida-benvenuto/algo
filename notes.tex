@@ -2407,7 +2407,7 @@ maximum flow in $G'$.
 \textbf{(Matching $\Rightarrow$ Flow).} Let $M$ be a maximum matching in $G$. We can construct a flow $f$ in $G'$ by sending 1 unit of flow along the path $s \to u \to v \to t$ for each edge $(u, v) \in M$. This flow has value equal to the size of the matching, $\mathrm{val}(f) = |M|$.
 \end{proof}
 
-\subsection{Perfect Matching and Hall's Theorem}
+\subsection{Hall's Theorem}
 
 A \textbf{perfect matching} is a matching where every node appears in
 exactly one edge. For a bipartite graph with $|L| = |R|$, a perfect matching
@@ -2416,6 +2416,8 @@ $N(S)$ satisfies $|N(S)| \geq |S|$. This is \textbf{Hall's theorem}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 17.36.27.png}
+    \caption{in this case, we choose as S=2,4,5 and N(S)={2,5}; so |N(S)|=2<|S|=3, for this reason, is impossible to find a perfect matching
+    }
 \end{figure}
 
 \begin{theorem}[Hall, 1935]
