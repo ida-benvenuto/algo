@@ -2482,7 +2482,7 @@ A feasible circulation satisfies:
     \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-16 alle 18.11.41.png}
 \end{figure}
 
-\subsection{Reduction to Max Flow}
+\subsubsection{Reduction to Max Flow}
 
 Add a super-source $s^*$ and super-sink $t^*$:
 \begin{itemize}
@@ -2614,7 +2614,10 @@ This is modeled as a \textbf{circulation problem}:
     $(v_i, u_j)$ with capacity 1.
     \item Add source $s$ and sink $t$ to control the total number of crews.
 \end{itemize}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-04-17 alle 13.13.03.png}
+\end{figure}
 \begin{theorem}
 The airline scheduling problem can be solved in $O(k^3 \log k)$ time,
 using binary search on the number of crews and solving $O(\log k)$
@@ -2628,7 +2631,11 @@ Each project $v$ has a revenue $p_v$ (which can be negative, representing a
 cost). Some projects require others: if project $v$ requires project $w$, then
 $v$ cannot be chosen without also choosing $w$. The goal is to find a feasible
 subset of projects that maximizes total revenue.
-
+\textbf{prerequisite edges} $(v, w)$ indicate that $v$ requires $w$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-17 alle 13.14.51.png}
+\end{figure}
 \subsubsection*{Reduction to Min Cut}
 
 Build a graph $G'$:
@@ -2643,7 +2650,10 @@ Build a graph $G'$:
 
 The infinite capacity edges ensure that the selected set is always feasible.
 The minimum cut in $G'$ gives the maximum revenue subset.
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-04-17 alle 13.15.49.png}
+\end{figure}
 \chapter{ exercises on Network Flow}
 \begin{figure}[H]
     \centering

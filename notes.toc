@@ -114,15 +114,15 @@
 \contentsline {subsection}{\numberline {5.8.3}Edge-Disjoint Paths}{56}{subsection.5.8.3}%
 \contentsline {subsection}{\numberline {5.8.4}Reduction to Max Flow}{56}{subsection.5.8.4}%
 \contentsline {subsection}{\numberline {5.8.5}Circulation with Demands}{57}{subsection.5.8.5}%
-\contentsline {subsection}{\numberline {5.8.6}Reduction to Max Flow}{57}{subsection.5.8.6}%
-\contentsline {subsection}{\numberline {5.8.7}Lower Bounds}{58}{subsection.5.8.7}%
+\contentsline {subsubsection}{Reduction to Max Flow}{57}{section*.23}%
+\contentsline {subsection}{\numberline {5.8.6}Lower Bounds}{58}{subsection.5.8.6}%
 \contentsline {section}{\numberline {5.9}Survey Design}{59}{section.5.9}%
 \contentsline {section}{\numberline {5.10}Airline Scheduling}{59}{section.5.10}%
 \contentsline {subsection}{\numberline {5.10.1}Project Selection}{59}{subsection.5.10.1}%
-\contentsline {chapter}{\numberline {6} exercises on Network Flow}{60}{chapter.6}%
-\contentsline {paragraph}{Construction of $G'$.}{60}{section*.25}%
-\contentsline {paragraph}{Construction of $G''$.}{61}{section*.27}%
-\contentsline {paragraph}{Key Observation.}{62}{section*.30}%
-\contentsline {paragraph}{Construction of the Flow Network $G'$.}{63}{section*.31}%
-\contentsline {paragraph}{Algorithm.}{63}{section*.32}%
-\contentsline {paragraph}{Correctness.}{63}{section*.33}%
+\contentsline {chapter}{\numberline {6} exercises on Network Flow}{61}{chapter.6}%
+\contentsline {paragraph}{Construction of $G'$.}{61}{section*.26}%
+\contentsline {paragraph}{Construction of $G''$.}{62}{section*.28}%
+\contentsline {paragraph}{Key Observation.}{63}{section*.31}%
+\contentsline {paragraph}{Construction of the Flow Network $G'$.}{64}{section*.32}%
+\contentsline {paragraph}{Algorithm.}{64}{section*.33}%
+\contentsline {paragraph}{Correctness.}{64}{section*.34}%
