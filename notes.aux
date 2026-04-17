@@ -94,4 +94,63 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.9}Negative Cycle Detection}{36}{section.3.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.9.1}The Problem}{36}{subsection.3.9.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.9.2}Detection via Bellman-Ford}{36}{subsection.3.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.3}Algorithm}{36}{subsection.3.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.4}Summary of Complexities}{37}{subsection.3.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4} exercises on dynamic programming}{38}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.1}Basic Bottom-Up Rod Cutting}{41}{Item.27}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}Extended Bottom-Up Rod Cutting}{41}{Item.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Network Flow}{43}{chapter.5}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Max-Flow and Min-Cut Problems}{43}{section.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of a flow network with source $s$, sink $t$, and edge capacities.}}{43}{figure.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces capacity of 28.}}{44}{figure.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Example of a maximum flow with value 28.}}{44}{figure.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Ford-Fulkerson Algorithm}{44}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Greedy Approach and Its Limits}{44}{subsection.5.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Along the augmenting path s→2→4→t, the bottleneck is 8 (limited by edge 2→4, capacity 8), bringing the total flow to 8. Edge s→2 still has 10 $-$ 8 = 2 units of residual capacity, which are routed along path s→2→3→4→t through edge 2→3 (capacity 2), saturating s→2 and raising the total flow to 10. Finally, the augmenting path s→3→4→5→t has bottleneck 6, yielding a total flow of 10 + 6 = 16.}}{45}{figure.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces }}{45}{figure.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Residual Graph}{45}{subsection.5.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces The forward residual edge from $u$ to $v$ has capacity $c(e) - f(e)$.}}{46}{figure.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Augmenting Path}{46}{subsection.5.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Ford-Fulkerson Algorithm}{47}{subsection.5.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Step 1.}{47}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Step 2.}{47}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Step 3.}{47}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Step 4 — use of a backward edge.}{48}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Step 5.}{48}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Max-Flow Min-Cut Theorem}{48}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Flow Value Lemma}{48}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Weak Duality}{49}{subsection.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Max-Flow Min-Cut Theorem}{49}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Augmenting Path Theorem}{50}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Assumption}{50}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Capacity-Scaling Algorithm}{51}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Shortest Augmenting Paths}{52}{section.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Level Graph}{52}{subsection.5.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Remark.}{53}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Unit-Capacity Simple Networks}{54}{section.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Bipartite Matching}{54}{section.5.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.1}Reduction to Max Flow}{55}{subsection.5.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.2}Hall's Theorem}{55}{subsection.5.8.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces in this case, we choose as S=2,4,5 and N(S)={2,5}; so |N(S)|=2<|S|=3, for this reason, is impossible to find a perfect matching }}{56}{figure.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.3}Edge-Disjoint Paths}{56}{subsection.5.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.4}Reduction to Max Flow}{56}{subsection.5.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.5}Circulation with Demands}{57}{subsection.5.8.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.6}Reduction to Max Flow}{57}{subsection.5.8.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.7}Lower Bounds}{58}{subsection.5.8.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Survey Design}{59}{section.5.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Airline Scheduling}{59}{section.5.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.10.1}Project Selection}{59}{subsection.5.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6} exercises on Network Flow}{60}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {paragraph}{Construction of $G'$.}{60}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Construction of $G''$.}{61}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Key Observation.}{62}{section*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Construction of the Flow Network $G'$.}{63}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Algorithm.}{63}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Correctness.}{63}{section*.33}\protected@file@percent }
+\gdef \@abspage@last{64}
