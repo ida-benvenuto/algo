@@ -2849,4 +2849,1013 @@ In particular, a free-standing subset exists if and only if
 \mathrm{cap}(A', V \setminus A') \leq P.
 \]
 \end{claim}
+\chapter{NP and Computational
+Intractability}
+%=============================================================
+\section{Algorithm Design Patterns and Anti-Patterns}
+%=============================================================
+
+Some problems can be solved with well-known \textbf{design patterns}:
+\begin{itemize}
+    \item \textbf{Greedy} -- e.g., interval scheduling in $O(n \log n)$.
+    \item \textbf{Divide-and-conquer} -- e.g., FFT in $O(n \log n)$.
+    \item \textbf{Dynamic programming} -- e.g., edit distance in $O(n^2)$.
+    \item \textbf{Duality} -- e.g., bipartite matching in $O(n^3)$.
+    \item \textbf{Reductions}, local search, randomization.
+\end{itemize}
+
+Other problems seem to have \textbf{no efficient algorithm}. These are called \textbf{anti-patterns}:
+\begin{itemize}
+    \item \textbf{NP-completeness} -- an $O(n^k)$ algorithm is very unlikely.
+    \item \textbf{PSPACE-completeness} -- even an $O(n^k)$ certifier is unlikely.
+    \item \textbf{Undecidability} -- no algorithm exists at all.
+\end{itemize}
+
+%=============================================================
+\section{Polynomial-Time Reductions (Section 8.1)}
+%=============================================================
+
+\subsection{Classifying Problems}
+
+\textbf{Key question:} Which problems can we solve in practice?\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imm/Screenshot 2026-05-15 alle 14.30.10.png}
+\end{figure}
+
+    
+\subsection{Polynomial-Time Reduction}
+
+\begin{definition}{Polynomial-Time Reduction}{}
+Problem $X$ \textbf{polynomial reduces} to problem $Y$, written $X \leq_P Y$, if any instance of $X$ can be solved using:
+\begin{itemize}
+    \item a polynomial number of standard computational steps, plus
+    \item a polynomial number of calls to an \textbf{oracle} that solves $Y$.
+\end{itemize}
+\textbf{Note:} Instances of $Y$ must have polynomial size (we pay to write them down).
+\end{definition}
+
+\textbf{Why reductions matter:}
+\begin{itemize}
+    \item \textbf{Design algorithms:} If $X \leq_P Y$ and $Y$ can be solved in poly-time, then $X$ can too.
+    \item \textbf{Prove intractability:} If $X \leq_P Y$ and $X$ has no poly-time algorithm, then $Y$ has no poly-time algorithm either.
+    \item \textbf{Prove equivalence:} If $X \leq_P Y$ and $Y \leq_P X$, we write $X \equiv_P Y$.
+\end{itemize}
+
+\subsection{Three Basic Reduction Strategies}
+
+\begin{enumerate}
+    \item Reduction by \textbf{simple equivalence}.
+    \item Reduction from \textbf{special case to general case}.
+    \item Reduction by \textbf{encoding with gadgets}.
+\end{enumerate}
+
+%--------------------------------------------------------------
+\subsection{Strategy 1 --- Simple Equivalence}
+%--------------------------------------------------------------
+
+\paragraph{Problem: Independent Set}
+
+\begin{definition}{Independent Set}{}
+Given a graph $G = (V, E)$ and an integer $k$: does there exist a subset $S \subseteq V$ with $|S| \geq k$ such that \textbf{no two vertices in $S$ share an edge}?
+
+ \textbf{Independent Set}{}
+Consider a graph with 8 nodes.
+\end{definition}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-15 alle 14.34.21.png}
+\end{figure}
+ 
+
+\paragraph{Problem: Vertex Cover}
+
+\begin{definition}{Vertex Cover}{}
+Given a graph $G = (V, E)$ and an integer $k$: does there exist a subset $S \subseteq V$ with $|S| \leq k$ such that \textbf{every edge has at least one endpoint in $S$}?
+\end{definition}
+
+ \textbf{Vertex Cover}{}
+On the same graph:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-15 alle 14.36.49.png}
+\end{figure}
+ 
+min numero di nodi che coprono tutti gli archi
+\begin{claim}{VERTEX-COVER $\equiv_P$ INDEPENDENT-SET}{}
+$S$ is an independent set $\iff$ $V \setminus S$ is a vertex cover.
+
+\textbf{Proof ($\Rightarrow$):}
+Let $S$ be an independent set. Take any edge $(u, v)$.
+Since $S$ is independent, $u \notin S$ or $v \notin S$, so $u \in V \setminus S$ or $v \in V \setminus S$.
+Thus $V \setminus S$ covers every edge.
+
+\textbf{Proof ($\Leftarrow$):}
+Let $V \setminus S$ be a vertex cover. Take any two nodes $u, v \in S$.
+The edge $(u, v)$ cannot exist because $V \setminus S$ would need to cover it, but neither $u$ nor $v$ is in $V \setminus S$.
+So no two nodes in $S$ are connected $\Rightarrow$ $S$ is independent. $\square$
+\end{claim}
+
+%--------------------------------------------------------------
+\subsection{Strategy 2 --- Special Case to General Case}
+%--------------------------------------------------------------
+
+\begin{definition}{Set Cover}{}
+Given a universe $U$ of elements, a collection of subsets $S_1, S_2, \ldots, S_m \subseteq U$, and an integer $k$: does there exist a collection of $\leq k$ sets whose \textbf{union equals $U$}?
+\end{definition}
+
+ \textbf{Set Cover}{}
+\[
+U = \{1, 2, 3, 4, 5, 6, 7\}, \quad k = 2
+\]
+\[
+S_1 = \{3,7\},\quad S_2 = \{3,4,5,6\},\quad S_3 = \{1\},\quad S_4 = \{2,4\},\quad S_5 = \{5\},\quad S_6 = \{1,2,6,7\}
+\]
+Answer: \textbf{Yes}, choose $S_2$ and $S_6$: their union is $\{1,2,3,4,5,6,7\} = U$.
+
+\textbf{Real-world application:} You have $m$ software packages. Each gives a set $S_i$ of capabilities. Can you cover all $n$ required capabilities using $\leq k$ packages?
+ 
+
+\begin{claim}{VERTEX-COVER $\leq_P$ SET-COVER}{}
+\textbf{Construction:} Given a VERTEX-COVER instance $\langle G=(V,E),\, k \rangle$, create a SET-COVER instance:
+\[
+k' = k, \quad U = E, \quad S_v = \{e \in E : e \text{ is incident to vertex } v\}
+\]
+\textbf{Why it works:} A set of vertices covers all edges iff the corresponding sets cover all elements.
+A vertex cover of size $\leq k$ exists $\iff$ a set cover of size $\leq k$ exists.
+
+\textbf{Example:} A graph with vertices $\{a,b,c,d,e,f\}$ and edges $\{e_1,\ldots,e_7\}$.\\
+Taking $k=2$, vertex cover $\{b,e\}$ corresponds to sets $S_b = \{e_1,e_2,e_3,e_4\}$, $S_e = \{e_4,e_5,e_6,e_7\}$.
+\end{claim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-15 alle 16.51.19.png}
+\end{figure}
+
+%--------------------------------------------------------------
+\subsubsection{Strategy 3 --- Encoding with Gadgets}
+%--------------------------------------------------------------
+
+\begin{definition}{SAT and 3-SAT}{}
+\begin{itemize}
+    \item A \textbf{literal} is a Boolean variable $x_i$ or its negation $\overline{x_i}$.
+    \item A \textbf{clause} is a disjunction (OR) of literals: $C_j = x_1 \vee \overline{x_2} \vee x_3$.
+    \item A formula in \textbf{Conjunctive Normal Form (CNF)} is a conjunction (AND) of clauses:
+    \[
+    \Phi = C_1 \wedge C_2 \wedge C_3 \wedge C_4
+    \]
+    \item \textbf{SAT:} Given a CNF formula $\Phi$, does it have a satisfying truth assignment?
+    \item \textbf{3-SAT:} SAT where every clause has \textbf{exactly 3 literals}.
+\end{itemize}
+\end{definition}
+
+ \textbf{3-SAT}{}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-05-15 alle 16.58.46.png}
+\end{figure}
+
+\begin{claim}{3-SAT $\leq_P$ INDEPENDENT-SET}{}
+\textbf{Construction:} Given a 3-SAT instance $\Phi$ with $k$ clauses, build graph $G$:
+\begin{enumerate}
+    \item For each clause, create \textbf{3 vertices} (one per literal). Connect them in a \textbf{triangle}.
+    \item Connect each literal vertex to every vertex representing its \textbf{negation} in other clauses.
+\end{enumerate}
+
+\textbf{Example:}
+\[
+\Phi = (x_1 \vee x_2 \vee x_3) \wedge (\overline{x_1} \vee \overline{x_2} \vee x_3) \wedge (x_1 \vee x_2 \vee x_4)
+\]
+$k = 3$, so we need an independent set of size 3.\\
+The graph $G$ has $3 \times 3 = 9$ vertices.\\
+Triangle edges (within each clause) + conflict edges (e.g., $x_1$ in clause 1 is connected to $\overline{x_1}$ in clause 2).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imm/Screenshot 2026-05-15 alle 17.01.26.png}
+\end{figure}
+scegliamo questo tipo di scostruzione perchè vogliamo un independent set di dimensione $k$, quindi se ogni clausola è rappresentata da un triangolo, sono costretta a scegliere un vertice quindi un literal per ogni clausola. Inoltre, i conflict edges mi impediscono di scegliere due literal che si contraddicono (es. $x_1$ e $\overline{x_1}$).
+\newline
+\textbf{Proof:} $G$ has an independent set of size $k$ $\iff$ $\Phi$ is satisfiable.
+\begin{itemize}
+    \item ($\Rightarrow$) An independent set of size $k$ picks exactly one vertex per triangle (one per clause). Triangles prevent choosing two from the same clause. Conflict edges prevent contradictory assignments. Setting those literals to \texttt{true} satisfies every clause consistently.
+    \item ($\Leftarrow$) Given a satisfying assignment, pick one \texttt{true} literal per clause. These form an independent set of size $k$ (no two are in the same triangle, and no two conflict).
+\end{itemize}
+\end{claim}
+in questo caso il set=x3, x1, x4 è un independent set di dimensione 3, quindi $\Phi$ è soddisfacibile (es. $x_1 = x_2 = x_3 = \texttt{true}$, $x_4$ arbitrary).
+
+\subsection{Transitivity of Reductions}
+
+\begin{theorem}{Transitivity}{}
+If $X \leq_P Y$ and $Y \leq_P Z$, then $X \leq_P Z$.
+\end{theorem}
+
+This means we can \textbf{chain} reductions. A key example:
+\[
+\text{3-SAT} \leq_P \text{INDEPENDENT-SET} \leq_P \text{VERTEX-COVER} \leq_P \text{SET-COVER}
+\]
+
+%=============================================================
+\section{Definition of NP (Section 8.3)}
+%=============================================================
+
+\subsection{Decision Problems}
+
+A \textbf{decision problem} $X$ is a set of strings. An algorithm $A$ \textbf{solves} $X$ if $A(s) = \texttt{yes} \iff s \in X$.
+
+\textbf{Polynomial time:} $A$ runs in poly-time if for every input $s$, $A(s)$ terminates in at most $p(|s|)$ steps, where $p$ is a polynomial and $|s|$ is the length of $s$.
+
+\subsection{The Class P}
+
+\begin{definition}{Class P}{}
+$\mathbf{P}$ is the set of all decision problems solvable by a \textbf{polynomial-time algorithm}.
+\end{definition}
+
+ \textbf{Problems in P}{}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Problem & Question & Algorithm \\
+\midrule
+MULTIPLE & Is $x$ a multiple of $y$? & Grade school division \\
+RELPRIME & Are $x$ and $y$ relatively prime? & Euclid's algorithm \\
+PRIMES & Is $x$ prime? & AKS algorithm  \\
+EDIT-DISTANCE & Is the edit distance between $x$ and $y$ less than 5? & Dynamic programming \\
+LSOLVE & Does $Ax = b$ have a solution? & Gauss-Edmonds elimination \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{PRIMES example:}
+\begin{itemize}
+    \item Input: $s = 53$ (binary string of length $|s| = 6$ bits).
+    \item Output: \texttt{yes}, 53 is prime.
+    \item Time: $O(|s|^8)$ -- polynomial in the \textbf{length} of the input, not its value.
+\end{itemize}
+ 
+
+\subsection{The Class NP}
+
+\textbf{Intuition:} Instead of \textit{finding} a solution, can we \textit{verify} one quickly?
+
+\begin{definition}{Certifier}{}
+Algorithm $C(s, t)$ is a \textbf{certifier} for problem $X$ if for every string $s$:
+\[
+s \in X \iff \exists\, t \text{ such that } C(s,t) = \texttt{yes}
+\]
+The string $t$ is called the \textbf{certificate} (or \textit{witness}).
+\end{definition}
+
+\begin{definition}{Class NP}{}
+$\mathbf{NP}$ is the set of decision problems for which there exists a \textbf{poly-time certifier} $C(s,t)$ with $|t| \leq p(|s|)$ for some polynomial $p$.\\
+NP stands for \textit{Nondeterministic Polynomial-time}.
+\end{definition}
+
+ \textbf{COMPOSITES is in NP}{}
+\textbf{Problem:} Given an integer $s$, is $s$ composite (not prime)?\\
+\textbf{Certificate:} A nontrivial factor $t$ of $s$ (i.e., $1 < t < s$ and $t \mid s$).\\
+\textbf{Certifier:}
+\begin{verbatim}
+boolean C(s, t) {
+    if (t <= 1 or t >= s)  return false;
+    if (s mod t == 0)      return true;
+    else                   return false;
+}
+\end{verbatim}
+\textbf{Concrete instance:}
+\begin{itemize}
+    \item $s = 437{,}669$ \quad (Is it composite?)
+    \item Certificate: $t = 541$ (or $t = 809$).
+    \item Verify: $437{,}669 = 541 \times 809$. \checkmark
+    \item Conclusion: \textbf{COMPOSITES is in NP}.
+\end{itemize}
+\textbf{Why $|t| \leq |s|$?} Any factor of $s$ is at most $s$, so it has at most the same number of bits.
+ 
+
+ \textbf{SAT is in NP}{}
+\textbf{Problem:} Given a CNF formula $\Phi$, does it have a satisfying assignment?\\
+\textbf{Certificate:} An assignment of truth values to all $n$ Boolean variables.\\
+\textbf{Certifier:} Check that each clause contains at least one \texttt{true} literal.\\
+\textbf{Concrete instance:}
+\[
+\Phi = (x_1 \vee \overline{x_2} \vee \overline{x_3}) \wedge (\overline{x_1} \vee x_2 \vee \overline{x_3}) \wedge (\overline{x_1} \vee \overline{x_2} \vee x_4) \wedge (x_1 \vee \overline{x_3} \vee \overline{x_4})
+\]
+Certificate: $x_1 = 1,\, x_2 = 1,\, x_3 = 0,\, x_4 = 1$.\\
+Check clause 1: $1 \vee 0 \vee 1 = 1$. $\checkmark$\quad Check clause 2: $0 \vee 1 \vee 1 = 1$. $\checkmark$\quad (all clauses satisfied)\\
+\textbf{Conclusion: SAT is in NP}.
+ 
+
+ \textbf{HAM-CYCLE is in NP}{}
+\textbf{Problem:} Given an undirected graph $G=(V,E)$, does there exist a \textbf{Hamiltonian cycle} -- a simple cycle that visits every node exactly once?\\
+\textbf{Certificate:} A permutation of all $n$ nodes.\\
+\textbf{Certifier:}
+\begin{enumerate}
+    \item Check that the permutation contains each node in $V$ exactly once.
+    \item Check that there is an edge between each pair of adjacent nodes in the permutation.
+    \item Check that there is an edge between the last and first node (to close the cycle).
+\end{enumerate}
+\textbf{Conclusion: HAM-CYCLE is in NP}. (The certifier runs in $O(n)$ -- polynomial.)
+ 
+
+\subsection{P, NP, and EXP}
+
+\begin{definition}{Class EXP}{}
+$\mathbf{EXP}$ is the set of decision problems solvable by an \textbf{exponential-time} algorithm.
+\end{definition}
+
+\begin{theorem}{Inclusion Chain}{}
+\[
+P \subseteq NP \subseteq EXP
+\]
+\textbf{Proof of $P \subseteq NP$:} If algorithm $A(s)$ solves $X$ in poly-time, use empty certificate $\varepsilon$ and define $C(s, \varepsilon) = A(s)$. So $X \in NP$.
+
+\textbf{Proof of $NP \subseteq EXP$:} For $X \in NP$, there exists a poly-time certifier $C(s,t)$.\\
+To solve input $s$: run $C(s,t)$ on all strings $t$ with $|t| \leq p(|s|)$.\\
+There are at most $2^{p(|s|)}$ such strings -- exponentially many, but finite.\\
+Return \texttt{yes} if any call returns \texttt{yes}. This is an exponential algorithm. $\square$
+\end{theorem}
+
+\subsection{The P vs. NP Question}
+
+\textbf{The biggest open question in computer science:} Does $P = NP$?
+
+\begin{itemize}
+    \item If \textbf{$P = NP$}: efficient algorithms exist for 3-SAT, TSP, 3-COLOR, FACTOR, \ldots\\ This would \textbf{break RSA cryptography} and potentially collapse the economy.
+    \item If \textbf{$P \neq NP$}: no efficient algorithm exists for NP-complete problems.
+    \item \textbf{Consensus:} most researchers believe $P \neq NP$. (Probably no.)
+ 
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+\textbf{If $P \neq NP$} & \textbf{If $P = NP$} \\
+\midrule
+$EXP \supset NP \supset P$ & $EXP \supset P = NP$ \\
+(all three classes are distinct) & (P and NP collapse together) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%=============================================================
+\section{NP-Completeness (Section 8.4)}
+%=============================================================
+
+\subsection{Two Types of Reduction}
+
+\begin{itemize}
+    \item \textbf{Cook reduction ($\leq_P$):} solve $X$ using a polynomial number of oracle calls to $Y$.
+    \item \textbf{Karp transformation:} given input $x$ to $X$, construct $y$ (in poly-time) such that $x \in X \iff y \in Y$. (Only \textbf{one oracle call}, at the very end.)
+\end{itemize}
+
+Almost all reductions seen in practice are \textbf{Karp transformations}. The open question is whether these two definitions are actually equivalent.
+
+\subsection{NP-Complete Problems}
+
+\begin{definition}{NP-Complete}{}
+A problem $Y$ is \textbf{NP-complete} if:
+\begin{enumerate}
+    \item $Y \in NP$.
+    \item For every $X \in NP$: $X \leq_P Y$.
+    \quad (``$Y$ può risolvere qualsiasi problema in NP''.)
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}{Central Theorem}{}
+Suppose $Y$ is NP-complete. Then $Y$ is solvable in poly-time $\iff$ $P = NP$.
+
+\textbf{Proof ($\Leftarrow$):} If $P = NP$, then since $Y \in NP$, $Y \in P$, so $Y$ is solvable in poly-time.
+
+\textbf{Proof ($\Rightarrow$):} Suppose $Y$ is solvable in poly-time. Let $X$ be any problem in NP.\\
+Since $X \leq_P Y$, we can solve $X$ in poly-time $\Rightarrow NP \subseteq P$.\\
+We already know $P \subseteq NP$, so $P = NP$. $\square$
+\end{theorem}
+
+\subsection{Circuit Satisfiability --- The First NP-Complete Problem}
+
+\begin{definition}{CIRCUIT-SAT}{}
+Given a combinational circuit built from AND, OR, and NOT gates, where some inputs are \textbf{fixed} (hard-coded 0 or 1) and some are \textbf{free} (the inputs we can choose): can we set the free inputs so the circuit \textbf{output is 1}?
+\end{definition}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{imm/Screenshot 2026-05-15 alle 13.45.57.png}
+\end{figure}
+
+\textbf{Question:} Can we set $x_2, x_3, x_4 \in \{0,1\}$ so the output is 1?\\
+\textbf{Example answer:} $x_2=1, x_3=0, x_4=1$ produces output 1. $\checkmark$
+ 
+
+\begin{theorem}{Cook-Levin Theorem (1971/1973)}{}
+\textbf{CIRCUIT-SAT is NP-complete.}
+
+\textbf{Proof sketch:}
+\begin{itemize}
+    \item \textit{CIRCUIT-SAT $\in$ NP:} Certificate = a setting of the free inputs. Certifier = simulate the circuit ($O(n)$ time).
+    \item \textit{Every NP problem $\leq_P$ CIRCUIT-SAT:} For any $X \in NP$ with certifier $C(s,t)$:
+    \begin{enumerate}
+        \item View $C(s,t)$ as an algorithm on $|s| + p(|s|)$ input bits (fixed $s$, free $t$).
+        \item Since $C$ runs in poly-time, it can be converted into a poly-size circuit $K$.
+        \item Hard-code the first $|s|$ bits with the input $s$.
+        \item The remaining $p(|s|)$ bits represent the certificate $t$ (free inputs).
+        \item $K$ is satisfiable $\iff$ $C(s,t) = \texttt{yes}$ for some $t$ $\iff$ $s \in X$.
+    \end{enumerate}
+\end{itemize}
+
+\textbf{Concrete example:} Encode the INDEPENDENT-SET certifier as a circuit.\\
+For graph $G = (V,E)$ with $n=3$ (nodes $u,v,w$) and $k=2$:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{imm/Screenshot 2026-05-15 alle 13.54.54.png}
+\end{figure}
+
+
+\begin{itemize}
+    \item The circuit has $n=3$ free inputs (which nodes to include).
+    \item Hard-coded inputs encode the graph structure (which edges exist).
+    \item The circuit outputs 1 iff the chosen nodes form an independent set of size 2.
+\end{itemize}
+\end{theorem}
+
+\subsection{Recipe to Prove NP-Completeness}
+
+Once CIRCUIT-SAT is established, \textbf{other NP-complete problems fall like dominoes.}
+
+    \begin{enumerate}
+    \item \textbf{Show $Y \in NP$:} Describe a certificate and a poly-time certifier.
+    \item \textbf{Choose a known NP-complete problem $X$} (e.g., CIRCUIT-SAT, 3-SAT).
+    \item \textbf{Prove $X \leq_P Y$:} Construct a poly-time transformation.
+\end{enumerate}
+\textbf{Justification:} If $W \in NP$, then $W \leq_P X \leq_P Y$ (by transitivity), so $Y$ is NP-complete.
+
+
+\subsection{3-SAT is NP-Complete}
+
+\begin{theorem}{3-SAT is NP-complete}{}
+\textbf{Proof:} 3-SAT $\in$ NP (certificate: truth assignment). It suffices to show CIRCUIT-SAT $\leq_P$ 3-SAT.
+
+\textbf{Construction:} Given a circuit $K$, create a 3-SAT variable $x_i$ for each element (gate or wire) $i$. Add clauses to force correct computation:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Gate type} & \textbf{Constraint} & \textbf{Clauses added} \\
+\midrule
+NOT gate & $x_2 = \neg x_3$ & $(\overline{x_2} \vee \overline{x_3}) \wedge (x_2 \vee x_3)$ \quad (2 clauses) \\
+OR gate & $x_1 = x_4 \vee x_5$ & 3 clauses \\
+AND gate & $x_0 = x_1 \wedge x_2$ & 3 clauses \\
+Hard-coded 0 & $x_5 = 0$ & $(\overline{x_5})$ \quad (1 clause) \\
+Output = 1 & $x_0 = 1$ & $(x_0)$ \quad (1 clause) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Short clauses (of length 1 or 2) are padded to length exactly 3 using new dummy variables.\\
+\textbf{Result:} The formula is satisfiable $\iff$ the circuit is satisfiable. $\square$
+\end{theorem}
+
+\subsection{The Domino Chain of NP-Complete Problems}
+
+All problems below are NP-complete and reduce to one another:
+\[
+\text{CIRCUIT-SAT} \leq_P \text{3-SAT} \leq_P \text{INDEPENDENT-SET} \leq_P \text{VERTEX-COVER} \leq_P \text{SET-COVER}
+\]
+Also NP-complete: DIR-HAM-CYCLE, HAM-CYCLE, TSP, GRAPH 3-COLOR, SUBSET-SUM, SCHEDULING, PLANAR 3-COLOR, \ldots
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{imm/Screenshot 2026-05-15 alle 14.21.14.png}
+\end{figure}
+
+
+Most NP problems are either known to be in $P$ or NP-complete. Notable exceptions (in between, not known to be either): FACTORING, graph isomorphism, Nash equilibrium.
+
+
+MANCAAAAA
+
+\chapter{APPROXIMATION ALGORITHMS(11)}
+
+%=============================================================
+\section{Coping with NP-completeness}
+%=============================================================
+
+Some problems are NP-hard, which means we believe no polynomial-time algorithm can solve them exactly. So what do we do in practice?
+
+We have to give something up. There are three things we would like an algorithm to have:
+\begin{enumerate}
+    \item It works on \textbf{any} input (not just easy special cases).
+    \item It finds the \textbf{exact best} solution (optimal).
+    \item It runs in \textbf{polynomial time} (fast).
+\end{enumerate}
+Since we cannot have all three for NP-hard problems, we give up on \textbf{point 2}: we accept a solution that is \textit{not perfect}, but is \textit{provably close} to the best possible.
+
+\begin{definition}{$\rho$-Approximation Algorithm}{}
+A \textbf{$\rho$-approximation algorithm} is an algorithm that always:
+\begin{itemize}
+    \item runs in polynomial time,
+    \item gives a solution whose cost is at most $\rho$ times the true optimal cost (for minimization problems).
+\end{itemize}
+If $\rho = 2$, the algorithm is a \textbf{2-approximation}: it always finds a solution at most \textbf{twice as bad} as the best possible.
+\end{definition}
+
+\textbf{The key challenge:} To prove the approximation ratio $\rho$, we need to compare our solution to the optimal. But we do not know the optimal! The trick is to use \textbf{lower bounds} --- quantities that the optimal must be at least, even if we cannot compute the optimal directly.
+
+%=============================================================
+\section{Load Balancing}
+%=============================================================
+
+\subsection{The Problem}
+
+Imagine you have $m$ machines and $n$ jobs. Each job $j$ takes $t_j$ units of time and must run on exactly one machine. You want to split the jobs across machines so that no machine is overloaded.
+
+Formally:
+\begin{itemize}
+    \item The \textbf{load} of machine $i$ is $L_i = \sum_{j \in J(i)} t_j$ (sum of times of all jobs on machine $i$).
+    \item The \textbf{makespan} is $L = \max_i L_i$ (the time when the last machine finishes).
+    \item \textbf{Goal:} minimise the makespan.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-15 alle 17.50.36.png}
+\end{figure}
+
+\textit{This problem is NP-hard even with only 2 machines.}
+\newline
+questo problema è riconducibile al number partitioning problem, che è NP-hard. Se avessimo un algoritmo polinomiale per il load balancing, potremmo usarlo per risolvere il number partitioning: basta mettere i numeri come job e le due partizioni come macchine. Se il load balancing restituisce un makespan di 0, allora i numeri possono essere divisi in due partizioni con somma uguale (soluzione al number partitioning). Se restituisce un makespan maggiore di 0, allora non esiste una partizione perfetta.
+\subsection{Algorithm 1: List Scheduling (Greedy)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imm/Screenshot 2026-05-15 alle 18.04.59.png}
+\end{figure}
+\textbf{Idea:} Go through the jobs one by one, and always put the next job on the machine that currently has the least work.
+
+\textbf{List Scheduling}{}
+3 machines, jobs with times $[3, 3, 2, 2, 10]$.\\
+\begin{itemize}
+    \item Job 1 ($t=3$) $\to$ Machine 1. Loads: [3, 0, 0].
+    \item Job 2 ($t=3$) $\to$ Machine 2 (smallest load). Loads: [3, 3, 0].
+    \item Job 3 ($t=2$) $\to$ Machine 3. Loads: [3, 3, 2].
+    \item Job 4 ($t=2$) $\to$ Machine 3. Loads: [3, 3, 4].
+    \item Job 5 ($t=10$) $\to$ Machine 1 or 2. Loads: [13, 3, 4].
+\end{itemize}
+Makespan $= 13$. (The optimal is also 10, so this is close but not perfect.)
+
+
+\subsection{Lower Bounds on the Optimal $L^*$}
+
+We need two facts about the optimal makespan $L^*$ that we can prove without knowing $L^*$ exactly.
+
+\begin{lemma}{Two Lower Bounds}{}
+\begin{enumerate}
+    \item $L^* \geq \max_j t_j$ \quad (the optimal cannot be less than the longest single job, because some machine must run it).
+    \item $L^* \geq \dfrac{1}{m} \sum_j t_j$ \quad (the optimal cannot be less than the average load: the total work is $\sum t_j$, split among $m$ machines, so at least one machine must do at least the average share).
+\end{enumerate}
+\end{lemma}
+
+\subsection{Analysis: List Scheduling is a 2-Approximation}
+
+\begin{theorem}{List Scheduling $\leq 2 L^*$(l'algoritmo è una 2-approssimazione, cioè trova al massimo una soluzione che è doppia alla soluzione ottima)}
+
+
+\textbf{Proof (step by step):}
+\begin{enumerate}
+    \item Let $i$ be the \textbf{bottleneck machine} (the machine with the highest load $L_i = L$).
+    \item Let $j$ be the \textbf{last job assigned to machine $i$}.
+    \item At the moment job $j$ was assigned, machine $i$ had the \textbf{smallest load} of all machines (that is why the algorithm chose it). So its load at that moment was $L_i - t_j$, and:
+    \[
+    L_i - t_j \leq L_k \quad \text{for every other machine } k.
+    \]
+    \item Summing this inequality over all $m$ machines and dividing by $m$:
+    \[
+    L_i - t_j \leq \frac{1}{m}\sum_{k=1}^m L_k = \frac{1}{m}\sum_j t_j \leq L^* \qquad \text{(by Lemma, part 2 )} \]
+    \[ \text{Se Mi era la più scarica, il suo carico era minore al carico medio di tutte le macchine.} \]
+    \item Now we compute the final load of the bottleneck machine:
+    \[
+    L = L_i = \underbrace{(L_i - t_j)}_{\leq\, L^*} + \underbrace{t_j}_{\leq\, L^*} \leq 2L^*
+    \qquad \text{(using Lemma part 1 for $t_j \leq L^*$)}
+    \]
+\end{enumerate}
+Conclusion: $L \leq 2L^*$. $\square$
+\end{theorem}
+
+\textbf{The 2-approximation is tight (nearly)}{}
+Take $m = 10$ machines.\\
+Create $m(m-1) = 90$ jobs of length 1, and 1 job of length $m = 10$.\\
+List scheduling assigns all 90 short jobs first: each machine gets $m-1 = 9$ short jobs (load 9). Then the big job goes on machine 1: its load becomes $9 + 10 = 19$. \textbf{Makespan = 19}.\\
+Optimal: put the big job alone on one machine (load 10), distribute the 90 short jobs among the 9 others (10 each). \textbf{Optimal makespan = 10}.\\
+Ratio: $\frac{19}{10} \approx 1.9 \approx 2$.
+
+
+\subsection{Algorithm 2: Longest Processing Time (LPT)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imm/Screenshot 2026-05-15 alle 18.19.00.png}
+\end{figure}
+
+\textbf{Improvement idea:} Before running list scheduling, \textbf{sort the jobs from longest to shortest}. This prevents the worst case above (big job coming last).
+
+\begin{theorem}{LPT is a $\frac{3}{2}$-Approximation}
+    \newline
+\textbf{Key extra lemma:} If there are more than $m$ jobs, then $L^* \geq 2t_{m+1}$.\\
+\textit{Why?} The first $m+1$ jobs (in sorted order) are all at least as long as $t_{m+1}$. With $m+1$ jobs and $m$ machines, by the pigeonhole principle, at least one machine gets two of them. So $L^* \geq 2t_{m+1}$.
+
+\textbf{Proof sketch:} Following the same logic as before, let $j$ be the last job on the bottleneck machine. After sorting, $j \geq m+1$ (it is not one of the first $m$ jobs), so:
+\[
+t_j \leq t_{m+1} \leq \frac{1}{2}L^*
+\]
+Therefore:
+\[
+L = (L_i - t_j) + t_j \leq L^* + \frac{1}{2}L^* = \frac{3}{2}L^*
+\]
+$\square$
+\end{theorem}
+
+%=============================================================
+\section{Center Selection}
+%=============================================================
+
+\subsection{The Problem}
+
+You have $n$ sites (think: towns) and you need to build $k$ facilities (think: hospitals). You want to place $k$ centers so that every site is \textbf{as close as possible} to some center.
+
+Formally, the \textbf{covering radius} is:
+\[
+r(C) = \max_i \, dist(s_i, C) = \max_i \min_{c \in C} dist(s_i, c)
+\]
+\textbf{Goal:} Choose $k$ centers $C$ to minimise $r(C)$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-15 alle 18.26.57.png}
+    
+\end{figure}
+
+The distance satisfies three natural properties: $dist(x,x)=0$ (identity), $dist(x,y)=dist(y,x)$ (symmetry), and $dist(x,y) \leq dist(x,z)+dist(z,y)$ (triangle inequality).
+
+\subsection{Wrong Greedy: A False Start}
+
+\textbf{Bad idea:} Place the first center at the globally best single location, then greedily reduce the radius.\\
+\textbf{Problem:} This can give an arbitrarily bad answer. The first center might ``attract'' both clusters, and the second center is placed far from where it is really needed.
+
+\subsection{Correct Greedy Algorithm}
+
+\textbf{Right idea:} Always place the next center at the \textbf{site farthest from any existing center}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imm/Screenshot 2026-05-15 alle 18.31.49.png}
+\end{figure}
+
+\textbf{Key property after termination:} All $k$ centers in $C$ are pairwise at distance $\geq r(C)$ from each other.\\
+\textit{Why?} Because each new center was chosen as the farthest site at the time it was added. Once it is a center, no later center can be closer than $r(C)$ to it.
+
+\begin{theorem}{Center Selection Greedy is a 2-Approximation}{}
+Let $C^*$ be the optimal set of $k$ centers with radius $r^* = r(C^*)$.\\
+Let $C$ be the greedy solution with radius $r = r(C)$.\\
+Then $r \leq 2r^*$.
+
+\textbf{Proof by contradiction:}\\
+Assume $r^* < \frac{1}{2}r$, i.e., the optimal radius is less than half our radius.
+
+\begin{enumerate}
+    \item Draw a ball of radius $\frac{1}{2}r$ around each of our $k$ greedy centers $c_i \in C$.
+    \item Our centers are all at distance $\geq r$ from each other, so these balls do not overlap.
+    \item The optimal solution $C^*$ has $k$ centers. Since there are $k$ non-overlapping balls and $k$ optimal centers, by the pigeonhole principle, each ball contains exactly one optimal center $c_i^*$.
+    \item Now take any site $s$. It has some closest optimal center $c_i^*$ at distance $\leq r^*$.\\
+    By the triangle inequality:
+    \[
+    dist(s, c_i) \leq dist(s, c_i^*) + dist(c_i^*, c_i) \leq r^* + r^* = 2r^*
+    \]
+    (since both $s$ and $c_i$ are within $r^*$ of $c_i^*$, as the ball has radius $\frac{1}{2}r < r^*$... wait, let's be precise:)\\
+    We assumed $r^* < \frac{1}{2}r$, so $dist(c_i^*, c_i) \leq \frac{1}{2}r < r^*$.\\
+    Therefore $dist(s, c_i) \leq r^* + r^* = 2r^*$.
+    \item This means $r(C) \leq 2r^*$, which \textbf{contradicts} our assumption. $\square$
+\end{enumerate}
+\end{theorem}
+
+\textbf{Center selection in practice}{}
+Sites: cities at positions 1, 5, 6, 10 on a line. $k=2$ centers.\\
+\textbf{Greedy:} Start at city 1. Farthest site is city 10 $\to$ add it. Done: centers = $\{1, 10\}$.\\
+Radius: worst site is 5 or 6. $dist(5, \{1,10\}) = \min(4, 5) = 4$. So $r = 4$.\\
+\textbf{Optimal:} centers $= \{3.5, 8\}$ (non-sites!), giving radius $= 2.5$.\\
+Note: the greedy is constrained to place centers \textit{on sites} yet gives $r = 4 \leq 2 \times 2.5 = 5$. The factor-2 bound holds.
+
+
+\textbf{Is the 2-approximation the best possible?}\\
+Yes (unless P = NP). A $(2-\varepsilon)$-approximation would let us solve DOMINATING-SET in polynomial time:
+\begin{itemize}
+    \item Build a CENTER-SELECTION instance from graph $G$: set $dist(u,v)=1$ if edge, $dist(u,v)=2$ if no edge.
+    \item $G$ has a dominating set of size $k$ $\iff$ there are $k$ centers with radius $r^*=1$.
+    \item A $(2-\varepsilon)$-approximation would find radius $r=1$ (since it cannot use edges of distance 2), solving DOMINATING-SET in poly-time.
+\end{itemize}
+
+%=============================================================
+\section{Pricing Method: Vertex Cover}
+%=============================================================
+
+\subsection{Weighted Vertex Cover}
+
+Recall that a \textbf{vertex cover} is a set of vertices $S$ such that every edge has at least one endpoint in $S$. Now each vertex $i$ has a weight $w_i \geq 0$, and we want the minimum total weight cover.
+
+\textbf{Weighted Vertex Cover}{}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-15 alle 18.47.25.png}
+\end{figure}
+The pricing method will find an approximation of the minimum weight cover.
+
+
+\subsection{The Pricing Idea}
+
+Think of each edge as a \textbf{client} that must pay to use two vertices. Edge $e=(i,j)$ pays a price $p_e \geq 0$, and this price is split between vertex $i$ and vertex $j$.
+
+\textbf{Fairness rule:} No vertex should be ``overcharged''. The total price paid by all edges incident to vertex $i$ must be $\leq w_i$:
+\[
+\sum_{e \ni i} p_e \leq w_i \quad \text{for all vertices } i
+\]
+
+A vertex is called \textbf{tight} when this inequality becomes an equality: all its ``budget'' $w_i$ is used up.
+
+\begin{lemma}{Fairness Lemma}{}
+For \textbf{any} vertex cover $S$ (not just ours) and \textbf{any} fair prices $p_e$:
+\[
+\sum_{e \in E} p_e \leq w(S) = \sum_{i \in S} w_i
+\]
+\textbf{Why?} Every edge in $E$ is covered by at least one vertex in $S$. So when we sum up $\sum_{i \in S} w_i$, each edge price $p_e$ is counted at least once. By fairness, $\sum_{e \ni i} p_e \leq w_i$ for each $i \in S$, so the total sum of prices is at most $w(S)$.
+
+This lemma is powerful because it gives a lower bound on \textit{any} cover's cost: no matter how clever you are, the cover weight is at least $\sum_e p_e$.
+\end{lemma}
+
+\subsection{The Pricing Algorithm}
+
+The idea is to increase edge prices gradually until we cannot do so without violating fairness, then collect all tight vertices.
+
+\begin{verbatim}
+Set all p_e = 0
+S = empty set
+While there exists an uncovered edge (i,j):
+    Pick any uncovered edge e = (i,j)
+    Raise p_e until vertex i or vertex j becomes tight
+    (i.e., until sum of prices around i equals w_i, or around j equals w_j)
+S = { all tight vertices }
+Return S
+\end{verbatim}
+
+\textbf{Pricing Method Step by Step}{}
+Graph with vertices $a$ (weight 4), $b$ (weight 2), $c$ (weight 6), edge $a$-$b$ and edge $b$-$c$.
+\begin{itemize}
+    \item Edge $a$-$b$ is uncovered. Raise $p_{ab}$ from 0.\\
+    $b$ becomes tight when $p_{ab} = 2$ (since $w_b = 2$). So set $p_{ab} = 2$.
+    \item Now vertex $b$ is tight and is in $S$.
+    \item Edge $b$-$c$ is covered by $b$ (which is now in $S$). No more uncovered edges.
+    \item $S = \{b\}$, but wait --- $a$ is not in $S$, so edge $a$-$b$ is covered only by $b$. Check: $b \in S$ covers $a$-$b$, and $b \in S$ covers $b$-$c$. \checkmark
+    \item Total weight $w(S) = w_b = 2$.
+    \item Total prices $\sum_e p_e = p_{ab} = 2$.
+    \item $w(S) = 2 \leq 2 \cdot 2 = 4 \leq 2 w(S^*)$. \checkmark
+\end{itemize}
+
+\begin{theorem}{Pricing Method is a 2-Approximation}{}
+Let $S$ be the set returned by the pricing algorithm and $S^*$ be any optimal cover. Then:
+\[
+w(S) \leq 2\,w(S^*)
+\]
+
+\textbf{Proof:}
+
+\textbf{Step 1 --- $S$ is a valid vertex cover.}\\
+Every tight vertex is in $S$. If some edge $(i,j)$ were not covered, then neither $i$ nor $j$ would be tight. But then the while loop would keep running and raise $p_{(i,j)}$ until one becomes tight. Contradiction: the loop would not have stopped. So all edges are covered.
+
+\textbf{Step 2 --- The approximation bound.}\\
+Every vertex in $S$ is tight, so $w_i = \sum_{e \ni i} p_e$ for all $i \in S$. Therefore:
+\[
+w(S) = \sum_{i \in S} w_i = \sum_{i \in S} \sum_{e \ni i} p_e
+\]
+Now extend the sum to all vertices in $V$ (this only makes it larger, since prices are $\geq 0$):
+\[
+\sum_{i \in S} \sum_{e \ni i} p_e \leq \sum_{i \in V} \sum_{e \ni i} p_e = 2\sum_{e \in E} p_e
+\]
+The last equality holds because each edge $(i,j)$ appears \textbf{exactly twice} in the double sum: once when $i$ is the vertex, and once when $j$ is.
+
+By the Fairness Lemma, $\sum_{e \in E} p_e \leq w(S^*)$. Combining:
+\[
+w(S) \leq 2\sum_{e \in E} p_e \leq 2\,w(S^*) \qquad \square
+\]
+\end{theorem}
+
+
+
+
+\section{Coping with NP-completeness}
+%=============================================================
+
+When we face an NP-hard problem, we cannot have all three of these perfect features:
+\begin{enumerate}
+    \item Solve arbitrary (any) instances of the problem.
+    \item Solve the problem to optimality (find the exact best solution).
+    \item Solve the problem in polynomial time.
+\end{enumerate}
+
+Since we must sacrifice one, we choose to sacrifice \textbf{optimality}. 
+
+\begin{definition}{$\rho$-Approximation Algorithm}{}
+An algorithm is a $\rho$-approximation algorithm if it is guaranteed to:
+\begin{itemize}
+    \item Run in polynomial time.
+    \item Solve arbitrary instances of the problem.
+    \item Find a solution whose value is within a ratio $\rho$ of the true optimal value.
+\end{itemize}
+\end{definition}
+
+\textbf{The Challenge:} How do we prove our solution is close to the optimum, when we don't even know what the exact optimal value is?
+
+%=============================================================
+\section{Load Balancing (Section 11.1)}
+%=============================================================
+
+\subsection{The Problem}
+
+\textbf{Input:} $m$ identical machines and $n$ jobs. Job $j$ has a processing time $t_j$.\\
+\textbf{Rules:} A job must run continuously on one machine. A machine processes one job at a time.\\
+\textbf{Load:} Let $J(i)$ be the jobs assigned to machine $i$. The load of machine $i$ is $L_i = \sum_{j \in J(i)} t_j$.\\
+\textbf{Makespan:} The maximum load on any machine: $L = \max_i L_i$.\\
+\textbf{Goal:} Assign jobs to machines to \textbf{minimize the makespan} $L$.
+
+\textit{Note: Load balancing on just 2 machines is already NP-hard (it reduces from the NUMBER-PARTITIONING problem).}
+
+\subsection{Greedy Algorithm: List Scheduling}
+
+\textbf{Algorithm (Graham, 1966):}
+\begin{itemize}
+    \item Consider the $n$ jobs in any fixed order.
+    \item Assign job $j$ to the machine whose load is \textbf{smallest so far}.
+\end{itemize}
+
+\subsection{Analysis of List Scheduling}
+
+To prove how good the algorithm is, we need lower bounds on the optimal makespan $L^*$.
+
+\begin{lemma}{Lower Bounds on $L^*$}{}
+\begin{enumerate}
+    \item \textbf{Max job:} $L^* \geq \max_j t_j$. (Some machine must process the longest job).
+    \item \textbf{Average load:} $L^* \geq \frac{1}{m} \sum_j t_j$. (The total work is shared among $m$ machines, so at least one machine must do $1/m$ of the total work).
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}{List Scheduling is a 2-approximation}{}
+The greedy list scheduling algorithm produces a makespan $L \leq 2L^*$.
+
+\textbf{Proof:} 
+Let machine $i$ be the bottleneck machine (the one that achieves the max load $L_i = L$).\\
+Let job $j$ be the \textbf{last job} scheduled on machine $i$.\\
+When job $j$ was assigned to $i$, machine $i$ had the smallest load. So its load before getting $j$ was $L_i - t_j$.\\
+This means $L_i - t_j \leq L_k$ for all other machines $k$.\\
+Summing these inequalities over all $m$ machines and dividing by $m$:
+\[
+L_i - t_j \leq \frac{1}{m} \sum_{k=1}^m L_k = \frac{1}{m} \sum_k t_k \leq L^* \quad \text{(by Lemma 2)}
+\]
+Now, we calculate the total load of the bottleneck machine:
+\[
+L = L_i = (L_i - t_j) + t_j \leq L^* + L^* = 2L^* \quad \text{(since } t_j \leq L^* \text{ by Lemma 1)}
+\]
+Thus, $L \leq 2L^*$. $\square$
+\end{theorem}
+
+\textbf{Is the 2-approximation tight?}{}
+\textbf{Yes.} Consider $m$ machines, with $m(m-1)$ jobs of length 1, followed by one job of length $m$.\\
+The greedy algorithm will distribute the short jobs evenly (load $m-1$ on all machines), and then put the big job (length $m$) on the first machine. Makespan = $2m-1$.\\
+Optimal solution: put the big job on its own machine, and distribute the small jobs on the other $m-1$ machines. Optimal makespan = $m$.\\
+Ratio $\approx \frac{2m-1}{m} \approx 2$.
+
+
+\subsection{Longest Processing Time (LPT) Rule}
+
+To improve the result, we can sort the jobs first!\\
+\textbf{LPT Rule:} Sort the $n$ jobs in \textbf{descending order} of processing time ($t_1 \geq t_2 \geq \ldots \geq t_n$), then run the list scheduling algorithm.
+
+\begin{lemma}{LPT Lower Bound}{}
+If there are more than $m$ jobs, then $L^* \geq 2 t_{m+1}$.\\
+\textbf{Proof:} Consider the first $m+1$ jobs. They are the largest. By the pigeonhole principle, at least one machine must get two of these jobs. The smallest of these jobs is $t_{m+1}$, so that machine has load at least $2t_{m+1}$.
+\end{lemma}
+
+\begin{theorem}{LPT is a 3/2-approximation}{}
+Using LPT, the makespan is $L \leq \frac{3}{2}L^*$. (Graham actually proved it is a $4/3$-approximation).
+
+\textbf{Proof sketch:} Following the same logic as before:
+$L = (L_i - t_j) + t_j \leq L^* + t_j$.\\
+Since jobs are sorted and we assume $n > m$, the last job $j \geq m+1$, so $t_j \leq t_{m+1} \leq \frac{1}{2}L^*$ (from the Lemma). \\
+Therefore, $L \leq L^* + \frac{1}{2}L^* = \frac{3}{2}L^*$. $\square$
+\end{theorem}
+
+
+%=============================================================
+\section{Center Selection (Section 11.2)}
+%=============================================================
+
+\subsection{The Problem}
+
+\textbf{Input:} A set of $n$ sites $s_1, \ldots, s_n$ and an integer $k > 0$.\\
+\textbf{Distances:} We have a distance function between sites satisfying:
+\begin{itemize}
+    \item Identity: $dist(x, x) = 0$
+    \item Symmetry: $dist(x, y) = dist(y, x)$
+    \item Triangle inequality: $dist(x, y) \leq dist(x, z) + dist(z, y)$
+\end{itemize}
+\textbf{Goal:} Select a set $C$ of $k$ centers to minimize the \textbf{maximum distance} from any site to its nearest center. This maximum distance is the covering radius: $r(C) = \max_i dist(s_i, C)$.
+
+\subsection{Greedy Algorithm: A False Start}
+
+\textbf{Bad idea:} Put the first center at the absolute best location for a single center, then keep adding centers to reduce the radius as much as possible.\\
+\textit{Result:} This can be arbitrarily bad!
+
+\subsection{The Correct Greedy Algorithm}
+
+\textbf{Algorithm:} Repeatedly choose the next center to be the site \textbf{farthest from any existing center}.
+\begin{verbatim}
+C = {s_1}  // Pick an arbitrary first site
+Repeat k-1 times:
+    Select a site s_i that maximizes dist(s_i, C)
+    C = C U {s_i}
+Return C
+\end{verbatim}
+
+\textbf{Property:} When the algorithm finishes, all centers in $C$ are separated from each other by at least $r(C)$.
+
+\begin{theorem}{Center Selection 2-Approximation}{}
+Let $C^*$ be the optimal set of centers. Then $r(C) \leq 2r(C^*)$.
+
+\textbf{Proof by contradiction:}\\
+Assume our radius is strictly larger than twice the optimal: $r(C^*) < \frac{1}{2}r(C)$.\\
+For each of our chosen centers $c_i \in C$, draw a ball of radius $\frac{1}{2}r(C)$.\\
+Because all centers in $C$ are at least $r(C)$ apart, these balls do not overlap.\\
+Since we have $k$ non-overlapping balls, the optimal solution $C^*$ (which also has $k$ centers) must place exactly one center $c_i^*$ in each ball.\\
+Now take any site $s$. Let $c_i^*$ be its closest optimal center. By the triangle inequality:
+\[
+dist(s, C) \leq dist(s, c_i) \leq dist(s, c_i^*) + dist(c_i^*, c_i) \leq r(C^*) + r(C^*) \leq 2r(C^*)
+\]
+So $r(C) \leq 2r(C^*)$, which contradicts our assumption! $\square$
+\end{theorem}
+
+
+Our algorithm only places centers \textbf{on the sites themselves}, but it is still within a factor of 2 of the optimal solution that is allowed to place centers \textbf{anywhere}.
+
+
+\textbf{Can we do better (e.g. 1.5-approximation)?}\\
+\textbf{No.} Unless P = NP, there is no $\rho$-approximation for $\rho < 2$. Doing so would allow us to solve the NP-complete DOMINATING-SET problem in polynomial time.
+
+%=============================================================
+\section{Pricing Method: Vertex Cover (Section 11.4)}
+%=============================================================
+
+\subsection{Weighted Vertex Cover}
+
+\textbf{Definition:} Given a graph $G=(V,E)$ where each vertex $i$ has a weight $w_i \geq 0$, find a vertex cover $S \subseteq V$ (a set of vertices that covers every edge) of \textbf{minimum total weight}.
+
+\subsection{The Pricing Method Concept}
+
+Imagine each edge $e = (i, j)$ must pay a ``price'' $p_e \geq 0$ to use the vertices $i$ and $j$.\\
+\textbf{Fairness rule:} The total price paid by all edges connected to a vertex $i$ cannot exceed the weight $w_i$ of that vertex.
+\[
+\sum_{e=(i,j)} p_e \leq w_i
+\]
+
+\begin{lemma}{Fairness Lemma}{}
+For any valid vertex cover $S$ and any fair prices $p_e$, the total sum of all edge prices is less than or equal to the weight of the cover:
+\[
+\sum_{e \in E} p_e \leq w(S)
+\]
+\textbf{Proof:} Each edge is covered by at least one node in $S$. If we sum the fairness inequalities for all nodes in $S$, we get an upper bound on the sum of all prices.
+\end{lemma}
+
+\subsection{Pricing Method Algorithm}
+
+We set prices and find the vertex cover at the same time:
+\begin{verbatim}
+S = empty set
+For all edges, set p_e = 0
+While there is an edge (i,j) where NEITHER i nor j is "tight":
+    Select that edge e = (i,j)
+    Increase p_e as much as possible until either i or j becomes "tight"
+    (A vertex is "tight" when the sum of prices of its edges exactly equals its weight)
+
+S = the set of ALL tight nodes
+Return S
+\end{verbatim}
+
+\begin{theorem}{Pricing Method is a 2-approximation}{}
+The pricing method returns a vertex cover $S$ such that $w(S) \leq 2w(S^*)$, where $S^*$ is the optimal vertex cover.
+
+\textbf{Proof:}
+\begin{enumerate}
+    \item \textbf{It is a valid vertex cover:} If an edge is uncovered, neither of its endpoints is tight, which means the \texttt{while} loop wouldn't have terminated.
+    \item \textbf{Approximation ratio:} Because every node in our set $S$ is tight:
+    \[
+    w(S) = \sum_{i \in S} w_i = \sum_{i \in S} \sum_{e=(i,j)} p_e
+    \]
+    Since $S \subseteq V$, we can sum over all nodes in $V$ to get an upper bound. In that sum, each edge $e \in E$ is counted \textbf{exactly twice} (once for each of its two endpoints):
+    \[
+    \sum_{i \in S} \sum_{e} p_e \leq \sum_{i \in V} \sum_{e} p_e = 2 \sum_{e \in E} p_e
+    \]
+    By the Fairness Lemma, the sum of all prices is $\leq w(S^*)$.
+    Therefore, $w(S) \leq 2 w(S^*)$. $\square$
+\end{enumerate}
+\end{theorem}
+
+
 \end{document}

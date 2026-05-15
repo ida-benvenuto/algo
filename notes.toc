@@ -1,128 +1,183 @@
-\contentsline {chapter}{\numberline {1}Algorithm Analysis}{4}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Computational Tractability}{4}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Polynomial Running Time}{4}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Types of Analysis}{5}{subsection.1.1.2}%
-\contentsline {section}{\numberline {1.2}Asymptotic Order of Growth}{5}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Big-O Notation (Upper Bound)}{5}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Big-Omega Notation (Lower Bound)}{6}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Big-Theta Notation (Tight Bound)}{6}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Useful Limit Rules}{6}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}Key Asymptotic Facts}{6}{subsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.2.6}Big-O with Multiple Variables}{7}{subsection.1.2.6}%
-\contentsline {section}{\numberline {1.3}Survey of Common Running Times}{7}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Logarithmic Time — O(log n)}{7}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Linear Time — O(n)}{7}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Linearithmic Time — O(n log n)}{8}{subsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.3.4}Quadratic Time — Quadratic Complexity}{8}{subsection.1.3.4}%
-\contentsline {subsection}{\numberline {1.3.5}Cubic Time — Cubic Complexity}{8}{subsection.1.3.5}%
-\contentsline {subsection}{\numberline {1.3.6}Polynomial Time — Polynomial Complexity}{9}{subsection.1.3.6}%
-\contentsline {subsection}{\numberline {1.3.7}Exponential Time — Exponential Complexity}{9}{subsection.1.3.7}%
-\contentsline {section}{\numberline {1.4}Hierarchy of Complexities}{9}{section.1.4}%
-\contentsline {chapter}{\numberline {2}Greedy algorithm}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Interval Scheduling}{11}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}The Problem}{11}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Greedy Templates}{11}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Earliest-Finish-Time-First Algorithm}{12}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Proof of Optimality}{12}{subsection.2.1.4}%
-\contentsline {section}{\numberline {2.2}Interval Partitioning}{13}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}The Problem}{13}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Depth and Lower Bound}{13}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Earliest-Start-Time-First Algorithm}{14}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Proof of Optimality}{14}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Scheduling to Minimize Lateness}{15}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}The Problem}{15}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Greedy Candidates}{15}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Earliest-Deadline-First Algorithm}{16}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Key Observations}{16}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Exchange Argument}{16}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Proof of Optimality}{17}{subsection.2.3.6}%
-\contentsline {section}{\numberline {2.4}Greedy Analysis Strategies}{17}{section.2.4}%
-\contentsline {chapter}{\numberline {3} Dynamic Programming}{18}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Algorithmic Paradigms}{18}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Weighted Interval Scheduling}{18}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Problem Definition}{18}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Key Definitions}{19}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Optimal Substructure (Binary Choice)}{19}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Brute Force}{20}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Memoization: Top-Down DP}{20}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Finding the Actual Solution}{21}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Bottom-Up DP}{22}{subsection.3.2.7}%
-\contentsline {section}{\numberline {3.3}Segmented Least Squares}{22}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Background: Least Squares}{22}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Problem Definition}{22}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Optimal Substructure (Multiway Choice)}{23}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Algorithm}{24}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Knapsack Problem}{24}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Problem Definition}{24}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Why One Variable Is Not Enough}{25}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Optimal Substructure (New Variable)}{25}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Bottom-Up Algorithm}{25}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Running Time and Remarks}{26}{subsection.3.4.5}%
-\contentsline {section}{\numberline {3.5}Sequence Alignment}{26}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}String Similarity and Edit Distance}{26}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Problem Definition}{27}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Optimal Substructure}{28}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Algorithm}{28}{subsection.3.5.4}%
-\contentsline {section}{\numberline {3.6}Hirschberg's Algorithm}{29}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Goal: Linear Space with Full Alignment}{29}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Divide-and-Conquer}{30}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Running Time Analysis}{31}{subsection.3.6.3}%
-\contentsline {section}{\numberline {3.7}Bellman-Ford Algorithm}{32}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}The Shortest Path Problem with Negative Weights}{32}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Negative Cycles}{32}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}Dynamic Programming Formulation}{33}{subsection.3.7.3}%
-\contentsline {subsection}{\numberline {3.7.4}Implementation}{33}{subsection.3.7.4}%
-\contentsline {subsection}{\numberline {3.7.5}Bellman-Ford: Efficient Implementation}{34}{subsection.3.7.5}%
-\contentsline {subsection}{\numberline {3.7.6}Analysis and Correctness}{34}{subsection.3.7.6}%
-\contentsline {section}{\numberline {3.8}Distance Vector Protocols}{35}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}Routing in Communication Networks}{35}{subsection.3.8.1}%
-\contentsline {subsection}{\numberline {3.8.2}Distance Vector Protocols}{35}{subsection.3.8.2}%
-\contentsline {subsection}{\numberline {3.8.3}Counting-to-Infinity Problem}{35}{subsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.8.4}Path Vector Protocols}{36}{subsection.3.8.4}%
-\contentsline {section}{\numberline {3.9}Negative Cycle Detection}{36}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}The Problem}{36}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}Detection via Bellman-Ford}{36}{subsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.9.3}Algorithm}{36}{subsection.3.9.3}%
-\contentsline {subsection}{\numberline {3.9.4}Summary of Complexities}{37}{subsection.3.9.4}%
-\contentsline {chapter}{\numberline {4} exercises on dynamic programming}{38}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Network Flow}{43}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Max-Flow and Min-Cut Problems}{43}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Ford-Fulkerson Algorithm}{44}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Greedy Approach and Its Limits}{44}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Residual Graph}{45}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Augmenting Path}{46}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Ford-Fulkerson Algorithm}{47}{subsection.5.2.4}%
-\contentsline {paragraph}{Step 1.}{47}{section*.8}%
-\contentsline {paragraph}{Step 2.}{47}{section*.9}%
-\contentsline {paragraph}{Step 3.}{47}{section*.10}%
-\contentsline {paragraph}{Step 4 — use of a backward edge.}{48}{section*.11}%
-\contentsline {paragraph}{Step 5.}{48}{section*.12}%
-\contentsline {section}{\numberline {5.3}Max-Flow Min-Cut Theorem}{48}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Flow Value Lemma}{48}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Weak Duality}{49}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Max-Flow Min-Cut Theorem}{49}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Augmenting Path Theorem}{50}{subsection.5.4.1}%
-\contentsline {paragraph}{Assumption}{50}{section*.14}%
-\contentsline {section}{\numberline {5.5}Capacity-Scaling Algorithm}{51}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Shortest Augmenting Paths}{52}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Level Graph}{52}{subsection.5.6.1}%
-\contentsline {paragraph}{Remark.}{53}{section*.20}%
-\contentsline {section}{\numberline {5.7}Unit-Capacity Simple Networks}{54}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Bipartite Matching}{54}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Reduction to Max Flow}{55}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}Hall's Theorem}{55}{subsection.5.8.2}%
-\contentsline {subsection}{\numberline {5.8.3}Edge-Disjoint Paths}{56}{subsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.8.4}Reduction to Max Flow}{56}{subsection.5.8.4}%
-\contentsline {subsection}{\numberline {5.8.5}Circulation with Demands}{57}{subsection.5.8.5}%
-\contentsline {subsubsection}{Reduction to Max Flow}{57}{section*.23}%
-\contentsline {subsection}{\numberline {5.8.6}Lower Bounds}{58}{subsection.5.8.6}%
-\contentsline {section}{\numberline {5.9}Survey Design}{59}{section.5.9}%
-\contentsline {section}{\numberline {5.10}Airline Scheduling}{59}{section.5.10}%
-\contentsline {subsection}{\numberline {5.10.1}Project Selection}{59}{subsection.5.10.1}%
-\contentsline {chapter}{\numberline {6} exercises on Network Flow}{61}{chapter.6}%
-\contentsline {paragraph}{Construction of $G'$.}{61}{section*.26}%
-\contentsline {paragraph}{Construction of $G''$.}{62}{section*.28}%
-\contentsline {paragraph}{Key Observation.}{63}{section*.31}%
-\contentsline {paragraph}{Construction of the Flow Network $G'$.}{64}{section*.32}%
-\contentsline {paragraph}{Algorithm.}{64}{section*.33}%
-\contentsline {paragraph}{Correctness.}{64}{section*.34}%
+\contentsline {chapter}{\numberline {1}Algorithm Analysis}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Computational Tractability}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Polynomial Running Time}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Types of Analysis}{6}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Asymptotic Order of Growth}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Big-O Notation (Upper Bound)}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Big-Omega Notation (Lower Bound)}{7}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Big-Theta Notation (Tight Bound)}{7}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Useful Limit Rules}{7}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Key Asymptotic Facts}{7}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Big-O with Multiple Variables}{8}{subsection.1.2.6}%
+\contentsline {section}{\numberline {1.3}Survey of Common Running Times}{8}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Logarithmic Time — O(log n)}{8}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Linear Time — O(n)}{8}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Linearithmic Time — O(n log n)}{9}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Quadratic Time — Quadratic Complexity}{9}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}Cubic Time — Cubic Complexity}{9}{subsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.3.6}Polynomial Time — Polynomial Complexity}{10}{subsection.1.3.6}%
+\contentsline {subsection}{\numberline {1.3.7}Exponential Time — Exponential Complexity}{10}{subsection.1.3.7}%
+\contentsline {section}{\numberline {1.4}Hierarchy of Complexities}{10}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Greedy algorithm}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Interval Scheduling}{12}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}The Problem}{12}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Greedy Templates}{12}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Earliest-Finish-Time-First Algorithm}{13}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Proof of Optimality}{13}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Interval Partitioning}{14}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}The Problem}{14}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Depth and Lower Bound}{14}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Earliest-Start-Time-First Algorithm}{15}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Proof of Optimality}{15}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Scheduling to Minimize Lateness}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}The Problem}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Greedy Candidates}{16}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Earliest-Deadline-First Algorithm}{17}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Key Observations}{17}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Exchange Argument}{17}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Proof of Optimality}{18}{subsection.2.3.6}%
+\contentsline {section}{\numberline {2.4}Greedy Analysis Strategies}{18}{section.2.4}%
+\contentsline {chapter}{\numberline {3} Dynamic Programming}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Algorithmic Paradigms}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Weighted Interval Scheduling}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Problem Definition}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Key Definitions}{20}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Optimal Substructure (Binary Choice)}{20}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Brute Force}{21}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Memoization: Top-Down DP}{21}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Finding the Actual Solution}{22}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Bottom-Up DP}{23}{subsection.3.2.7}%
+\contentsline {section}{\numberline {3.3}Segmented Least Squares}{23}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Background: Least Squares}{23}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Problem Definition}{23}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Optimal Substructure (Multiway Choice)}{24}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Algorithm}{25}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Knapsack Problem}{25}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Problem Definition}{25}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Why One Variable Is Not Enough}{26}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Optimal Substructure (New Variable)}{26}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Bottom-Up Algorithm}{26}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Running Time and Remarks}{27}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Sequence Alignment}{27}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}String Similarity and Edit Distance}{27}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Problem Definition}{28}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Optimal Substructure}{29}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Algorithm}{29}{subsection.3.5.4}%
+\contentsline {section}{\numberline {3.6}Hirschberg's Algorithm}{30}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Goal: Linear Space with Full Alignment}{30}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Divide-and-Conquer}{31}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Running Time Analysis}{32}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.7}Bellman-Ford Algorithm}{33}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}The Shortest Path Problem with Negative Weights}{33}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Negative Cycles}{33}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Dynamic Programming Formulation}{34}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.4}Implementation}{34}{subsection.3.7.4}%
+\contentsline {subsection}{\numberline {3.7.5}Bellman-Ford: Efficient Implementation}{35}{subsection.3.7.5}%
+\contentsline {subsection}{\numberline {3.7.6}Analysis and Correctness}{35}{subsection.3.7.6}%
+\contentsline {section}{\numberline {3.8}Distance Vector Protocols}{36}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Routing in Communication Networks}{36}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Distance Vector Protocols}{36}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}Counting-to-Infinity Problem}{36}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}Path Vector Protocols}{37}{subsection.3.8.4}%
+\contentsline {section}{\numberline {3.9}Negative Cycle Detection}{37}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}The Problem}{37}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Detection via Bellman-Ford}{37}{subsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.9.3}Algorithm}{37}{subsection.3.9.3}%
+\contentsline {subsection}{\numberline {3.9.4}Summary of Complexities}{38}{subsection.3.9.4}%
+\contentsline {chapter}{\numberline {4} exercises on dynamic programming}{39}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Network Flow}{44}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Max-Flow and Min-Cut Problems}{44}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Ford-Fulkerson Algorithm}{45}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Greedy Approach and Its Limits}{45}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Residual Graph}{46}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Augmenting Path}{47}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Ford-Fulkerson Algorithm}{48}{subsection.5.2.4}%
+\contentsline {paragraph}{Step 1.}{48}{section*.8}%
+\contentsline {paragraph}{Step 2.}{48}{section*.9}%
+\contentsline {paragraph}{Step 3.}{48}{section*.10}%
+\contentsline {paragraph}{Step 4 — use of a backward edge.}{49}{section*.11}%
+\contentsline {paragraph}{Step 5.}{49}{section*.12}%
+\contentsline {section}{\numberline {5.3}Max-Flow Min-Cut Theorem}{49}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Flow Value Lemma}{49}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Weak Duality}{50}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Max-Flow Min-Cut Theorem}{50}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Augmenting Path Theorem}{51}{subsection.5.4.1}%
+\contentsline {paragraph}{Assumption}{51}{section*.14}%
+\contentsline {section}{\numberline {5.5}Capacity-Scaling Algorithm}{52}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Shortest Augmenting Paths}{53}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Level Graph}{53}{subsection.5.6.1}%
+\contentsline {paragraph}{Remark.}{54}{section*.20}%
+\contentsline {section}{\numberline {5.7}Unit-Capacity Simple Networks}{55}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Bipartite Matching}{55}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Reduction to Max Flow}{56}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Hall's Theorem}{56}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Edge-Disjoint Paths}{57}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}Reduction to Max Flow}{57}{subsection.5.8.4}%
+\contentsline {subsection}{\numberline {5.8.5}Circulation with Demands}{58}{subsection.5.8.5}%
+\contentsline {subsubsection}{Reduction to Max Flow}{58}{section*.23}%
+\contentsline {subsection}{\numberline {5.8.6}Lower Bounds}{59}{subsection.5.8.6}%
+\contentsline {section}{\numberline {5.9}Survey Design}{60}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Airline Scheduling}{60}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Project Selection}{60}{subsection.5.10.1}%
+\contentsline {chapter}{\numberline {6} exercises on Network Flow}{62}{chapter.6}%
+\contentsline {paragraph}{Construction of $G'$.}{62}{section*.26}%
+\contentsline {paragraph}{Construction of $G''$.}{63}{section*.28}%
+\contentsline {paragraph}{Key Observation.}{64}{section*.31}%
+\contentsline {paragraph}{Construction of the Flow Network $G'$.}{65}{section*.32}%
+\contentsline {paragraph}{Algorithm.}{65}{section*.33}%
+\contentsline {paragraph}{Correctness.}{65}{section*.34}%
+\contentsline {chapter}{\numberline {7}NP and Computational Intractability}{66}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Algorithm Design Patterns and Anti-Patterns}{66}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Polynomial-Time Reductions (Section 8.1)}{66}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Classifying Problems}{66}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Polynomial-Time Reduction}{67}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Three Basic Reduction Strategies}{67}{subsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}Strategy 1 --- Simple Equivalence}{68}{subsection.7.2.4}%
+\contentsline {paragraph}{Problem: Independent Set}{68}{section*.35}%
+\contentsline {paragraph}{Problem: Vertex Cover}{68}{section*.36}%
+\contentsline {subsection}{\numberline {7.2.5}Strategy 2 --- Special Case to General Case}{68}{subsection.7.2.5}%
+\contentsline {subsubsection}{Strategy 3 --- Encoding with Gadgets}{69}{section*.37}%
+\contentsline {subsection}{\numberline {7.2.6}Transitivity of Reductions}{70}{subsection.7.2.6}%
+\contentsline {section}{\numberline {7.3}Definition of NP (Section 8.3)}{70}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Decision Problems}{70}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}The Class P}{71}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}The Class NP}{71}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}P, NP, and EXP}{72}{subsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.3.5}The P vs. NP Question}{72}{subsection.7.3.5}%
+\contentsline {section}{\numberline {7.4}NP-Completeness (Section 8.4)}{73}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Two Types of Reduction}{73}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}NP-Complete Problems}{73}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Circuit Satisfiability --- The First NP-Complete Problem}{73}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.4}Recipe to Prove NP-Completeness}{74}{subsection.7.4.4}%
+\contentsline {subsection}{\numberline {7.4.5}3-SAT is NP-Complete}{75}{subsection.7.4.5}%
+\contentsline {subsection}{\numberline {7.4.6}The Domino Chain of NP-Complete Problems}{75}{subsection.7.4.6}%
+\contentsline {chapter}{\numberline {8}APPROXIMATION ALGORITHMS(11)}{76}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Coping with NP-completeness}{76}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Load Balancing}{77}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}The Problem}{77}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Algorithm 1: List Scheduling (Greedy)}{77}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Lower Bounds on the Optimal $L^*$}{78}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Analysis: List Scheduling is a 2-Approximation}{78}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Algorithm 2: Longest Processing Time (LPT)}{79}{subsection.8.2.5}%
+\contentsline {section}{\numberline {8.3}Center Selection}{80}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}The Problem}{80}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Wrong Greedy: A False Start}{80}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Correct Greedy Algorithm}{80}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}Pricing Method: Vertex Cover}{82}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Weighted Vertex Cover}{82}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}The Pricing Idea}{82}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}The Pricing Algorithm}{83}{subsection.8.4.3}%
+\contentsline {section}{\numberline {8.5}Coping with NP-completeness}{84}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Load Balancing (Section 11.1)}{84}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}The Problem}{84}{subsection.8.6.1}%
+\contentsline {subsection}{\numberline {8.6.2}Greedy Algorithm: List Scheduling}{85}{subsection.8.6.2}%
+\contentsline {subsection}{\numberline {8.6.3}Analysis of List Scheduling}{85}{subsection.8.6.3}%
+\contentsline {subsection}{\numberline {8.6.4}Longest Processing Time (LPT) Rule}{85}{subsection.8.6.4}%
+\contentsline {section}{\numberline {8.7}Center Selection (Section 11.2)}{86}{section.8.7}%
+\contentsline {subsection}{\numberline {8.7.1}The Problem}{86}{subsection.8.7.1}%
+\contentsline {subsection}{\numberline {8.7.2}Greedy Algorithm: A False Start}{86}{subsection.8.7.2}%
+\contentsline {subsection}{\numberline {8.7.3}The Correct Greedy Algorithm}{86}{subsection.8.7.3}%
+\contentsline {section}{\numberline {8.8}Pricing Method: Vertex Cover (Section 11.4)}{87}{section.8.8}%
+\contentsline {subsection}{\numberline {8.8.1}Weighted Vertex Cover}{87}{subsection.8.8.1}%
+\contentsline {subsection}{\numberline {8.8.2}The Pricing Method Concept}{87}{subsection.8.8.2}%
+\contentsline {subsection}{\numberline {8.8.3}Pricing Method Algorithm}{87}{subsection.8.8.3}%
