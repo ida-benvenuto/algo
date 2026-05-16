@@ -3066,7 +3066,7 @@ A \textbf{decision problem} $X$ is a set of strings. An algorithm $A$ \textbf{so
 
 \subsection{The Class P}
 
-\begin{definition}{Class P}{}
+\begin{definition}{Class }
 $\mathbf{P}$ is the set of all decision problems solvable by a \textbf{polynomial-time algorithm}.
 \end{definition}
 
@@ -3105,7 +3105,7 @@ s \in X \iff \exists\, t \text{ such that } C(s,t) = \texttt{yes}
 The string $t$ is called the \textbf{certificate} (or \textit{witness}).
 \end{definition}
 
-\begin{definition}{Class NP}{}
+\begin{definition}{Class}
 $\mathbf{NP}$ is the set of decision problems for which there exists a \textbf{poly-time certifier} $C(s,t)$ with $|t| \leq p(|s|)$ for some polynomial $p$.\\
 NP stands for \textit{Nondeterministic Polynomial-time}.
 \end{definition}
@@ -3153,12 +3153,16 @@ Check clause 1: $1 \vee 0 \vee 1 = 1$. $\checkmark$\quad Check clause 2: $0 \vee
     \item Check that there is an edge between each pair of adjacent nodes in the permutation.
     \item Check that there is an edge between the last and first node (to close the cycle).
 \end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-15 alle 19.10.50.png}
+\end{figure}
 \textbf{Conclusion: HAM-CYCLE is in NP}. (The certifier runs in $O(n)$ -- polynomial.)
  
 
 \subsection{P, NP, and EXP}
 
-\begin{definition}{Class EXP}{}
+\begin{definition}{Class }
 $\mathbf{EXP}$ is the set of decision problems solvable by an \textbf{exponential-time} algorithm.
 \end{definition}
 
@@ -3330,6 +3334,77 @@ Most NP problems are either known to be in $P$ or NP-complete. Notable exception
 
 
 MANCAAAAA
+\section{Sequencing Problems (Section 8.5)}
+%=============================================================
+
+\subsection{Hamiltonian Cycle}
+\textbf{HAM-CYCLE:} Given an undirected graph $G$, does there exist a simple cycle that contains every node in $V$?
+
+\textbf{DIR-HAM-CYCLE:} Given a directed graph $G$, does there exist a simple directed cycle that contains every node in $V$?
+
+\begin{theorem}{DIR-HAM-CYCLE reduces to HAM-CYCLE}{}
+DIR-HAM-CYCLE $\leq_P$ HAM-CYCLE.
+\end{theorem}
+\textbf{Proof:} We transform a directed graph $G$ into an undirected graph $G'$. For each node $v$ in $G$, we create 3 nodes in $G'$: $v_{in}$, $v$, and $v_{out}$, connected in a line. We connect directed edges $(u, v)$ as undirected edges between $u_{out}$ and $v_{in}$. A Hamiltonian cycle in $G'$ must traverse the nodes as $v_{in} \to v \to v_{out}$, perfectly mimicking a directed cycle in $G$.
+
+\begin{theorem}{3-SAT reduces to DIR-HAM-CYCLE}{}
+3-SAT $\leq_P$ DIR-HAM-CYCLE.
+\end{theorem}
+\textbf{Proof Sketch:} We construct a graph with $2^n$ Hamiltonian cycles corresponding to $2^n$ truth assignments. We create a "row" of nodes for each variable $x_i$, which can be traversed left-to-right ($x_i = 1$) or right-to-left ($x_i = 0$). For each clause $C_j$, we create a "clause node". We connect the row nodes to the clause node so that the cycle can only detour through the clause node if the variable traverses in the "correct" direction (satisfying the clause).
+
+\subsection{Traveling Salesperson Problem (TSP)}
+\textbf{TSP:} Given a set of $n$ cities and distances $d(u,v)$, is there a tour of length $\leq D$?
+
+\begin{theorem}{HAM-CYCLE reduces to TSP}{}
+HAM-CYCLE $\leq_P$ TSP.
+\end{theorem}
+\textbf{Proof:} Given an instance $G$ of HAM-CYCLE, we create $n$ cities. We set the distance $d(u,v) = 1$ if $(u,v)$ is an edge in $G$, and $d(u,v) = 2$ if it is not. A TSP tour of length $\leq n$ exists if and only if all edges used have distance 1, meaning $G$ has a Hamiltonian cycle.
+
+%=============================================================
+\section{Partitioning Problems (Section 8.6)}
+%=============================================================
+
+\subsection{3-Dimensional Matching}
+\textbf{3D-MATCHING:} Given disjoint sets $X, Y, Z$, each of size $n$, and a set of triples $T \subseteq X \times Y \times Z$, is there a set of $n$ triples such that every element is covered exactly once?
+\textit{(Example: Matching instructors, courses, and times).}
+
+\begin{theorem}{3-SAT reduces to 3D-MATCHING}{}
+3-SAT $\leq_P$ 3D-MATCHING.
+\end{theorem}
+\textbf{Proof Sketch:} We create "core" and "tip" gadgets for each variable (representing True/False), "clause" gadgets to ensure one literal per clause is satisfied, and "cleanup" gadgets to cover unused tips.
+
+%=============================================================
+\section{Graph Coloring (Section 8.7)}
+%=============================================================
+
+\subsection{3-Colorability}
+\textbf{3-COLOR:} Given an undirected graph $G$, can you color the nodes with 3 colors (Red, Green, Blue) so no adjacent nodes have the same color?
+\textit{(Application: Register allocation in compilers).}
+
+\begin{theorem}{3-SAT reduces to 3-COLOR}{}
+3-SAT $\leq_P$ 3-COLOR.
+\end{theorem}
+\textbf{Proof Sketch:} We create a triangle of nodes: True (T), False (F), Base (B). For each literal $x_i$, we connect it to its negation $\neg x_i$ and to the Base. This forces each literal to be colored T or F. For each clause, we add a 6-node gadget connected to the clause's literals and to B and F. This gadget can only be 3-colored if at least one literal is colored True.
+
+%=============================================================
+\section{Numerical Problems (Section 8.8)}
+%=============================================================
+
+\subsection{Subset Sum}
+\textbf{SUBSET-SUM:} Given natural numbers $w_1, \ldots, w_n$ and a target $W$, is there a subset that adds up exactly to $W$?
+
+\begin{theorem}{3-SAT reduces to SUBSET-SUM}{}
+3-SAT $\leq_P$ SUBSET-SUM.
+\end{theorem}
+\textbf{Proof Sketch:} We create integers using base-10 digits. The digits represent variables and clauses. We choose numbers so that getting the exact sum $W$ requires selecting either $x_i$ or $\neg x_i$ (truth assignment) and covering every clause column. We use "dummy" numbers to handle carry-overs in the clause columns.
+
+\subsection{Scheduling With Release Times}
+\textbf{SCHEDULE-RELEASE-TIMES:} Can we schedule $n$ jobs, where job $i$ has processing time $t_i$, release time $r_i$, and deadline $d_i$?
+
+\begin{theorem}{SUBSET-SUM reduces to SCHEDULE-RELEASE-TIMES}{}
+SUBSET-SUM $\leq_P$ SCHEDULE-RELEASE-TIMES.
+\end{theorem}
+\textbf{Proof Sketch:} Create jobs with lengths equal to $w_i$. Create one special job 0 with length 1, release $W$, and deadline $W+1$. This forces job 0 to run exactly at time $W$. The other jobs must fill the space exactly up to $W$ and exactly after $W+1$. This perfectly mimics SUBSET-SUM.
 
 \chapter{APPROXIMATION ALGORITHMS(11)}
 
@@ -3641,221 +3716,6 @@ w(S) \leq 2\sum_{e \in E} p_e \leq 2\,w(S^*) \qquad \square
 
 
 
-
-\section{Coping with NP-completeness}
-%=============================================================
-
-When we face an NP-hard problem, we cannot have all three of these perfect features:
-\begin{enumerate}
-    \item Solve arbitrary (any) instances of the problem.
-    \item Solve the problem to optimality (find the exact best solution).
-    \item Solve the problem in polynomial time.
-\end{enumerate}
-
-Since we must sacrifice one, we choose to sacrifice \textbf{optimality}. 
-
-\begin{definition}{$\rho$-Approximation Algorithm}{}
-An algorithm is a $\rho$-approximation algorithm if it is guaranteed to:
-\begin{itemize}
-    \item Run in polynomial time.
-    \item Solve arbitrary instances of the problem.
-    \item Find a solution whose value is within a ratio $\rho$ of the true optimal value.
-\end{itemize}
-\end{definition}
-
-\textbf{The Challenge:} How do we prove our solution is close to the optimum, when we don't even know what the exact optimal value is?
-
-%=============================================================
-\section{Load Balancing (Section 11.1)}
-%=============================================================
-
-\subsection{The Problem}
-
-\textbf{Input:} $m$ identical machines and $n$ jobs. Job $j$ has a processing time $t_j$.\\
-\textbf{Rules:} A job must run continuously on one machine. A machine processes one job at a time.\\
-\textbf{Load:} Let $J(i)$ be the jobs assigned to machine $i$. The load of machine $i$ is $L_i = \sum_{j \in J(i)} t_j$.\\
-\textbf{Makespan:} The maximum load on any machine: $L = \max_i L_i$.\\
-\textbf{Goal:} Assign jobs to machines to \textbf{minimize the makespan} $L$.
-
-\textit{Note: Load balancing on just 2 machines is already NP-hard (it reduces from the NUMBER-PARTITIONING problem).}
-
-\subsection{Greedy Algorithm: List Scheduling}
-
-\textbf{Algorithm (Graham, 1966):}
-\begin{itemize}
-    \item Consider the $n$ jobs in any fixed order.
-    \item Assign job $j$ to the machine whose load is \textbf{smallest so far}.
-\end{itemize}
-
-\subsection{Analysis of List Scheduling}
-
-To prove how good the algorithm is, we need lower bounds on the optimal makespan $L^*$.
-
-\begin{lemma}{Lower Bounds on $L^*$}{}
-\begin{enumerate}
-    \item \textbf{Max job:} $L^* \geq \max_j t_j$. (Some machine must process the longest job).
-    \item \textbf{Average load:} $L^* \geq \frac{1}{m} \sum_j t_j$. (The total work is shared among $m$ machines, so at least one machine must do $1/m$ of the total work).
-\end{enumerate}
-\end{lemma}
-
-\begin{theorem}{List Scheduling is a 2-approximation}{}
-The greedy list scheduling algorithm produces a makespan $L \leq 2L^*$.
-
-\textbf{Proof:} 
-Let machine $i$ be the bottleneck machine (the one that achieves the max load $L_i = L$).\\
-Let job $j$ be the \textbf{last job} scheduled on machine $i$.\\
-When job $j$ was assigned to $i$, machine $i$ had the smallest load. So its load before getting $j$ was $L_i - t_j$.\\
-This means $L_i - t_j \leq L_k$ for all other machines $k$.\\
-Summing these inequalities over all $m$ machines and dividing by $m$:
-\[
-L_i - t_j \leq \frac{1}{m} \sum_{k=1}^m L_k = \frac{1}{m} \sum_k t_k \leq L^* \quad \text{(by Lemma 2)}
-\]
-Now, we calculate the total load of the bottleneck machine:
-\[
-L = L_i = (L_i - t_j) + t_j \leq L^* + L^* = 2L^* \quad \text{(since } t_j \leq L^* \text{ by Lemma 1)}
-\]
-Thus, $L \leq 2L^*$. $\square$
-\end{theorem}
-
-\textbf{Is the 2-approximation tight?}{}
-\textbf{Yes.} Consider $m$ machines, with $m(m-1)$ jobs of length 1, followed by one job of length $m$.\\
-The greedy algorithm will distribute the short jobs evenly (load $m-1$ on all machines), and then put the big job (length $m$) on the first machine. Makespan = $2m-1$.\\
-Optimal solution: put the big job on its own machine, and distribute the small jobs on the other $m-1$ machines. Optimal makespan = $m$.\\
-Ratio $\approx \frac{2m-1}{m} \approx 2$.
-
-
-\subsection{Longest Processing Time (LPT) Rule}
-
-To improve the result, we can sort the jobs first!\\
-\textbf{LPT Rule:} Sort the $n$ jobs in \textbf{descending order} of processing time ($t_1 \geq t_2 \geq \ldots \geq t_n$), then run the list scheduling algorithm.
-
-\begin{lemma}{LPT Lower Bound}{}
-If there are more than $m$ jobs, then $L^* \geq 2 t_{m+1}$.\\
-\textbf{Proof:} Consider the first $m+1$ jobs. They are the largest. By the pigeonhole principle, at least one machine must get two of these jobs. The smallest of these jobs is $t_{m+1}$, so that machine has load at least $2t_{m+1}$.
-\end{lemma}
-
-\begin{theorem}{LPT is a 3/2-approximation}{}
-Using LPT, the makespan is $L \leq \frac{3}{2}L^*$. (Graham actually proved it is a $4/3$-approximation).
-
-\textbf{Proof sketch:} Following the same logic as before:
-$L = (L_i - t_j) + t_j \leq L^* + t_j$.\\
-Since jobs are sorted and we assume $n > m$, the last job $j \geq m+1$, so $t_j \leq t_{m+1} \leq \frac{1}{2}L^*$ (from the Lemma). \\
-Therefore, $L \leq L^* + \frac{1}{2}L^* = \frac{3}{2}L^*$. $\square$
-\end{theorem}
-
-
-%=============================================================
-\section{Center Selection (Section 11.2)}
-%=============================================================
-
-\subsection{The Problem}
-
-\textbf{Input:} A set of $n$ sites $s_1, \ldots, s_n$ and an integer $k > 0$.\\
-\textbf{Distances:} We have a distance function between sites satisfying:
-\begin{itemize}
-    \item Identity: $dist(x, x) = 0$
-    \item Symmetry: $dist(x, y) = dist(y, x)$
-    \item Triangle inequality: $dist(x, y) \leq dist(x, z) + dist(z, y)$
-\end{itemize}
-\textbf{Goal:} Select a set $C$ of $k$ centers to minimize the \textbf{maximum distance} from any site to its nearest center. This maximum distance is the covering radius: $r(C) = \max_i dist(s_i, C)$.
-
-\subsection{Greedy Algorithm: A False Start}
-
-\textbf{Bad idea:} Put the first center at the absolute best location for a single center, then keep adding centers to reduce the radius as much as possible.\\
-\textit{Result:} This can be arbitrarily bad!
-
-\subsection{The Correct Greedy Algorithm}
-
-\textbf{Algorithm:} Repeatedly choose the next center to be the site \textbf{farthest from any existing center}.
-\begin{verbatim}
-C = {s_1}  // Pick an arbitrary first site
-Repeat k-1 times:
-    Select a site s_i that maximizes dist(s_i, C)
-    C = C U {s_i}
-Return C
-\end{verbatim}
-
-\textbf{Property:} When the algorithm finishes, all centers in $C$ are separated from each other by at least $r(C)$.
-
-\begin{theorem}{Center Selection 2-Approximation}{}
-Let $C^*$ be the optimal set of centers. Then $r(C) \leq 2r(C^*)$.
-
-\textbf{Proof by contradiction:}\\
-Assume our radius is strictly larger than twice the optimal: $r(C^*) < \frac{1}{2}r(C)$.\\
-For each of our chosen centers $c_i \in C$, draw a ball of radius $\frac{1}{2}r(C)$.\\
-Because all centers in $C$ are at least $r(C)$ apart, these balls do not overlap.\\
-Since we have $k$ non-overlapping balls, the optimal solution $C^*$ (which also has $k$ centers) must place exactly one center $c_i^*$ in each ball.\\
-Now take any site $s$. Let $c_i^*$ be its closest optimal center. By the triangle inequality:
-\[
-dist(s, C) \leq dist(s, c_i) \leq dist(s, c_i^*) + dist(c_i^*, c_i) \leq r(C^*) + r(C^*) \leq 2r(C^*)
-\]
-So $r(C) \leq 2r(C^*)$, which contradicts our assumption! $\square$
-\end{theorem}
-
-
-Our algorithm only places centers \textbf{on the sites themselves}, but it is still within a factor of 2 of the optimal solution that is allowed to place centers \textbf{anywhere}.
-
-
-\textbf{Can we do better (e.g. 1.5-approximation)?}\\
-\textbf{No.} Unless P = NP, there is no $\rho$-approximation for $\rho < 2$. Doing so would allow us to solve the NP-complete DOMINATING-SET problem in polynomial time.
-
-%=============================================================
-\section{Pricing Method: Vertex Cover (Section 11.4)}
-%=============================================================
-
-\subsection{Weighted Vertex Cover}
-
-\textbf{Definition:} Given a graph $G=(V,E)$ where each vertex $i$ has a weight $w_i \geq 0$, find a vertex cover $S \subseteq V$ (a set of vertices that covers every edge) of \textbf{minimum total weight}.
-
-\subsection{The Pricing Method Concept}
-
-Imagine each edge $e = (i, j)$ must pay a ``price'' $p_e \geq 0$ to use the vertices $i$ and $j$.\\
-\textbf{Fairness rule:} The total price paid by all edges connected to a vertex $i$ cannot exceed the weight $w_i$ of that vertex.
-\[
-\sum_{e=(i,j)} p_e \leq w_i
-\]
-
-\begin{lemma}{Fairness Lemma}{}
-For any valid vertex cover $S$ and any fair prices $p_e$, the total sum of all edge prices is less than or equal to the weight of the cover:
-\[
-\sum_{e \in E} p_e \leq w(S)
-\]
-\textbf{Proof:} Each edge is covered by at least one node in $S$. If we sum the fairness inequalities for all nodes in $S$, we get an upper bound on the sum of all prices.
-\end{lemma}
-
-\subsection{Pricing Method Algorithm}
-
-We set prices and find the vertex cover at the same time:
-\begin{verbatim}
-S = empty set
-For all edges, set p_e = 0
-While there is an edge (i,j) where NEITHER i nor j is "tight":
-    Select that edge e = (i,j)
-    Increase p_e as much as possible until either i or j becomes "tight"
-    (A vertex is "tight" when the sum of prices of its edges exactly equals its weight)
-
-S = the set of ALL tight nodes
-Return S
-\end{verbatim}
-
-\begin{theorem}{Pricing Method is a 2-approximation}{}
-The pricing method returns a vertex cover $S$ such that $w(S) \leq 2w(S^*)$, where $S^*$ is the optimal vertex cover.
-
-\textbf{Proof:}
-\begin{enumerate}
-    \item \textbf{It is a valid vertex cover:} If an edge is uncovered, neither of its endpoints is tight, which means the \texttt{while} loop wouldn't have terminated.
-    \item \textbf{Approximation ratio:} Because every node in our set $S$ is tight:
-    \[
-    w(S) = \sum_{i \in S} w_i = \sum_{i \in S} \sum_{e=(i,j)} p_e
-    \]
-    Since $S \subseteq V$, we can sum over all nodes in $V$ to get an upper bound. In that sum, each edge $e \in E$ is counted \textbf{exactly twice} (once for each of its two endpoints):
-    \[
-    \sum_{i \in S} \sum_{e} p_e \leq \sum_{i \in V} \sum_{e} p_e = 2 \sum_{e \in E} p_e
-    \]
-    By the Fairness Lemma, the sum of all prices is $\leq w(S^*)$.
-    Therefore, $w(S) \leq 2 w(S^*)$. $\square$
-\end{enumerate}
-\end{theorem}
 
 
 \end{document}

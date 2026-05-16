@@ -143,41 +143,37 @@
 \contentsline {subsection}{\numberline {7.3.2}The Class P}{71}{subsection.7.3.2}%
 \contentsline {subsection}{\numberline {7.3.3}The Class NP}{71}{subsection.7.3.3}%
 \contentsline {subsection}{\numberline {7.3.4}P, NP, and EXP}{72}{subsection.7.3.4}%
-\contentsline {subsection}{\numberline {7.3.5}The P vs. NP Question}{72}{subsection.7.3.5}%
+\contentsline {subsection}{\numberline {7.3.5}The P vs. NP Question}{73}{subsection.7.3.5}%
 \contentsline {section}{\numberline {7.4}NP-Completeness (Section 8.4)}{73}{section.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}Two Types of Reduction}{73}{subsection.7.4.1}%
 \contentsline {subsection}{\numberline {7.4.2}NP-Complete Problems}{73}{subsection.7.4.2}%
 \contentsline {subsection}{\numberline {7.4.3}Circuit Satisfiability --- The First NP-Complete Problem}{73}{subsection.7.4.3}%
-\contentsline {subsection}{\numberline {7.4.4}Recipe to Prove NP-Completeness}{74}{subsection.7.4.4}%
+\contentsline {subsection}{\numberline {7.4.4}Recipe to Prove NP-Completeness}{75}{subsection.7.4.4}%
 \contentsline {subsection}{\numberline {7.4.5}3-SAT is NP-Complete}{75}{subsection.7.4.5}%
 \contentsline {subsection}{\numberline {7.4.6}The Domino Chain of NP-Complete Problems}{75}{subsection.7.4.6}%
-\contentsline {chapter}{\numberline {8}APPROXIMATION ALGORITHMS(11)}{76}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Coping with NP-completeness}{76}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Load Balancing}{77}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}The Problem}{77}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Algorithm 1: List Scheduling (Greedy)}{77}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}Lower Bounds on the Optimal $L^*$}{78}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Analysis: List Scheduling is a 2-Approximation}{78}{subsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.2.5}Algorithm 2: Longest Processing Time (LPT)}{79}{subsection.8.2.5}%
-\contentsline {section}{\numberline {8.3}Center Selection}{80}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}The Problem}{80}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Wrong Greedy: A False Start}{80}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}Correct Greedy Algorithm}{80}{subsection.8.3.3}%
-\contentsline {section}{\numberline {8.4}Pricing Method: Vertex Cover}{82}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Weighted Vertex Cover}{82}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}The Pricing Idea}{82}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}The Pricing Algorithm}{83}{subsection.8.4.3}%
-\contentsline {section}{\numberline {8.5}Coping with NP-completeness}{84}{section.8.5}%
-\contentsline {section}{\numberline {8.6}Load Balancing (Section 11.1)}{84}{section.8.6}%
-\contentsline {subsection}{\numberline {8.6.1}The Problem}{84}{subsection.8.6.1}%
-\contentsline {subsection}{\numberline {8.6.2}Greedy Algorithm: List Scheduling}{85}{subsection.8.6.2}%
-\contentsline {subsection}{\numberline {8.6.3}Analysis of List Scheduling}{85}{subsection.8.6.3}%
-\contentsline {subsection}{\numberline {8.6.4}Longest Processing Time (LPT) Rule}{85}{subsection.8.6.4}%
-\contentsline {section}{\numberline {8.7}Center Selection (Section 11.2)}{86}{section.8.7}%
-\contentsline {subsection}{\numberline {8.7.1}The Problem}{86}{subsection.8.7.1}%
-\contentsline {subsection}{\numberline {8.7.2}Greedy Algorithm: A False Start}{86}{subsection.8.7.2}%
-\contentsline {subsection}{\numberline {8.7.3}The Correct Greedy Algorithm}{86}{subsection.8.7.3}%
-\contentsline {section}{\numberline {8.8}Pricing Method: Vertex Cover (Section 11.4)}{87}{section.8.8}%
-\contentsline {subsection}{\numberline {8.8.1}Weighted Vertex Cover}{87}{subsection.8.8.1}%
-\contentsline {subsection}{\numberline {8.8.2}The Pricing Method Concept}{87}{subsection.8.8.2}%
-\contentsline {subsection}{\numberline {8.8.3}Pricing Method Algorithm}{87}{subsection.8.8.3}%
+\contentsline {section}{\numberline {7.5}Sequencing Problems (Section 8.5)}{76}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Hamiltonian Cycle}{76}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Traveling Salesperson Problem (TSP)}{76}{subsection.7.5.2}%
+\contentsline {section}{\numberline {7.6}Partitioning Problems (Section 8.6)}{77}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}3-Dimensional Matching}{77}{subsection.7.6.1}%
+\contentsline {section}{\numberline {7.7}Graph Coloring (Section 8.7)}{77}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}3-Colorability}{77}{subsection.7.7.1}%
+\contentsline {section}{\numberline {7.8}Numerical Problems (Section 8.8)}{77}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Subset Sum}{77}{subsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.8.2}Scheduling With Release Times}{77}{subsection.7.8.2}%
+\contentsline {chapter}{\numberline {8}APPROXIMATION ALGORITHMS(11)}{79}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Coping with NP-completeness}{79}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Load Balancing}{80}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}The Problem}{80}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Algorithm 1: List Scheduling (Greedy)}{80}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Lower Bounds on the Optimal $L^*$}{81}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Analysis: List Scheduling is a 2-Approximation}{81}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Algorithm 2: Longest Processing Time (LPT)}{82}{subsection.8.2.5}%
+\contentsline {section}{\numberline {8.3}Center Selection}{83}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}The Problem}{83}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Wrong Greedy: A False Start}{83}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Correct Greedy Algorithm}{83}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}Pricing Method: Vertex Cover}{85}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Weighted Vertex Cover}{85}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}The Pricing Idea}{85}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}The Pricing Algorithm}{86}{subsection.8.4.3}%
