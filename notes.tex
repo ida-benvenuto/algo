@@ -3236,7 +3236,7 @@ We already know $P \subseteq NP$, so $P = NP$. $\square$
 
 \subsection{Circuit Satisfiability --- The First NP-Complete Problem}
 
-\begin{definition}{CIRCUIT-SAT}{}
+\begin{definition}{CIRCUIT-SAT}
 Given a combinational circuit built from AND, OR, and NOT gates, where some inputs are \textbf{fixed} (hard-coded 0 or 1) and some are \textbf{free} (the inputs we can choose): can we set the free inputs so the circuit \textbf{output is 1}?
 \end{definition}
 \begin{figure}[H]
@@ -3333,7 +3333,6 @@ Also NP-complete: DIR-HAM-CYCLE, HAM-CYCLE, TSP, GRAPH 3-COLOR, SUBSET-SUM, SCHE
 Most NP problems are either known to be in $P$ or NP-complete. Notable exceptions (in between, not known to be either): FACTORING, graph isomorphism, Nash equilibrium.
 
 
-MANCAAAAA
 \section{Sequencing Problems (Section 8.5)}
 %=============================================================
 
@@ -3715,7 +3714,311 @@ w(S) \leq 2\sum_{e \in E} p_e \leq 2\,w(S^*) \qquad \square
 \end{theorem}
 
 
+\section{LP-based Approximation Algorithms}
+Linear programming is a powerful tool for designing approximation algorithms. The idea is to formulate the problem as an integer linear program (ILP), then relax it to a linear program (LP) by allowing fractional values. We can solve the LP efficiently, and then round the fractional solution to get an integer solution that is close to optimal.
+\subsection{Vertex Cover via Linear Programming}
+problem: Given a graph $G=(V,E)$ with vertex weights $w_i$, find a minimum weight vertex cover.
+\newline
+\textbf{Integer Linear Program (ILP) formulation:}
+\begin{align*}
+\text{minimise } & \sum_{i \in V} w_i x_i \\
+\text{subject to } & x_i + x_j \geq 1 \quad \text{for all edges } (i,j) \in E \\
+& x_i \in \{0,1\} \quad \text{for all } i \in V
+\end{align*}
+the fractional LP problem is obtained by relaxing the integrality constraint:
+\begin{align*}
+\text{minimise } & \sum_{i \in V} w_i x_i \\
+\text{subject to } & x_i + x_j \geq 1 \quad \text{for all edges } (i,j) \in E \\
+& 0 \leq x_i \leq 1 \quad \text{for all } i \in V
+\end{align*}
+in this way the problem is easier because we can solve it in polynomial time using linear programming techniques. The solution to the LP gives us a lower bound on the optimal integer solution, since any integer solution is also a feasible solution to the LP.
+\subsubsection{Rounding the LP Solution}
+Once we have the optimal LP solution $x^*$, we need to convert it into an integer solution. A simple rounding scheme is:
+\[
+\hat{x}_i = \begin{cases}1 & \text{if } x_i^* \geq 0.5 \\0 & \text{if } x_i^* < 0.5\end{cases}
+\]
+the solution is feasible because for any edge $(i,j)$, we have $x_i^* + x_j^* \geq 1$, so at least one of $x_i^*$ or $x_j^*$ is at least 0.5, ensuring that at least one endpoint of each edge is included in the vertex cover.
+\subsubsection{Approximation}
+The cost of the rounded solution is:
+\[
+w(\hat{x}) = \sum_{i \in V} w_i \hat{x}_i \leq 2 \sum_{i \in V} w_i x_i^* = 2 \cdot \text{LP optimal} \leq 2 \cdot w(S^*)
+\]
+\[
+\hat{x}_i \leq 2 x_i^* \quad \text{for all } i \in V
+\]
+where $S^*$ is the optimal integer solution. Thus, this rounding scheme gives us a 2-approximation for the vertex cover problem.
+quindi io parto da un problem con integer, lo trasformo in un problema con varibili frazionarie che è risolvibile in tempo polinomiale, ottengo una soluzione frazionaria che è un lower bound sull'ottimo intero, e poi faccio un rounding che mi garantisce di non superare il doppio del costo ottimo intero. In questo modo ottengo una soluzione che è al massimo 2 volte peggiore dell'ottimo, ma posso calcolarla in tempo polinomiale anche se il problema originale è NP-hard.
+\subsubsection{Integrity Gap}
+The \textbf{integrality gap} is the worst-case ratio between the optimal integer solution and the optimal fractional solution. 
 
+\textbf{integrality gap for vertex cover:} Consider a clique
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-18 alle 13.13.37.png}
+\end{figure}
+the optimal vertex cover is n-1(posso saltare solo un nodo per coprirli tutti). Now consider that all weights in fractional graph are equal to 1/2.
+the solution become n/2, because I choose all n nodes with value 1/2, and the cost is n/2. 
+the integrality gap is equal to 2(1-1/n) because the ratio between the integer solution and the fractional solution is (n-1)/(n/2) = 2(1-1/n). As n grows large, this ratio approaches 2, confirming that the integrality gap for vertex cover is 2.
+this means that is not possible to get an approximation better than 2 using this LP relaxation.
+\subsection{primal-Dual Method}
+The primal-dual method is an alternative approach to designing approximation algorithms. It works by simultaneously constructing a feasible solution to the primal problem (the original optimization problem) and a feasible solution to the dual problem (derived from the primal). The method ensures that the cost of the primal solution is within a certain factor of the cost of the dual solution, which provides a bound on the optimal solution.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-18 alle 14.10.19.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imm/Screenshot 2026-05-18 alle 14.27.01.png}
+\end{figure}
 
+\subsubsection{Primal-Dual formulation}
+
+\[
+\begin{aligned}
+\min \quad & \sum_{j=1}^n c_j x_j \\
+\text{s.t.} \quad & \sum_{j=1}^n a_{ij}x_j \ge b_i \qquad \forall i=1,\dots,m, \\
+& x_j \ge 0 \qquad \forall j=1,\dots,n
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+\max \quad & \sum_{i=1}^m b_i y_i \\
+\text{s.t.} \quad & \sum_{i=1}^m a_{ij}y_i \le c_j \qquad \forall j=1,\dots,n, \\
+& y_i \ge 0 \qquad \forall i=1,\dots,m
+\end{aligned}
+\]
+
+In the primal problem, the variables $x_j$ represent the amount chosen of each item or resource, and the objective is to minimize the total cost $\sum_{j=1}^n c_j x_j$ while satisfying all constraints. In the dual problem, the variables $y_i$ can be interpreted as prices or weights assigned to the constraints, and the objective is to maximize $\sum_{i=1}^m b_i y_i$ without violating the cost bounds $\sum_{i=1}^m a_{ij}y_i \le c_j$ for any $j$. The same matrix $a_{ij}$ appears in both formulations, but in the primal the constraints are indexed by $i$, while in the dual they are indexed by $j$.
+
+\subsubsection{Strong Duality Theorem}
+
+\begin{theorem}
+If the primal problem has a finite optimum, then the dual problem also has a finite optimum. Let $x^*$ and $y^*$ be the primal and dual optimal solutions. Then
+\[
+\sum_{j=1}^n c_j x_j^* = \sum_{i=1}^m b_i y_i^*.
+\]
+\end{theorem}
+
+\subsubsection{Weak Duality Theorem}
+
+\begin{theorem}
+If $x$ is feasible for the primal and $y$ is feasible for the dual, then
+\[
+\sum_{j=1}^n c_j x_j \geq \sum_{i=1}^m b_i y_i.
+\]
+\end{theorem}
+
+\subsection{Complementary Slackness Conditions}
+
+The primal and dual optimal solutions satisfy the complementary slackness conditions:
+\[
+\forall j \in \{1,\dots,n\}, \quad x_j = 0 \ \text{or} \ \sum_{i=1}^m a_{ij}y_i = c_j,
+\]
+\[
+\forall i \in \{1,\dots,m\}, \quad y_i = 0 \ \text{or} \ \sum_{j=1}^n a_{ij}x_j = b_i.
+\]
+
+\subsection{The Primal-Dual Schema}
+
+Ensure the primal complementary slackness condition:
+\[
+\forall j \in \{1,\dots,n\}, \quad x_j = 0 \ \text{or} \ \sum_{i=1}^m a_{ij}y_i = c_j.
+\]
+
+Relax the dual complementary slackness condition:
+\[
+\forall i \in \{1,\dots,m\}, \quad y_i = 0 \ \text{or} \ \sum_{j=1}^n a_{ij}x_j \le r \cdot b_i.
+\]
+
+\begin{theorem}
+If $x$ and $y$ satisfy the conditions of the primal-dual schema, then
+\[
+\sum_{j=1}^n c_j x_j \le r \cdot \sum_{i=1}^m b_i y_i.
+\]
+\end{theorem}
+
+\subsection{Application of the Primal-Dual Schema}
+
+If the primal is a relaxation of a problem $P$, and $x$ is integral feasible for $P$, then
+\[
+\sum_{j=1}^n c_j x_j \le r \cdot \sum_{i=1}^m b_i y_i
+\le r \cdot \sum_{i=1}^m b_i y_i^*
+= r \cdot \sum_{j=1}^n c_j x_j^*
+\le r \cdot OPT.
+\]
+Hence, the primal-dual schema gives an $r$-approximation algorithm.
+
+\subsection{Primal-dual Method for Vertex Cover}
+
+\textbf{LP formulation for Vertex Cover.} Given a graph $G=(V,E)$, let
+\[
+\delta(v)=\{e=(v,u)\in E\}.
+\]
+
+Primal:
+\[
+\begin{aligned}
+\min \quad & \sum_{v\in V} x(v)w(v) \\
+\text{s.t.} \quad & x(u)+x(v)\ge 1 \qquad \forall e=(u,v)\in E, \\
+& x(u)\ge 0 \qquad \forall u\in V.
+\end{aligned}
+\]
+
+The constraint $x(u)\le 1$ in the fractional relaxation can be omitted.
+
+Dual:
+\[
+\begin{aligned}
+\max \quad & \sum_{e\in E} y(e) \\
+\text{s.t.} \quad & \sum_{e\in \delta(v)} y(e)\le w(v) \qquad \forall v\in V, \\
+& y(e)\ge 0 \qquad \forall e\in E.
+\end{aligned}
+\]
+
+\subsubsection{The Primal-Dual Algorithm for Vertex Cover}
+
+\begin{enumerate}
+\item Increase variable $y(e)$ for an edge $e=(u,v)$ until
+\[
+\sum_{e\in \delta(u)} y(e)=w(u)
+\qquad \text{or} \qquad
+\sum_{e\in \delta(v)} y(e)=w(v).
+\]
+\item Set $x(u)=1$ or $x(v)=1$.
+\item Remove all edges adjacent to $u$ or $v$.
+\end{enumerate}
+
+Repeat until all edges are removed.
+
+\subsubsection{Proof of 2-approximation}
+
+The primal complementary slackness condition holds:
+\[
+\forall u\in V, \quad x(u)=0 \ \text{or} \ \sum_{e\in \delta(u)} y(e)=w(u).
+\]
+
+The dual complementary slackness condition is 2-relaxed:
+\[
+\forall e=(u,v)\in E, \quad y(e)=0 \ \text{or} \ x(u)+x(v)\le 2.
+\]
+
+Therefore, the algorithm is a 2-approximation for vertex cover.
+
+\subsection{Set Cover via Dual Lifting}
+
+\textbf{Set Cover.} Given:
+\begin{itemize}
+\item $U$: universe of $n$ elements $\{e_1,\dots,e_n\}$;
+\item $\mathcal{S}=\{S_1,\dots,S_m\}$: collection of subsets of $U$;
+\item $c:S_i\to \mathbb{R}^+$: cost function for sets.
+\end{itemize}
+
+\textbf{Goal:} Find a subcollection of minimum cost that covers $U$.
+
+The greedy algorithm achieves an $O(\log n)$ approximation.
+
+\subsubsection{Greedy algorithm for Set Cover}
+
+Pick at each iteration the most cost-effective set. Let $C_i$ be the set of uncovered elements before choosing set $S_i$, and let
+\[
+\frac{c(S)}{|C_i\cap S|}
+\]
+be the cost-effectiveness of $S$.
+
+\begin{enumerate}
+\item $C_0=U$.
+\item While $C_i\neq \varnothing$:
+\begin{itemize}
+\item Find the set $S$ with minimum
+\[
+\alpha=\frac{c(S)}{|C_i\cap S|}.
+\]
+\item Pick $S$ and assign
+\[
+\text{price}(e)=\alpha \qquad \forall e\in S\cap C_i.
+\]
+\item Update
+\[
+C_{i+1}=C_i\setminus S.
+\]
+\end{itemize}
+\item Output the picked sets.
+\end{enumerate}
+
+\subsubsection{Analysis of Greedy}
+
+Assume $U$ is covered by Greedy in order $\{e_1,\dots,e_n\}$. Then
+\[
+\text{price}(e_j)\le \frac{OPT}{n-j+1}.
+\]
+Hence
+\[
+ALG=\sum_{j=1}^n \text{price}(e_j)
+\le OPT \sum_{j=1}^n \frac{1}{n-j+1}
+= OPT \cdot H_n,
+\]
+where
+\[
+H_n=1+\frac12+\frac13+\cdots+\frac1n.
+\]
+
+A tight example shows that Greedy can indeed achieve cost $H_n$ times OPT.
+
+\subsubsection{Dual-fitting analysis of Greedy Set Cover}
+
+The dual-fitting method shows that the integral solution is fully paid by an infeasible dual solution. The dual solution can then be made feasible by scaling each variable down by a factor $f$.
+
+\[
+ALG = DUAL^{unf} = f \cdot DUAL^{feas} \le f \cdot OPT^{LP} \le f \cdot OPT.
+\]
+
+This is an alternative to the complementary slackness argument.
+
+\subsubsection{LP formulation for Set Cover}
+
+Primal:
+\[
+\begin{aligned}
+\min \quad & \sum_{S\in \mathcal{S}} c(S)x(S) \\
+\text{s.t.} \quad & \sum_{S:e\in S} x(S)\ge 1 \qquad \forall e\in U, \\
+& x(S)\ge 0 \qquad \forall S\in \mathcal{S}.
+\end{aligned}
+\]
+
+The constraint $x(S)\le 1$ can be omitted.
+
+Dual:
+\[
+\begin{aligned}
+\max \quad & \sum_{e\in U} y(e) \\
+\text{s.t.} \quad & \sum_{e\in S} y(e)\le c(S) \qquad \forall S\in \mathcal{S}, \\
+& y(e)\ge 0 \qquad \forall e\in U.
+\end{aligned}
+\]
+
+\subsubsection{Analysis of Greedy via dual fitting}
+
+Interpret the Greedy solution as an infeasible dual:
+\[
+y(e)=\text{price}(e), \qquad ALG=\sum_{e\in U} y(e).
+\]
+
+Let
+\[
+y'(e)=\frac{\text{price}(e)}{H_n}.
+\]
+Then $y'$ is dual feasible. For any set
+\[
+S=\{e_1,\dots,e_k\},
+\]
+with elements numbered by the order in which they are covered by Greedy, we have
+\[
+\sum_{i=1}^k y'(e_i)\le c(S),
+\]
+so
+\[
+ALG \le H_n \cdot OPT.
+\]
 
 \end{document}
